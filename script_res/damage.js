@@ -6,6 +6,8 @@ function CALCULATE_ALL_MOVES_BW(p1, p2, field) {
     checkKlutz(p1);
     checkKlutz(p2);
 	checkRoom(field, p1, p2);
+	checkSimple(p1.boosts);
+	checkSimple(p2.boosts);
     p1.stats[DF] = getModifiedStat(p1.rawStats[DF], p1.boosts[DF]);
     p1.stats[SD] = getModifiedStat(p1.rawStats[SD], p1.boosts[SD]);
     p1.stats[SP] = getFinalSpeed(p1, field.getWeather());
@@ -65,6 +67,7 @@ function getDamageResult(attacker, defender, move, field) {
         move.isCrit = tempMove.isCrit;
         move.hits = 1;
 		
+		attacker.item = "";
 		
         moveDescName = ZMOVES_LOOKUP[move.type] + " (" + move.bp + " BP)";
     }
@@ -93,12 +96,18 @@ function getDamageResult(attacker, defender, move, field) {
 		defender.stats[DF] = getModifiedStat(defender.rawStats[DF], 0);
 	}
 	
+	if(move.name === "Photon Geyser" || move.name === "Light That Burns the Sky"){	
+		move.category = (attacker.stats[AT] > attacker.stats[SA]) ? "Physical" : "Special";
+	}
+	
     var defAbility = defender.ability;
     if (["Mold Breaker", "Teravolt", "Turboblaze"].indexOf(attacker.ability) !== -1) {
         defAbility = "";
         description.attackerAbility = attacker.ability;
     }
-    else if(move.name === "Moongeist Beam" || move.name === "Sunsteel Strike")
+    else if(move.name === "Moongeist Beam" || move.name === "Sunsteel Strike" 
+	|| move.name === "Searing Sunraze Smash" || move.name === "Menacing Moonraze Maelstrom"
+	|| move.name === "Light That Burns the Sky")
         defAbility = ""; //works as a mold breaker
     
     var isCritical = move.isCrit && ["Battle Armor", "Shell Armor"].indexOf(defAbility) === -1;
@@ -311,6 +320,10 @@ function getDamageResult(attacker, defender, move, field) {
         case "Nature Power":
             basePower = (field.terrain === "Electric" || field.terrain === "Grassy") ? 90 : (field.terrain === "Misty") ? 95 : 80;
             break;
+		case "Venoshock":
+			basePower = move.bp * ((defender.status === "Poisoned" || defender.status === "Badly Poisoned") ? 2 : 1);
+            description.moveBP = basePower;
+			break;
         default:
             basePower = move.bp;
     }
@@ -376,6 +389,7 @@ function getDamageResult(attacker, defender, move, field) {
         description.moveBP = move.bp / 2;
         description.weather = field.weather;
     } else if (gen >= 6 && move.name === "Knock Off" && !(defender.item === "" ||
+			(defender.item === "Colbur Berry" && typeEffectiveness > 1) ||
             (defender.name === "Giratina-O" && defender.item === "Griseous Orb") ||
             (defender.name.indexOf("Arceus") !== -1 && defender.item.indexOf("Plate") !== -1))) {
         bpMods.push(0x1800);
@@ -688,7 +702,13 @@ function getDamageResult(attacker, defender, move, field) {
         finalMods.push(0xC00);
         description.defenderAbility = defAbility;
     }
-    if (attacker.item === "Expert Belt" && typeEffectiveness > 1) {
+	
+	if ( attacker.ability === "Neuroforce" && typeEffectiveness > 1) {
+        finalMods.push(0x1333);
+        description.attackerAbility = attacker.ability;
+    }
+	
+    if (attacker.item === "Expert Belt"  && typeEffectiveness > 1) {
         finalMods.push(0x1333);
         description.attackerItem = attacker.item;
     } else if (attacker.item === "Life Orb") {
@@ -1016,6 +1036,7 @@ function checkIntimidate(source, target) {
         }
     }
 }
+
 function checkDownload(source, target) {
     if (source.ability === "Download") {
         if (target.stats[SD] <= target.stats[DF]) {
@@ -1031,6 +1052,19 @@ function checkInfiltrator(attacker, affectedSide) {
         affectedSide.isLightScreen = false;
         affectedSide.isAuroraVeil = false;
     }
+}
+
+function checkSimple(poke) {  
+	if(poke.ability === "Simple") {
+		for (var i = 0; i < STATS.length; i++) {
+			if (poke.boosts[STATS[i]] > 0) {
+				poke.boosts[STATS[i]] = Math.min(6,poke.boosts[STATS[i]]*2);
+			}
+			else{
+				poke.boosts[STATS[i]] = Math.max(-6,poke.boosts[STATS[i]]*2);		
+			}
+		}
+	}
 }
 
 function countBoosts(boosts) {

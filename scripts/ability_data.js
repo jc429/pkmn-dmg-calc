@@ -121,7 +121,8 @@ var ABILITIES_SM = ABILITIES_XY.concat([
     'RKS System',
     'Prism Armor',
     'Full Metal Body',
-    'Shadow Shield'
+    'Shadow Shield',
+	'Neuroforce'
    // 'Battery'
 ]);
 

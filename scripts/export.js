@@ -64,6 +64,10 @@ function buildExportString(poke){
 	pokestring += poke.ability;
 	pokestring += "\n";
 	
+	if(poke.isShiny == true){
+		pokestring += "Shiny: Yes\n";
+	}
+	
 	pokestring += "EVs: ";
 	
 	var hp = poke.HPEVs;

@@ -9079,7 +9079,7 @@ var POKEDEX_XY = $.extend(true, {}, POKEDEX_BW, {
     },
     "w": 53.0,
     "ab": "Stance Change",
-    "formes": ["Aegislash-Shield", "Aegislash-Blade"]
+    "formes": ["Aegislash-Shield", "Aegislash-Blade", "Aegislash-Dual"]
   },
   "Aegislash-Blade": {
     "t1": "Steel",
@@ -9104,6 +9104,21 @@ var POKEDEX_XY = $.extend(true, {}, POKEDEX_BW, {
       "at": 50,
       "df": 150,
       "sa": 50,
+      "sd": 150,
+      "sp": 60
+    },
+    "w": 53.0,
+    "ab": "Stance Change",
+    "isAlternateForme": true
+  },
+  "Aegislash-Dual": {
+    "t1": "Steel",
+    "t2": "Ghost",
+    "bs": {
+      "hp": 60,
+      "at": 150,
+      "df": 150,
+      "sa": 150,
       "sd": 150,
       "sp": 60
     },
@@ -11544,6 +11559,18 @@ var POKEDEX_SM = $.extend(true, {}, POKEDEX_XY, {
     },
     "w": 25.0
   },
+  "Lycanroc-Dusk": {
+    "t1": "Rock",
+    "bs": {
+      "hp": 75,
+      "at": 117,
+      "df": 65,
+      "sa": 55,
+      "sd": 65,
+      "sp": 110
+    },
+    "w": 25.0
+  },
   "Wishiwashi": {
     "t1": "Water",
     "bs": {
@@ -12317,6 +12344,67 @@ var POKEDEX_SM = $.extend(true, {}, POKEDEX_XY, {
       "sp": 79
     },
     "w": 230.0,
+	"ab": "Prism Armor",
+    "formes": ["Necrozma-Base", "Dusk Mane Necrozma", "Dawn Wings Necrozma", "Ultra Necrozma"]
+  },
+  "Necrozma-Base": {
+    "t1": "Psychic",
+    "bs": {
+      "hp": 97,
+      "at": 107,
+      "df": 101,
+      "sa": 127,
+      "sd": 89,
+      "sp": 79
+    },
+    "w": 230.0,
+	"ab": "Prism Armor",  
+    "isAlternateForme": true
+  },
+  "Dusk Mane Necrozma": {
+    "t1": "Psychic",
+    "t2": "Steel",
+    "bs": {
+      "hp": 97,
+      "at": 157,
+      "df": 127,
+      "sa": 113,
+      "sd": 109,
+      "sp": 77
+    },
+    "w": 460.0,  
+	"ab": "Prism Armor",  
+    "isAlternateForme": true
+  },
+  "Dawn Wings Necrozma": {
+    "t1": "Psychic",
+    "t2": "Ghost",
+    "bs": {
+      "hp": 97,
+      "at": 113,
+      "df": 109,
+      "sa": 157,
+      "sd": 127,
+      "sp": 77
+    },
+    "w": 350.0,  
+	"ab": "Prism Armor",  
+    "isAlternateForme": true
+  },
+  "Ultra Necrozma": {
+    "t1": "Psychic",
+    "t2": "Dragon",
+    "bs": {
+      "hp": 97,
+      "at": 167,
+      "df": 97,
+      "sa": 167,
+      "sd": 97,
+      "sp": 129
+    },
+    "w": 230.0,    
+	"ab": "Neuroforce",
+    "isAlternateForme": true
   },
   "Magearna": {
     "t1": "Steel",
@@ -12343,6 +12431,69 @@ var POKEDEX_SM = $.extend(true, {}, POKEDEX_XY, {
       "sp": 125
     },
     "w": 22.2,
+  },
+  "Poiple": {
+    "t1": "Poison",
+    "bs": {
+      "hp": 67,
+      "at": 73,
+      "df": 67,
+      "sa": 73,
+      "sd": 67,
+      "sp": 73
+    },
+    "w": 1.8,
+  },
+  "Naganadel": {
+    "t1": "Poison",
+    "t2": "Dragon",
+    "bs": {
+      "hp": 73,
+      "at": 73,
+      "df": 73,
+      "sa": 127,
+      "sd": 73,
+      "sp": 121
+    },
+    "w": 150,
+  },
+  "Stakataka": {
+    "t1": "Rock",
+    "t2": "Steel",
+    "bs": {
+      "hp": 61,
+      "at": 131,
+      "df": 211,
+      "sa": 53,
+      "sd": 101,
+      "sp": 13
+    },
+    "w": 820,
+  },
+  "Blacephalon": {
+    "t1": "Fire",
+    "t2": "Ghost",
+    "bs": {
+      "hp": 53,
+      "at": 127,
+      "df": 53,
+      "sa": 151,
+      "sd": 79,
+      "sp": 107
+    },
+    "w": 13,
+  },
+  "Zeraora": {
+    "t1": "Electric",
+    "bs": {
+      "hp": 88,
+      "at": 112,
+      "df": 75,
+      "sa": 102,
+      "sd": 80,
+      "sp": 143
+    },
+    "w": 44.5,
   },
 
 });

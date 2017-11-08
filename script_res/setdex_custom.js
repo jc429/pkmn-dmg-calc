@@ -82,7 +82,7 @@ var savecustom = function()
 9	- Move Name
 	*/
 
-	//geting rid of gender identities (lel)
+	//geting rid of gender identities
 	if(lines[0].indexOf('(M)') != -1)
 	{
 		lines[0] = lines[0].substring(0, lines[0].indexOf('(M)') - 1) + 

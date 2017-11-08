@@ -170,11 +170,30 @@ function calcNatureStats(poke){
 }
 
 function clearBoostsL(){
+	var boost;
+	boost = $('#at-boost-L option:selected');
+	boost.attr('selected', false);
+	//boost.prev().attr('selected', 'selected');
+	boost = $('#df-boost-L option:selected');
+	boost.attr('selected', false);
+	//boost.prev().attr('selected', 'selected');
+	boost = $('#sa-boost-L option:selected');
+	boost.attr('selected', false);
+	//boost.prev().attr('selected', 'selected');
+	boost = $('#sd-boost-L option:selected');
+	boost.attr('selected', false);
+	//boost.prev().attr('selected', 'selected');
+	boost = $('#sp-boost-L option:selected');
+	boost.attr('selected', false);
+	//boost.prev().attr('selected', 'selected');
+	
 	$('#at-boost-L').val('0');
 	$('#df-boost-L').val('0');
 	$('#sa-boost-L').val('0');
 	$('#sd-boost-L').val('0');
 	$('#sp-boost-L').val('0');
+	
+	
 	calculate();
 }
 function boostAllL(){
@@ -197,6 +216,13 @@ function boostAllL(){
 	calculate();
 }
 function clearBoostsR(){
+	var boost;
+	boost = $('#at-boost-R option:selected').attr('selected', false);
+	boost = $('#df-boost-R option:selected').attr('selected', false);
+	boost = $('#sa-boost-R option:selected').attr('selected', false);
+	boost = $('#sd-boost-R option:selected').attr('selected', false);
+	boost = $('#sp-boost-R option:selected').attr('selected', false);
+	
 	$('#at-boost-R').val('0');
 	$('#df-boost-R').val('0');
 	$('#sa-boost-R').val('0');

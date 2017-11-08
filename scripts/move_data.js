@@ -1893,6 +1893,22 @@ var MOVES_SM = $.extend(true, {}, MOVES_XY, {
 		makesContact: true,
 		zp: 140
 	},
+	'Venoshock': {
+		category: 'Special',
+		type: 'Poison',
+		bp: 65,
+		zp: 120
+	},
+	'Heart Stamp': {
+		category: 'Physical',
+		type: 'Psychic',
+		bp: 60,
+		makesContact: true,
+		zp: 120
+	},
+	
+	
+	
 	
     'Zing Zap': {
         category: 'Physical',
@@ -2184,6 +2200,62 @@ var MOVES_SM = $.extend(true, {}, MOVES_XY, {
         makesContact: true,
         bp: 210
     },
+	
+		
+	'Mind Blown': {
+        category: 'Special',
+        type: 'Fire',
+        bp: 150,
+        isSpread: true,
+        hasRecoil: true,
+		zp: 200
+    },	
+	'Plasma Fists': {
+        category: 'Physical',
+        type: 'Electric',
+        bp: 100,
+        makesContact: true,
+		zp: 180
+    },	
+	'Photon Geyser': {
+        category: 'Special',
+        type: 'Psychic',
+        bp: 100,
+		zp: 180
+    },	
+	'Light That Burns the Sky': {
+        category: 'Special',
+        type: 'Psychic',
+        bp: 200
+    },	
+	'Searing Sunraze Smash': {
+        category: 'Physical',
+        type: 'Steel',
+        bp: 200
+    },	
+	'Menacing Moonraze Maelstrom': {
+        category: 'Special',
+        type: 'Ghost',
+        bp: 200
+    },		
+	'Let\'s Snuggle Forever': {
+        category: 'Physical',
+        type: 'Fairy',
+        bp: 190
+    },	
+	'Splintered Stormshards': {
+        category: 'Physical',
+        type: 'Rock',
+        bp: 190
+    },	
+	'Clangorous Soulblaze': {
+        category: 'Special',
+        type: 'Dragon',
+        bp: 185,
+        isSpread: true,
+    },
+		
+		
     'Breakneck Blitz': {
         type: 'Normal'
     },
