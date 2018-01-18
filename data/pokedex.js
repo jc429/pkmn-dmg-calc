@@ -9079,7 +9079,7 @@ var POKEDEX_XY = $.extend(true, {}, POKEDEX_BW, {
     },
     "w": 53.0,
     "ab": "Stance Change",
-    "formes": ["Aegislash-Shield", "Aegislash-Blade", "Aegislash-Dual"]
+    "formes": ["Aegislash-Dual","Aegislash-Shield", "Aegislash-Blade"]
   },
   "Aegislash-Blade": {
     "t1": "Steel",

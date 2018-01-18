@@ -3,6 +3,7 @@ var SETDEX_SM = {};
 var components = [
     SETDEX_TT2017,
     SETDEX_VGC2017,
+	SETDEX_VGC2018,
     SETDEX_CUSTOM
 ];
 
@@ -23,6 +24,7 @@ var reloadXYScript = function()
     components = [
 		SETDEX_TT2017,
 		SETDEX_VGC2017,
+		SETDEX_VGC2018,
 		SETDEX_CUSTOM
 	];
 
