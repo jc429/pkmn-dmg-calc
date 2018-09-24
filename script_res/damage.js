@@ -104,12 +104,14 @@ function getDamageResult(attacker, defender, move, field) {
     if (["Mold Breaker", "Teravolt", "Turboblaze"].indexOf(attacker.ability) !== -1) {
         defAbility = "";
         description.attackerAbility = attacker.ability;
+		defender.isFriendGuard = false;
     }
     else if(move.name === "Moongeist Beam" || move.name === "Sunsteel Strike" 
 	|| move.name === "Searing Sunraze Smash" || move.name === "Menacing Moonraze Maelstrom"
-	|| move.name === "Light That Burns the Sky")
+	|| move.name === "Light That Burns the Sky"){
         defAbility = ""; //works as a mold breaker
-    
+		defender.isFriendGuard = false;
+    }
     var isCritical = move.isCrit && ["Battle Armor", "Shell Armor"].indexOf(defAbility) === -1;
     
     if (move.name === "Weather Ball") {
