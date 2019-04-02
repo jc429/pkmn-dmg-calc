@@ -706,7 +706,7 @@ function getDamageResult(attacker, defender, move, field) {
     }
 	
 	if ( attacker.ability === "Neuroforce" && typeEffectiveness > 1) {
-        finalMods.push(0x1333);
+        finalMods.push(0x1400);
         description.attackerAbility = attacker.ability;
     }
 	
