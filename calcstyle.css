@@ -6,6 +6,7 @@ body {
     padding: 0 1em;
 	margin: auto;
 	align: center;
+    width: 1100px;
 }
 
 label {
@@ -47,7 +48,7 @@ section {
 
 .table {
     display: table;
-    width: 500px;
+    width: 1100px;
 }
 .tr { 
     display: table-row; 
