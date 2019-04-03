@@ -7,7 +7,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Pokemon SM Damage Calculator</title>
+	<title>Pok&eacute;mon Gen 7 Damage Calculator</title>
 	
 	<link type="text/css" rel="stylesheet" href="calcstyle.css" /> 
 	<link type="text/css" rel="stylesheet" href="script_res/select2.css" />
@@ -16,21 +16,21 @@
 </head>
 
 <body>
-	<section class="main-page">
+	<div class="main-page">
 		<span  class="generations" style="display: none;" title="Select the generation.">
 			<input class="gen btn-input" type="radio" name="gen" value="6" id="gen6" /><label class="btn btn-small btn-mid" for="gen6">ORAS</label>
 			<input class="gen btn-input" type="radio" name="gen" value="7" id="gen7" checked="checked" /><label class="btn btn-small btn-right" for="gen7">S/M</label>
 		</span>
-	<p class="big-text small-text">Pokemon Sun/Moon No Bullshit Damage Calculator v0.9 i guess</p>
+	<p class="big-text small-text">Pok&eacute;mon Sun/Moon No Bullshit Damage Calculator v0.9 i guess</p>
 	<hr />
 	<!-- Damage Results -->
-	<section class="center"> 
+	<div class="center"> 
 		<table align="center" width="90%"><tr><td>
-		<section id= "p1moves" class="move-result-subgroup result-l"> <!-- Pokemon 1 -->
-			<section class="result-move-header">
+		<div id= "p1moves" class="move-result-subgroup result-l"> <!-- Pokemon 1 -->
+			<div class="result-move-header">
 				<span id="resultHeaderL" >Pokemon 1's Moves (select one to show detailed results)</span>
-			</section>
-			<section>
+			</div>
+			<div>
 				<input id="zL1" class="z1 calc-trigger btn-input" type="checkbox" />
 				<label for="zL1" class="btn btn-xsmall btn-mid">Z</label>
 			
@@ -46,8 +46,8 @@
 				
 				
 				<label id="resultDamageL1" class="dmg-result-l">??? - ???%</label>
-			</section>
-			<section>
+			</div>
+			<div>
 				<input id="zL2" class="z2 calc-trigger btn-input" type="checkbox" />
 				<label for="zL2" class="btn btn-xsmall btn-mid">Z</label>
 				
@@ -62,8 +62,8 @@
 				</select>
 				
 				<label id="resultDamageL2" class="dmg-result-l">??? - ???%</label>
-			</section>
-			<section>
+			</div>
+			<div>
 				<input id="zL3" class="z3 calc-trigger btn-input" type="checkbox" />
 				<label for="zL3" class="btn btn-xsmall btn-mid">Z</label>
 				
@@ -78,8 +78,8 @@
 				</select>
 				
 				<label id="resultDamageL3" class="dmg-result-l">??? - ???%</label>
-			</section>
-			<section>
+			</div>
+			<div>
 				<input id="zL4" class="z4 calc-trigger btn-input" type="checkbox" />
 				<label for="zL4" class="btn btn-xsmall btn-mid">Z</label>
 				
@@ -94,14 +94,14 @@
 				</select>
 				
 				<label id="resultDamageL4" class="dmg-result-l">??? - ???%</label>
-			</section>
-		</section>
+			</div>
+		</div>
 		</td><td>
-		<section id= "p2moves" class="move-result-subgroup result-r"> <!-- Pokemon 2 -->
-			<section class="result-move-header result-move-header-r" >
+		<div id= "p2moves" class="move-result-subgroup result-r"> <!-- Pokemon 2 -->
+			<div class="result-move-header result-move-header-r" >
 				<span id="resultHeaderR" >Pokemon 2's Moves (select one to show detailed results)</span>
-			</section>
-			<section>
+			</div>
+			<div>
 				<label id="resultDamageR1" class="dmg-result-r">??? - ???%</label>
 				
 				<select id="moveR1-hits" class="hit1 move-hits hide calc-trigger">
@@ -117,8 +117,8 @@
 				
 				<input id="zR1" class="z1 calc-trigger btn-input" type="checkbox" />
 				<label for="zR1" class="btn btn-xsmall btn-mid">Z</label>
-			</section>
-			<section>
+			</div>
+			<div>
 				<label id="resultDamageR2" class="dmg-result-r">??? - ???%</label>
 				
 				<select id="moveR2-hits" class="hit2 move-hits hide calc-trigger">
@@ -133,8 +133,8 @@
 				
 				<input id="zR2" class="z2 calc-trigger btn-input" type="checkbox" />
 				<label for="zR2" class="btn btn-xsmall btn-mid">Z</label>
-			</section>
-			<section>
+			</div>
+			<div>
 				<label id="resultDamageR3" class="dmg-result-r">??? - ???%</label>
 				
 				<select id="moveR3-hits" class="hit3 move-hits hide calc-trigger">
@@ -149,8 +149,8 @@
 				
 				<input id="zR3" class="z3 calc-trigger btn-input" type="checkbox" />
 				<label for="zR3" class="btn btn-xsmall btn-mid">Z</label>				
-			</section>
-			<section>
+			</div>
+			<div>
 				<label id="resultDamageR4" class="dmg-result-r">??? - ???%</label>
 				
 				<select id="moveR4-hits" class="hit4 move-hits hide calc-trigger">
@@ -165,37 +165,37 @@
 				
 				<input id="zR4" class="z4 calc-trigger btn-input" type="checkbox" />
 				<label for="zR4" class="btn btn-xsmall btn-mid">Z</label>				
-			</section>
-		</section>
+			</div>
+		</div>
 		</td></tr>
 		</tr><td colspan="2">
-		<section class="calc-result" >
-            <section class="big-text">
+		<div class="calc-result" >
+            <div class="big-text">
 				<span id="mainResult" class="main-calc">Loading...</span>
-			</section>
-            <section class="small-text">
+			</div>
+            <div class="small-text">
 				<span id="damageValues">(If you see this message for more than a few seconds, something is wrong.)</span>
-			</section>
-			<section class="big-text small-text">
+			</div>
+			<div class="big-text small-text">
 				<span id="turnOrderDisplay">fast fast zoom zoom</span>
-			</section>
-			<section>
+			</div>
+			<div>
 				<button id="clippy" class="copy-calc-btn" type="button"	>Copy Calc to Clipboard</button>
 				
-			</section>
-		</section>
+			</div>
+		</div>
 		</td></tr></table>
-	</section>
+	</div>
 	<p></p>
 	<!-- Battle Environment -->
-	<section class="battle-env">
-		
+	<div class="battle-env table">
+		<div class="tr">
 		<!-- L Pokemon  -->
-		<section id="p1" class="panel panel-poke poke-info" > 
-			<section class="panel-heading">
+		<div id="p1" class="panel-poke poke-info td" > 
+			<div class="panel-heading">
 				<h4 class="panel-title">Pokemon 1</h4>
-			</section>
-			<section class="panel-body">
+			</div>
+			<div class="panel-body">
 			
 				
                 <input type="text" class="set-selector calc-trigger" />
@@ -204,38 +204,38 @@
 				<input type="text" class="set-selector calc-trigger" /> 
 				
 				<!-- Species Info  -->
-				<section class="info-group">
+				<div class="info-group">
 				
-                    <section class="hide">
+                    <div class="hide">
                         <label class="poke-label">Forme</label>
                         <select class="forme calc-trigger"></select>
-                    </section>
-					<section>
+                    </div>
+					<div>
 						<label class="poke-label">Type</label>
 						<select class="type1 terrain-trigger calc-trigger"></select>
 						/ <select class="type2 terrain-trigger calc-trigger"></select>
-					</section>	
-					<section>
+					</div>	
+					<div>
 						<label class=" poke-label">Ability</label>
 						<select class="ability terrain-trigger calc-trigger"></select>
-					</section>	
-					<section>
+					</div>	
+					<div>
 						<label class=" poke-label">Item</label>
 						<select class="item terrain-trigger calc-trigger"></select>
-					</section>	
-					<section class="hide">
+					</div>	
+					<div class="hide">
                         <label class=" poke-label">Weight (kg)</label>
                         <input class="weight calc-trigger" value="10.0" />
-                    </section>	
+                    </div>	
 				<!-- Stats  -->
-					<section>
-						<section>
+					<div>
+						<div>
 							<label class=" poke-label">Level</label>
 							<input class="level calc-trigger" value="50" />
-						</section>
-					</section>
-					<section class="stats">
-						<section>
+						</div>
+					</div>
+					<div class="stats">
+						<div>
 							<label class=" poke-label">Nature</label>
 							<select class="nature calc-trigger">
 								<option value="Adamant">Adamant (+Atk, -SpA)</option>
@@ -264,7 +264,7 @@
 								<option value="Serious">Serious</option>
 								<option value="Timid">Timid (+Spe, -Atk)</option>
 							</select>
-						</section>
+						</div>
 						
 						<table>
 							<tr><!-- titles -->
@@ -359,12 +359,12 @@
 							</tr>
 							
 						</table>
-					</section>
-				</section>
+					</div>
+				</div>
 				
 				<!-- Moves  -->
-				<section class="moves">
-					<section id="moveL1" class="move1">
+				<div class="moves">
+					<div id="moveL1" class="move1">
 						<select class="move-selector calc-trigger small-select"></select>
 						<input class="move-bp calc-trigger" value="50" />
 						<select class="move-type calc-trigger"></select>
@@ -373,8 +373,8 @@
 							<option value="Special">Special</option>
 							<!-- <option value="Status">Status</option> -->
 						</select>
-					</section>
-					<section id="moveL2" class="move2">
+					</div>
+					<div id="moveL2" class="move2">
 						<select class="move-selector calc-trigger small-select"></select>
 						<input class="move-bp calc-trigger" value="50" />
 						<select class="move-type calc-trigger"></select>
@@ -383,8 +383,8 @@
 							<option value="Special">Special</option>
 							<!-- <option value="Status">Status</option> -->
 						</select>
-					</section>
-					<section id="moveL3" class="move3">
+					</div>
+					<div id="moveL3" class="move3">
 						<select class="move-selector calc-trigger small-select"></select>
 						<input class="move-bp calc-trigger" value="50" />
 						<select class="move-type calc-trigger"></select>
@@ -393,8 +393,8 @@
 							<option value="Special">Special</option>
 							<!-- <option value="Status">Status</option> -->
 						</select>
-					</section>
-					<section id="moveL4" class="move4">
+					</div>
+					<div id="moveL4" class="move4">
 						<select class="move-selector calc-trigger small-select"></select>
 						<input class="move-bp calc-trigger" value="50" />
 						<select class="move-type calc-trigger"></select>
@@ -403,13 +403,13 @@
 							<option value="Special">Special</option>
 							<!-- <option value="Status">Status</option> -->
 						</select>
-					</section>
-				</section>
+					</div>
+				</div>
 				
 				
 				<!-- Status  -->
-				<section>
-					<section class="info-group">
+				<div>
+					<div class="info-group">
 						<label>Current HP</label>
 						<input class="current-hp calc-trigger" value="712" />/<span class="max-hp">712</span> (<input class="percent-hp calc-trigger" value="100" />%)
 						
@@ -427,8 +427,6 @@
 						
                         <input id="shiny" class="shiny btn-input calc-trigger" type="checkbox"  />
 						<label for="shiny" class="btn btn-small poke-button small-text">Shiny</label>
-						
-						
 						<input id="protect" class="protect btn-input calc-trigger" type="checkbox"  />
 						<label for="protect" class="btn poke-button small-text">Protect</label>
 						
@@ -465,190 +463,190 @@
 						<br>
 						-->
 						
-					</section>
-				</section>
+					</div>
+				</div>
 				
-				<section>
+				<div>
 					<script type="text/javascript" src="scripts/export.js"></script>
 					<button onclick = "exportSpreadL()"> Export Spread</button>
 					<textarea id="sxportL" class="spread-export" hint="Spread will appear here" width="100%" rows="9" cols="40">
 					</textarea>
-				</section>
+				</div>
 				
-			</section>		
-		</section>
+			</div>		
+		</div>
 		
 		<!-- Field  -->
-		<section class="panel panel-field field-info"> 
-			<section class="panel-heading">
+		<div class="panel-field field-info td"> 
+			<div class="panel-heading">
 				<h4 class="panel-title">Field</h4>		
 	
-			</section>
+			</div>
 			
-			<section class="panel-body">
+			<div class="panel-body">
 				
-				<section style="width: 9.8em; margin: 0 auto 5px;">
+				<div style="width: 9.8em; margin: 0 auto 5px;">
 					<input id="lvlock" class="btn-input calc-trigger" type="checkbox" checked />
 					<label for="lvlock" class="btn poke-button btn-wide small-text">Lock Levels</label>
 					
 					<input id="level-set" class="level calc-trigger" style="width: 2.2em;" value="50" />
-                </section>
-                <section class="gen-specific g3 g4 g5 g6 g7" style="width: 10.6em; margin: 0 auto 5px;" title="Select the battle format.">
+                </div>
+                <div class="gen-specific g3 g4 g5 g6 g7" style="width: 10.6em; margin: 0 auto 5px;" title="Select the battle format.">
                     <input class="btn-input calc-trigger" type="radio" name="format" value="Singles" id="singles" checked="checked" /><label class="btn btn-left" for="singles">Singles</label>
                     <input class="btn-input calc-trigger" type="radio" name="format" value="Doubles" id="doubles" /><label class="btn btn-right" for="doubles">Doubles</label>
-                </section>
-				<section style="width: 9.4em; margin: 0 auto 5px;" title="Simulates the recovery gained from protecting every other turn."> 
+                </div>
+				<div style="width: 9.4em; margin: 0 auto 5px;" title="Simulates the recovery gained from protecting every other turn."> 
 					<input class="btn-input calc-trigger" type="checkbox" id="double-recovery" /><label class="btn btn-xxxwide" for="double-recovery">Double Recovery Mode</label>
-				</section>
+				</div>
                 <hr class="gen-specific g6 g7 g7" />
-                <section class="gen-specific g6 g7" style="margin: 5px auto;" title="Select the current terrain.">
+                <div class="gen-specific g6 g7" style="margin: 5px auto;" title="Select the current terrain.">
                     <label class="field-label small-text">Terrain:</label>
 					<input class="btn-input terrain-trigger calc-trigger" type="radio" name="terrain" value="" id="noterrain" checked="checked" /><label class="btn btn-small btn-left" for="noterrain">None</label>
                     <input class="btn-input terrain-trigger calc-trigger" type="radio" name="terrain" value="Electric" id="electric" /><label class="btn btn-small btn-mid" for="electric">Electric</label>
                     <input class="btn-input terrain-trigger calc-trigger" type="radio" name="terrain" value="Grassy" id="grassy" /><label class="btn btn-small btn-mid" for="grassy">Grassy</label>
                     <input class="btn-input terrain-trigger calc-trigger" type="radio" name="terrain" value="Misty" id="misty" /><label class="btn btn-small btn-mid" for="misty">Misty</label>
                     <input class="btn-input terrain-trigger calc-trigger" type="radio" name="terrain" value="Psychic" id="psychic" /><label class="btn btn-small btn-right" for="psychic">Psychic</label>
-                </section>
-                <section class="gen-specific g3 g4 g5 g6 g7 g7" style="margin: 5px auto;" title="Select the current weather condition.">
+                </div>
+                <div class="gen-specific g3 g4 g5 g6 g7 g7" style="margin: 5px auto;" title="Select the current weather condition.">
 					<label class="field-label small-text">Weather: </label>
                     <input class="btn-input calc-trigger" type="radio" name="weather" value="" id="clear" checked="checked" /><label class="btn btn-small btn-left" for="clear">None</label>
                     <input class="btn-input calc-trigger" type="radio" name="weather" value="Sun" id="sun" /><label class="btn btn-small btn-mid" for="sun">Sun</label>
                     <input class="btn-input calc-trigger" type="radio" name="weather" value="Rain" id="rain" /><label class="btn btn-small btn-mid" for="rain">Rain</label>
                     <input class="btn-input calc-trigger" type="radio" name="weather" value="Sand" id="sand" /><label class="btn btn-small btn-mid" for="sand">Sand</label>
                     <input class="btn-input calc-trigger" type="radio" name="weather" value="Hail" id="hail" /><label class="btn btn-small btn-right" for="hail">Hail</label>
-                </section>
-                <section class="gen-specific g6 g7 g7" style=" margin: 5px auto;" title="Select the current weather condition.">
+                </div>
+                <div class="gen-specific g6 g7 g7" style=" margin: 5px auto;" title="Select the current weather condition.">
                     <label class="field-label small-text">Big Weather: </label>
 					<input class="btn-input calc-trigger" type="radio" name="weather" value="Harsh Sun" id="harsh-sun"/><label class="btn btn-wide btn-left" for="harsh-sun">Harsh Sun</label>
                     <input class="btn-input calc-trigger" type="radio" name="weather" value="Heavy Rain" id="heavy-rain"/><label class="btn btn-wide btn-mid" for="heavy-rain">Heavy Rain</label>
                     <input class="btn-input calc-trigger" type="radio" name="weather" value="Strong Winds" id="strong-winds"/><label class="btn btn-xwide btn-right" for="strong-winds">Strong Winds</label>
-                </section>
-                <section class="gen-specific g2 hide" style="margin: 0 auto 5px;" title="Select the current weather condition.">
+                </div>
+                <div class="gen-specific g2 hide" style="margin: 0 auto 5px;" title="Select the current weather condition.">
                     <input class="btn-input calc-trigger" type="radio" name="gscWeather" value="" id="gscClear" checked="checked" /><label class="btn btn-small btn-left" for="gscClear">None</label>
                     <input class="btn-input calc-trigger" type="radio" name="gscWeather" value="Sun" id="gscSun" /><label class="btn btn-small btn-mid" for="gscSun">Sun</label>
                     <input class="btn-input calc-trigger" type="radio" name="gscWeather" value="Rain" id="gscRain" /><label class="btn btn-small btn-mid" for="gscRain">Rain</label>
                     <input class="btn-input calc-trigger" type="radio" name="gscWeather" value="Sand" id="gscSand" /><label class="btn btn-small btn-right" for="gscSand">Sand</label>
-                </section>
-                <section class="gen-specific g6 g7 g7" style="margin: 5px auto;" title="Select the current radiating aura.">
+                </div>
+                <div class="gen-specific g6 g7 g7" style="margin: 5px auto;" title="Select the current radiating aura.">
 					<label class="field-label small-text">Aura: </label>
 					<input class="btn-input calc-trigger" type="checkbox" name="aura" value="Aura Break" id="aura-break"/><label class="btn btn-wide btn-left" for="aura-break">Aura Break</label>
 					<input class="btn-input calc-trigger" type="checkbox" name="aura" value="Fairy Aura" id="fairy-aura"/><label class="btn btn-wide btn-mid" for="fairy-aura">Fairy Aura</label>
 					<input class="btn-input calc-trigger" type="checkbox" name="aura" value="Dark Aura" id="dark-aura"/><label class="btn btn-wide btn-right" for="dark-aura">Dark Aura</label>
-                </section>
+                </div>
                 <hr class="gen-specific g6 g7 g7" />
-                <section class="gen-specific g4 g5 g6 g7 g7" style="margin: 5px auto;" title="What Rooms are in effect?">
+                <div class="gen-specific g4 g5 g6 g7 g7" style="margin: 5px auto;" title="What Rooms are in effect?">
                     <label class="field-label small-text">Room: </label>
 					<input class="btn-input calc-trigger" type="checkbox" id="trickRoom" /><label class="btn btn-left btn-xwide" for="trickRoom">Trick Room</label>
 					<input class="btn-input calc-trigger" type="checkbox" id="wonderRoom" /><label class="btn btn-mid btn-xwide" for="wonderRoom">Wonder Room</label>
 					<input class="btn-input calc-trigger" type="checkbox" id="magicRoom" /><label class="btn btn-right btn-xwide" for="magicRoom">Magic Room</label>
-                </section>
-                <section class="gen-specific g4 g5 g6 g7 g7" style="margin: 5px auto;" title="Is anything else affecting the field?">
+                </div>
+                <div class="gen-specific g4 g5 g6 g7 g7" style="margin: 5px auto;" title="Is anything else affecting the field?">
                     <label class="field-label small-text">Field: </label>
 					<input class="btn-input calc-trigger" type="checkbox" id="gravity"/><label class="btn"  style="margin-right: 2px;" for="gravity">Gravity</label>
 					<input class="btn-input calc-trigger" type="checkbox" id="waterSport" /><label class="btn btn-left btn-wide" for="waterSport">Water Sport</label>
                     <input class="btn-input calc-trigger" type="checkbox" id="mudSport" /><label class="btn btn-right btn-wide" for="mudSport">Mud Sport</label>
-                </section>
-                <section class="gen-specific g4 g5 g6 g7 g7" style="margin: 5px auto;" title="Makes all Normal type moves Electric type, in case you were wondering.">
+                </div>
+                <div class="gen-specific g4 g5 g6 g7 g7" style="margin: 5px auto;" title="Makes all Normal type moves Electric type, in case you were wondering.">
                     <label class="field-label small-text">Other: </label>
 					<input class="btn-input calc-trigger" type="checkbox" id="ionDeluge" /><label class="btn btn-wide" for="ionDeluge">Ion Deluge</label>
-                </section>
+                </div>
 				
 				
                 <hr class="gen-specific g2 g3 g4 g5 g6 g7 g7" />
-                <section class="btn-group gen-specific g4 g5 g6 g7 g7">
-                    <section class="left" title="Is Stealth Rock affecting this side of the field?">
+                <div class="btn-group gen-specific g4 g5 g6 g7 g7">
+                    <div class="left" title="Is Stealth Rock affecting this side of the field?">
                         <input class="btn-input calc-trigger" type="checkbox" id="srL" /><label class="btn btn-xwide" for="srL">Stealth Rock</label>
-                    </section>
-                    <section class="right" title="Is Stealth Rock affecting this side of the field?">
+                    </div>
+                    <div class="right" title="Is Stealth Rock affecting this side of the field?">
                         <input class="btn-input calc-trigger" type="checkbox" id="srR" /><label class="btn btn-xwide" for="srR">Stealth Rock</label>
-                    </section>
-                </section>
-                <section class="btn-group gen-specific g3 g4 g5 g6 g7 g7">
-                    <section class="left" title="Are there Spikes on this side of the field?">
+                    </div>
+                </div>
+                <div class="btn-group gen-specific g3 g4 g5 g6 g7 g7">
+                    <div class="left" title="Are there Spikes on this side of the field?">
                         <input class="btn-input calc-trigger" type="radio" name="spikesL" value="0" id="spikesL0" checked="checked" /><label class="btn btn-xsmall btn-left" for="spikesL0">0</label>
                         <input class="btn-input calc-trigger" type="radio" name="spikesL" value="1" id="spikesL1" /><label class="btn btn-xsmall btn-mid" for="spikesL1">1</label>
                         <input class="btn-input calc-trigger" type="radio" name="spikesL" value="2" id="spikesL2" /><label class="btn btn-xsmall btn-mid" for="spikesL2">2</label>
                         <input class="btn-input calc-trigger" type="radio" name="spikesL" value="3" id="spikesL3" /><label class="btn btn-wide btn-right" for="spikesL3">3 Spikes</label>
-                    </section>
-                    <section class="right" title="Are there Spikes on this side of the field?">
+                    </div>
+                    <div class="right" title="Are there Spikes on this side of the field?">
                         <input class="btn-input calc-trigger" type="radio" name="spikesR" value="0" id="spikesR0" checked="checked" /><label class="btn btn-xsmall btn-left" for="spikesR0">0</label>
                         <input class="btn-input calc-trigger" type="radio" name="spikesR" value="1" id="spikesR1" /><label class="btn btn-xsmall btn-mid" for="spikesR1">1</label>
                         <input class="btn-input calc-trigger" type="radio" name="spikesR" value="2" id="spikesR2" /><label class="btn btn-xsmall btn-mid" for="spikesR2">2</label>
                         <input class="btn-input calc-trigger" type="radio" name="spikesR" value="3" id="spikesR3" /><label class="btn btn-wide btn-right" for="spikesR3">3 Spikes</label>
-                    </section>
-                </section>
-				<!--  <section class="btn-group gen-specific g2">
-                    <section class="left" title="Are there Spikes on this side of the field?">
+                    </div>
+                </div>
+				<!--  <div class="btn-group gen-specific g2">
+                    <div class="left" title="Are there Spikes on this side of the field?">
                         <input class="btn-input calc-trigger" type="checkbox" id="gscSpikesL" /><label class="btn" for="gscSpikesL">Spikes</label>
-                    </section>
-                    <section class="right" title="Are there Spikes on this side of the field?">
+                    </div>
+                    <div class="right" title="Are there Spikes on this side of the field?">
                         <input class="btn-input calc-trigger" type="checkbox" id="gscSpikesR" /><label class="btn" for="gscSpikesR">Spikes</label>
-                    </section>
-                </section>-->
+                    </div>
+                </div>-->
 				
-				<!-- <section class="btn-group">
-                    <section class="left" title="How many Leech Seeds does this Pokemon have set on opponents?">
+				<!-- <div class="btn-group">
+                    <div class="left" title="How many Leech Seeds does this Pokemon have set on opponents?">
                         <input class="btn-input calc-trigger" type="radio" name="seedsL" value="0" id="seedsL0" checked="checked" /><label class="btn btn-xsmall btn-left" for="seedsL0">0</label>
                         <input class="btn-input calc-trigger" type="radio" name="seedsL" value="1" id="seedsL1" /><label class="btn btn-xsmall btn-mid" for="seedsL1">1</label>
                         <input class="btn-input calc-trigger" type="radio" name="seedsL" value="2" id="seedsL2" /><label class="btn btn-xxxwide btn-right" for="seedsL2">2 Leech Seeds</label>
-                    </section>
-                    <section class="right" title="How many Leech Seeds does this Pokemon have set on opponents?">
+                    </div>
+                    <div class="right" title="How many Leech Seeds does this Pokemon have set on opponents?">
                         <input class="btn-input calc-trigger" type="radio" name="seedsR" value="0" id="seedsR0" checked="checked" /><label class="btn btn-xsmall btn-left" for="seedsR0">0</label>
                         <input class="btn-input calc-trigger" type="radio" name="seedsR" value="1" id="seedsR1" /><label class="btn btn-xsmall btn-mid" for="seedsR1">1</label>
                         <input class="btn-input calc-trigger" type="radio" name="seedsR" value="2" id="seedsR2" /><label class="btn btn-xxxwide btn-right" for="seedsR2">2 Leech Seeds</label>
-                    </section>
-                </section> -->
+                    </div>
+                </div> -->
 				
-                <section class="btn-group">
-                    <section class="left" title="Is this Pokemon protected by Reflect and/or Light Screen?">
+                <div class="btn-group">
+                    <div class="left" title="Is this Pokemon protected by Reflect and/or Light Screen?">
                         <input class="btn-input calc-trigger" type="checkbox" id="reflectL" /><label class="btn btn-left" for="reflectL">Reflect</label>
                         <input class="btn-input calc-trigger" type="checkbox" id="lightScreenL" /><label class="btn btn-xwide btn-right" for="lightScreenL">Light Screen</label>
-					</section>
-                    <section class="right" title="Is this Pokemon protected by Reflect and/or Light Screen?">
+					</div>
+                    <div class="right" title="Is this Pokemon protected by Reflect and/or Light Screen?">
                         <input class="btn-input calc-trigger" type="checkbox" id="reflectR" /><label class="btn btn-left" for="reflectR">Reflect</label>
                         <input class="btn-input calc-trigger" type="checkbox" id="lightScreenR" /><label class="btn btn-xwide btn-right" for="lightScreenR">Light Screen</label>
-					</section>
-                </section>
-                <section class="btn-group">
-                    <section class="left" title="Is this Pokemon protected by Aurora Veil?">
+					</div>
+                </div>
+                <div class="btn-group">
+                    <div class="left" title="Is this Pokemon protected by Aurora Veil?">
                         <input class="btn-input calc-trigger" type="checkbox" id="auroraVeilL" /><label class="btn btn-wide" for="auroraVeilL">Aurora Veil</label>
-                    </section>
-                    <section class="right" title="Is this Pokemon protected by Aurora Veil?">
+                    </div>
+                    <div class="right" title="Is this Pokemon protected by Aurora Veil?">
                         <input class="btn-input calc-trigger" type="checkbox" id="auroraVeilR" /><label class="btn btn-wide" for="auroraVeilR">Aurora Veil</label>
-                    </section>
-                </section>
-                <section class="btn-group gen-specific g2 g3 g4 g5 g6 g7 g7">
-                    <section class="left" title="Has this Pokemon been revealed with Foresight or Odor Sleuth?">
+                    </div>
+                </div>
+                <div class="btn-group gen-specific g2 g3 g4 g5 g6 g7 g7">
+                    <div class="left" title="Has this Pokemon been revealed with Foresight or Odor Sleuth?">
                         <input class="btn-input calc-trigger" type="checkbox" id="foresightL" /><label class="btn btn-wide" for="foresightL">Foresight</label>
-                    </section>
-                    <section class="right" title="Has this Pokemon been revealed with Foresight or Odor Sleuth?">
+                    </div>
+                    <div class="right" title="Has this Pokemon been revealed with Foresight or Odor Sleuth?">
                         <input class="btn-input calc-trigger" type="checkbox" id="foresightR" /><label class="btn btn-wide" for="foresightR">Foresight</label>
-                    </section>
-                </section>
-                <section class="btn-group gen-specific g3 g4 g5 g6 g7 g7">
-                    <section class="left" title="Has this Pokemon's power been boosted by an ally's Helping Hand?">
+                    </div>
+                </div>
+                <div class="btn-group gen-specific g3 g4 g5 g6 g7 g7">
+                    <div class="left" title="Has this Pokemon's power been boosted by an ally's Helping Hand?">
                         <input class="btn-input calc-trigger" type="checkbox" id="helpingHandL" /><label class="btn btn-xxwide" for="helpingHandL">Helping Hand</label>
-                    </section>
-                    <section class="right" title="Has this Pokemon's power been boosted by an ally's Helping Hand?">
+                    </div>
+                    <div class="right" title="Has this Pokemon's power been boosted by an ally's Helping Hand?">
                         <input class="btn-input calc-trigger" type="checkbox" id="helpingHandR" /><label class="btn btn-xxwide" for="helpingHandR">Helping Hand</label>
-                    </section>
-                </section>
-                <section class="btn-group gen-specific g5 g6 g7 g7">
-                    <section class="left" title="Is this Pokemon protected by an ally's Friend Guard?">
+                    </div>
+                </div>
+                <div class="btn-group gen-specific g5 g6 g7 g7">
+                    <div class="left" title="Is this Pokemon protected by an ally's Friend Guard?">
                         <input class="btn-input calc-trigger" type="checkbox" id="friendGuardL" /><label class="btn btn-xxwide" for="friendGuardL">Friend Guard</label>
-                    </section>
-                    <section class="right" title="Is this Pokemon protected by an ally's Friend Guard?">
+                    </div>
+                    <div class="right" title="Is this Pokemon protected by an ally's Friend Guard?">
                         <input class="btn-input calc-trigger" type="checkbox" id="friendGuardR" /><label class="btn btn-xxwide" for="friendGuardR">Friend Guard</label>
-                    </section>
-                </section>
-                <section class="btn-group gen-specific g7 g7">
-                    <section class="left" title="Is this Pokemon next to an ally with Battery?">
+                    </div>
+                </div>
+                <div class="btn-group gen-specific g7 g7">
+                    <div class="left" title="Is this Pokemon next to an ally with Battery?">
                         <input class="btn-input calc-trigger" type="checkbox" id="batteryL" /><label class="btn btn-xxwide" for="batteryL">Battery</label>
-                    </section>
-                    <section class="right" title="Is this Pokemon next to an ally with Battery">
+                    </div>
+                    <div class="right" title="Is this Pokemon next to an ally with Battery">
                         <input class="btn-input calc-trigger" type="checkbox" id="batteryR" /><label class="btn btn-xxwide" for="batteryR">Battery</label>
-                    </section>
-                </section>
+                    </div>
+                </div>
 				 <hr class="gen-specific g2 g3 g4 g5 g6 g7 g7" />
                                
                 <p align="center">Import Custom Set</p>
@@ -659,19 +657,19 @@
                 <script type="text/javascript" src="script_res/setdex_custom.js"></script>
                 <button type = "button" onclick = "savecustom()">Save</button> <button type = "button" onclick = "deletecustom()">Delete Custom Sets</button>
                 <p class="small-text">You may need to refresh the page after deleting your custom sets.  If you encounter a bug, please try deleting your cookies or reporting it!</p>
-            </section>
+            </div>
 				
-		</section>
+		</div>
 		
 		
 		
 		
-		<section> <!-- R Pokemon  -->
-		 <section class="panel poke-info panel-poke" id="p2">
-            <section class="panel-heading">
+		<!-- R Pokemon  -->
+		<div class="poke-info panel-poke td" id="p2">
+            <div class="panel-heading">
 				<h4 class="panel-title">Pokemon 2</h4>
-			</section>
-			<section class="panel-body">
+			</div>
+			<div class="panel-body">
 			
 				
                 <input type="text" class="set-selector calc-trigger" />
@@ -680,42 +678,42 @@
 				<input type="text" class="set-selector calc-trigger" /> 
 				
 				<!-- Species Info  -->
-				<section class="info-group">
+				<div class="info-group">
 				
-                    <section class="hide">
+                    <div class="hide">
                         <label class="poke-label">Forme</label>
                         <select class="forme calc-trigger"></select>
-                    </section>
-					<section>
+                    </div>
+					<div>
 						<label class="poke-label">Type</label>
 						<select class="type1 terrain-trigger calc-trigger"></select>
 						/ <select class="type2 terrain-trigger calc-trigger"></select>
-					</section>	
-					<section>
+					</div>	
+					<div>
 						<label class=" poke-label">Ability</label>
 						<select class="ability terrain-trigger calc-trigger"></select>
-					</section>	
-					<section>
+					</div>	
+					<div>
 						<label class=" poke-label">Item</label>
 						<select class="item terrain-trigger calc-trigger"></select>
-					</section>	
-					<section class="hide">
+					</div>	
+					<div class="hide">
                         <label class=" poke-label">Weight (kg)</label>
                         <input class="weight calc-trigger" value="10.0" />
-                    </section>
-				<!-- </section>
+                    </div>
+				<!-- </div>
 					
 				
-				<section class="info-group"> -->	
+				<div class="info-group"> -->	
 				<!-- Stats  -->
-					<section>
-						<section>
+					<div>
+						<div>
 							<label class=" poke-label">Level</label>
 							<input class="level calc-trigger" value="50" />
-						</section>
-					</section>
-					<section>
-						<section>
+						</div>
+					</div>
+					<div>
+						<div>
 							<label class=" poke-label">Nature</label>
 							<select class="nature calc-trigger">
 								<option value="Adamant">Adamant (+Atk, -SpA)</option>
@@ -744,7 +742,7 @@
 								<option value="Serious">Serious</option>
 								<option value="Timid">Timid (+Spe, -Atk)</option>
 							</select>
-						</section>
+						</div>
 						
 						<table>
 							<tr><!-- titles -->
@@ -839,12 +837,12 @@
 							</tr>
 							
 						</table>
-					</section>
-				</section>
+					</div>
+				</div>
 				
 				<!-- Moves  -->
-				<section class="moves">
-					<section id="moveR1" class="move1">
+				<div class="moves">
+					<div id="moveR1" class="move1">
 						<select class="move-selector calc-trigger small-select"></select>
 						<input class="move-bp calc-trigger" value="50" />
 						<select class="move-type calc-trigger"></select>
@@ -853,8 +851,8 @@
 							<option value="Special">Special</option>
 							<!-- <option value="Status">Status</option> -->
 						</select>
-					</section>
-					<section id="moveR2" class="move2">
+					</div>
+					<div id="moveR2" class="move2">
 						<select class="move-selector calc-trigger small-select"></select>
 						<input class="move-bp calc-trigger" value="50" />
 						<select class="move-type calc-trigger"></select>
@@ -863,8 +861,8 @@
 							<option value="Special">Special</option>
 							<!-- <option value="Status">Status</option> -->
 						</select>
-					</section>
-					<section id="moveR3" class="move3">
+					</div>
+					<div id="moveR3" class="move3">
 						<select class="move-selector calc-trigger small-select"></select>
 						<input class="move-bp calc-trigger" value="50" />
 						<select class="move-type calc-trigger"></select>
@@ -873,8 +871,8 @@
 							<option value="Special">Special</option>
 							<!-- <option value="Status">Status</option> -->
 						</select>
-					</section>
-					<section id="moveR4" class="move4">
+					</div>
+					<div id="moveR4" class="move4">
 						<select class="move-selector calc-trigger small-select"></select>
 						<input class="move-bp calc-trigger" value="50" />
 						<select class="move-type calc-trigger"></select>
@@ -883,13 +881,13 @@
 							<option value="Special">Special</option>
 							<!-- <option value="Status">Status</option> -->
 						</select>
-					</section>
-				</section>
+					</div>
+				</div>
 				
 				
 				<!-- Status  -->
-				<section>
-					<section class="info-group">
+				<div>
+					<div class="info-group">
 						<label>Current HP</label>
 						<input class="current-hp calc-trigger" value="712" />/<span class="max-hp">712</span> (<input class="percent-hp calc-trigger" value="100" />%)
 						<br/>
@@ -905,9 +903,7 @@
 						</select>
 						
                         <input id="shiny2" class="shiny btn-input calc-trigger" type="checkbox"  />
-						<label for="shiny2" class="btn poke-button small-text">Shiny</label>
-						
-						
+						<label for="shiny2" class="btn btn-small poke-button small-text">Shiny</label>
 						<input id="protect2" class="protect btn-input calc-trigger" type="checkbox"  />
 						<label for="protect2" class="btn poke-button small-text">Protect</label>
 						
@@ -941,25 +937,26 @@
 						<br>
 						-->
 						
-					</section>
-				</section>
+					</div>
+				</div>
 				
-				<section>
+				<div>
 					<script type="text/javascript" src="scripts/export.js"></script>
 					<button onclick = "exportSpreadR()"> Export Spread</button>
 					<textarea id="sxportR" class="spread-export" hint="Spread will appear here" width="100%" rows="9" cols="40">
 					</textarea>
-				</section>
+				</div>
 				
+				</div>
 				
-			</section>	
-        </section>
+			</div>	
+        </div>
 		
 		
-		</section>
-		</section>
-	</section>
-	</section>
+		</div>
+		</div>
+	</div>
+	</div>
 	
 	
 	
