@@ -4,7 +4,8 @@ var gen, pokedex, setdex, typeChart, moves, abilities, items, STATS, calculateAl
 
 var load_data = (function() {	//set gen function
     // code...
-	gen = 7;
+	//gen = 7;
+	gen = 8;
 	pokedex = POKEDEX_SM;
 	setdex = SETDEX_SM;
 	typeChart = TYPE_CHART_XY;
@@ -16,20 +17,20 @@ var load_data = (function() {	//set gen function
 	calcHP = CALC_HP_ADV;
 	calcStat = CALC_STAT_ADV;
 	
-    $(".gen-specific.g" + gen).show();
-    $(".gen-specific").not(".g" + gen).hide();
-    var typeOptions = getSelectOptions(Object.keys(typeChart));
-    $("select.type1, select.move-type").find("option").remove().end().append(typeOptions);
-    $("select.type2").find("option").remove().end().append("<option value=\"\">(none)</option>" + typeOptions);
-    var moveOptions = getSelectOptions(Object.keys(moves), true);
-    $("select.move-selector").find("option").remove().end().append(moveOptions);
-    var abilityOptions = getSelectOptions(abilities, true);
-    $("select.ability").find("option").remove().end().append("<option value=\"\">(other)</option>" + abilityOptions);
-    var itemOptions = getSelectOptions(items, true);
-    $("select.item").find("option").remove().end().append("<option value=\"\">(none)</option>" + itemOptions);
-    
-    $(".set-selector").val(getSetOptions()[gen > 3 ? 1 : gen === 1 ? 5 : 3].id);
-    $(".set-selector").change();
+	$(".gen-specific.g" + gen).show();
+	$(".gen-specific").not(".g" + gen).hide();
+	var typeOptions = getSelectOptions(Object.keys(typeChart));
+	$("select.type1, select.move-type").find("option").remove().end().append(typeOptions);
+	$("select.type2").find("option").remove().end().append("<option value=\"\">(none)</option>" + typeOptions);
+	var moveOptions = getSelectOptions(Object.keys(moves), true);
+	$("select.move-selector").find("option").remove().end().append(moveOptions);
+	var abilityOptions = getSelectOptions(abilities, true);
+	$("select.ability").find("option").remove().end().append("<option value=\"\">(other)</option>" + abilityOptions);
+	var itemOptions = getSelectOptions(items, true);
+	$("select.item").find("option").remove().end().append("<option value=\"\">(none)</option>" + itemOptions);
+	
+	$(".set-selector").val(getSetOptions()[gen > 3 ? 1 : gen === 1 ? 5 : 3].id);
+	$(".set-selector").change();
 });
 
 function getSelectOptions(arr, sort, defaultIdx) {
