@@ -6,12 +6,12 @@ var load_data = (function() {	//set gen function
     // code...
 	//gen = 7;
 	gen = 8;
-	pokedex = POKEDEX_SM;
-	setdex = SETDEX_SM;
+	pokedex = POKEDEX_SS;
+	setdex = SETDEX_SS;
 	typeChart = TYPE_CHART_XY;
-	moves = MOVES_SM;
+	moves = MOVES_SS;
 	items = ITEMS_SM;
-	abilities = ABILITIES_SM;
+	abilities = ABILITIES_SS;
 	STATS = STATS_GSC;
 	calculateAllMoves = CALCULATE_ALL_MOVES_BW;
 	calcHP = CALC_HP_ADV;

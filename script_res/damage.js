@@ -180,14 +180,12 @@ function getDamageResult(attacker, defender, move, field) {
 		//TODO: check if soak affects revelation dance type	
 	}
 
-
-
 	// Z-Moves and Max Moves don't receive -ate type changes
 	if (!move.isZ && !move.isMax) {
-		let isAerilate = attacker.ability === "Aerilate" && move.type === "Normal";
-		let isPixilate = attacker.ability === "Pixilate" && move.type === "Normal";
-		let isRefrigerate = attacker.ability === "Refrigerate" && move.type === "Normal";
-		let isGalvanize = attacker.ability === "Galvanize" && move.type === "Normal";
+		var isAerilate = attacker.ability === "Aerilate" && move.type === "Normal";
+		var isPixilate = attacker.ability === "Pixilate" && move.type === "Normal";
+		var isRefrigerate = attacker.ability === "Refrigerate" && move.type === "Normal";
+		var isGalvanize = attacker.ability === "Galvanize" && move.type === "Normal";
 
 		if (isAerilate) {
 			move.type = "Flying";
