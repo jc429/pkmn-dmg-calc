@@ -73,7 +73,7 @@ var ABILITIES_BW = ABILITIES_DPP.concat([
     'Defiant',
     'Flare Boost',
     'Infiltrator',
-    'Lightningrod',
+    'Lightning Rod',
     'Multiscale',
     'Overcoat',
     'Sand Force',
@@ -119,11 +119,22 @@ var ABILITIES_SM = ABILITIES_XY.concat([
     'Galvanize',
     'Fluffy',
     'RKS System',
+    'Shadow Shield',
     'Prism Armor',
     'Full Metal Body',
-    'Shadow Shield',
-	'Neuroforce'
-   // 'Battery'
+    'Slush Rush',
+    'Surge Surfer',
+    'Neuroforce',
+    'Power Construct'
 ]);
 
-ABILITIES_XY.splice(ABILITIES_XY.indexOf('Lightningrod'), 1, 'Lightning Rod');
+var ABILITIES_SS = ABILITIES_SM.concat([
+    'Libero',
+    'Ice Scales',
+    'Power Spot',
+    'Intrepid Sword',
+    "Gorilla Tactics",
+    "Punk Rock"
+]);
+
+ABILITIES_XY.splice(ABILITIES_XY.indexOf('Lightning Rod'), 1, 'Lightning Rod');

@@ -1,4 +1,9 @@
 var MOVES_RBY = {
+    'Struggle': {
+        bp:50,
+        type: 'Normal',
+        category: 'Physical'
+    },
     '(No Move)': {
         bp: 0,
         type: 'Normal',
@@ -157,7 +162,7 @@ var MOVES_RBY = {
         bp: 40,
         type: 'Normal',
         category: 'Physical',
-		isPriority: true,
+				isPriority: true,
         makesContact: true
     },
     'Razor Leaf': {
@@ -248,6 +253,9 @@ var MOVES_RBY = {
 };
 
 var MOVES_GSC = $.extend(true, {}, MOVES_RBY, {
+    'Struggle': {
+        type: 'Typeless'
+    },
     'Aeroblast': {
         bp: 100,
         type: 'Flying',
@@ -296,7 +304,7 @@ var MOVES_GSC = $.extend(true, {}, MOVES_RBY, {
         bp: 80,
         type: 'Normal',
         category: 'Physical',
-		isPriority: true,
+				isPriority: true,
         makesContact: true
     },
     'Faint Attack': {
@@ -434,8 +442,8 @@ var MOVES_GSC = $.extend(true, {}, MOVES_RBY, {
         bp: 40,
         type: 'Fighting',
         category: 'Physical',
-        makesContact: true,
-		isPriority: true,
+				makesContact: true,
+				isPriority: true,
         isPunch: true
     },
     'Megahorn': {
@@ -599,7 +607,7 @@ var MOVES_ADV = $.extend(true, {}, MOVES_GSC, {
         type: 'Normal',
         category: 'Physical',
         makesContact: true,
-		isPriority: true,
+				isPriority: true,
         hasSecondaryEffect: true
     },
     'Focus Punch': {
@@ -659,7 +667,7 @@ var MOVES_ADV = $.extend(true, {}, MOVES_GSC, {
         bp: 55,
         type: 'Ground',
         category: 'Special',
-        hasSecondaryEffect: true,
+        hasSecondaryEffect: true
     },
     'Overheat': {
         bp: 140,
@@ -778,7 +786,7 @@ var MOVES_DPP = $.extend(true, {}, MOVES_ADV, {
         bp: 40,
         type: 'Water',
         category: 'Physical',
-		isPriority: true,
+				isPriority: true,
         makesContact: true
     },
     'Aqua Tail': {
@@ -813,6 +821,12 @@ var MOVES_DPP = $.extend(true, {}, MOVES_ADV, {
         makesContact: true,
         hasRecoil: true
     },
+    'Brine': {
+        bp: 65,
+        zp: 120,
+        type: 'Water',
+        category: 'Special',
+    },
     'Bug Bite': {
         bp: 60,
         type: 'Bug',
@@ -831,7 +845,7 @@ var MOVES_DPP = $.extend(true, {}, MOVES_ADV, {
         type: 'Steel',
         category: 'Physical',
         makesContact: true,
-		isPriority: true,
+				isPriority: true,
         isPunch: true
     },
     'Charge Beam': {
@@ -946,6 +960,11 @@ var MOVES_DPP = $.extend(true, {}, MOVES_ADV, {
         type: 'Dark',
         category: 'Physical'
     },
+    'Fly':{
+        bp: 90,
+        type: 'Flying',
+        category: 'Physical'
+    },
     'Focus Blast': {
         bp: 120,
         type: 'Fighting',
@@ -1019,7 +1038,7 @@ var MOVES_DPP = $.extend(true, {}, MOVES_ADV, {
         bp: 40,
         type: 'Ice',
         category: 'Physical',
-		isPriority: true
+				isPriority: true
     },
     'Iron Head': {
         bp: 80,
@@ -1176,7 +1195,7 @@ var MOVES_DPP = $.extend(true, {}, MOVES_ADV, {
         bp: 40,
         type: 'Ghost',
         category: 'Physical',
-		isPriority: true,
+				isPriority: true,
         makesContact: true
     },
     'Spacial Rend': {
@@ -1193,7 +1212,7 @@ var MOVES_DPP = $.extend(true, {}, MOVES_ADV, {
         bp: 80,
         type: 'Dark',
         category: 'Physical',
-		isPriority: true,
+				isPriority: true,
         makesContact: true
     },
     'Swift': {
@@ -1226,7 +1245,7 @@ var MOVES_DPP = $.extend(true, {}, MOVES_ADV, {
         bp: 40,
         type: 'Fighting',
         category: 'Special',
-		isPriority: true
+				isPriority: true
     },
     'Wake-Up Slap': {
         bp: 60,
@@ -1268,6 +1287,13 @@ delete MOVES_DPP['Twineedle'];
 delete MOVES_DPP['Zap Cannon'];
 
 var MOVES_BW = $.extend(true, {}, MOVES_DPP, {
+    'Electroweb': {
+        bp: 55,
+        type: "Electric",
+        category: "Special",
+        isSpread: "True",
+        hasSecondaryEffect: "True"
+    },
     'Acid Spray': {
         bp: 40,
         type: 'Poison',
@@ -1355,7 +1381,7 @@ var MOVES_BW = $.extend(true, {}, MOVES_DPP, {
         bp: 30,
         type: 'Normal',
         category: 'Physical',
-		isPriority: true
+				isPriority: true
     },
     'Fiery Dance': {
         bp: 80,
@@ -1507,6 +1533,12 @@ var MOVES_BW = $.extend(true, {}, MOVES_DPP, {
         category: 'Special',
         dealsPhysicalDamage: true
     },
+    'Razor Leaf': {
+        bp: 55,
+        type: 'Grass',
+        category: 'Physical',
+        isSpread: true
+    },
     'Razor Shell': {
         bp: 75,
         type: 'Water',
@@ -1558,7 +1590,7 @@ var MOVES_BW = $.extend(true, {}, MOVES_DPP, {
         bp: 60,
         type: 'Flying',
         category: 'Physical',
-        makesContact: true,
+        makesContact: true
     },
     'Sludge Wave': {
         bp: 95,
@@ -1591,6 +1623,13 @@ var MOVES_BW = $.extend(true, {}, MOVES_DPP, {
         category: 'Physical',
         makesContact: true,
         alwaysCrit: true
+    },
+    'Struggle Bug': {
+        bp: 30,
+        type: "Bug",
+        category: "Special",
+        isSpread: "True",
+        hasSecondaryEffect: "True"
     },
     'Synchronoise': {
         bp: 70,
@@ -1678,7 +1717,7 @@ var MOVES_XY = $.extend(true, {}, MOVES_BW, {
         bp: 50,
         type: 'Fairy',
         category: 'Special',
-        makesContact: true,
+        makesContact: true
     },
     'Energy Ball': { bp: 90 },
     'Facade': { ignoresBurn: true },
@@ -1697,6 +1736,11 @@ var MOVES_XY = $.extend(true, {}, MOVES_BW, {
         hasSecondaryEffect: true
     },
     'Frost Breath': { bp: 60 },
+    'Future Sight': {
+        bp: 120,
+        type: 'Psychic',
+        category: 'Special'
+    },
     'Heat Wave': { bp: 95 },
     'Hex': { bp: 65 },
     'Hidden Power Bug': { bp: 60 },
@@ -1800,7 +1844,8 @@ var MOVES_XY = $.extend(true, {}, MOVES_BW, {
         isMLG: 'true'
     },
     'Storm Throw': { bp: 60 },
-    'Surf': { bp: 90 },    
+    'Struggle Bug': { bp: 50 },
+    'Surf': { bp: 90 },
     'Synchronoise': { bp: 120 },
     'Thief': { bp: 60 },
     'Thunder': { bp: 110 },
@@ -1810,12 +1855,12 @@ var MOVES_XY = $.extend(true, {}, MOVES_BW, {
         bp: 15,
         type: 'Water',
         category: 'Physical',
-		isPriority: true,
+				isPriority: true,
         isMultiHit: true
     },
     'Aurora Beam': {
         bp: 65,
-        type: 'Ice', 
+        type: 'Ice',
         category: 'Special'
     }
 });
@@ -1845,9 +1890,13 @@ var ZMOVES_LOOKUP = {
     'Rock':'Continental Crush','Bug':'Savage Spin-Out','Fairy':'Twinkle Tackle',
     'Flying':'Supersonic Skystrike','Dragon':'Devastating Drake','Poison':'Acid Downpour'};
 
-/** LOTS OF MOVE FIXES by bonehaver. Let me know if anything is inaccurate! (Besides Focus Miss) **/
-	
 var MOVES_SM = $.extend(true, {}, MOVES_XY, {
+    'Bolt Strike': {zp: 195 },
+    'Future Sight': { zp: 190 },
+    'Mud Shot': {
+        zp: 100
+    },
+    'Last Resort': { zp: 200 },
     'Water Shuriken': {
         category: 'Special',
         zp: 100
@@ -1858,58 +1907,54 @@ var MOVES_SM = $.extend(true, {}, MOVES_XY, {
         bp: 80,
         makesContact: true,
         zp: 160
-    },
-    'Fissure': {
-        category: 'Physical',
-        type: 'Ground',
-        bp: 0,
-        isMLG: 'true',
-        zp: 180
-    },
-    'Razor Leaf': {
-        category: 'Physical',
-        type: 'Grass',
-        bp: 55,
-		isSpread: true,
-        zp: 100
-    },
-    'Petal Blizzard': {
-        category: 'Physical',
-        type: 'Grass',
-        bp: 90,
-		isSpread: true,
-        zp: 175
-    },
-    'Zap Cannon': {
-        category: 'Special',
-        type: 'Electric',
-        bp: 120,
-        zp: 190
-    },
-	'Chip Away': {
-		category: 'Physical',
-		type: 'Normal',
-		bp: 70,
-		makesContact: true,
-		zp: 140
-	},
-	'Venoshock': {
-		category: 'Special',
-		type: 'Poison',
-		bp: 65,
-		zp: 120
-	},
-	'Heart Stamp': {
-		category: 'Physical',
-		type: 'Psychic',
-		bp: 60,
-		makesContact: true,
-		zp: 120
-	},
-	
-	
-	
-	
+		},
+		'Fissure': {
+					category: 'Physical',
+					type: 'Ground',
+					bp: 0,
+					isMLG: 'true',
+					zp: 180
+			},
+			'Razor Leaf': {
+					category: 'Physical',
+					type: 'Grass',
+					bp: 55,
+			isSpread: true,
+					zp: 100
+			},
+			'Petal Blizzard': {
+					category: 'Physical',
+					type: 'Grass',
+					bp: 90,
+			isSpread: true,
+					zp: 175
+			},
+			'Zap Cannon': {
+					category: 'Special',
+					type: 'Electric',
+					bp: 120,
+					zp: 190
+			},
+		'Chip Away': {
+			category: 'Physical',
+			type: 'Normal',
+			bp: 70,
+			makesContact: true,
+			zp: 140
+		},
+		'Venoshock': {
+			category: 'Special',
+			type: 'Poison',
+			bp: 65,
+			zp: 120
+		},
+		'Heart Stamp': {
+			category: 'Physical',
+			type: 'Psychic',
+			bp: 60,
+			makesContact: true,
+			zp: 120
+		},
     'Zing Zap': {
         category: 'Physical',
         type: 'Electric',
@@ -1927,6 +1972,7 @@ var MOVES_SM = $.extend(true, {}, MOVES_XY, {
         category: 'Physical',
         type: 'Steel',
         bp: 100,
+        makesContact: true,
         zp: 180
     },
     'Spectral Thief': {
@@ -1947,15 +1993,16 @@ var MOVES_SM = $.extend(true, {}, MOVES_XY, {
         type: 'Water',
         bp: 85,
         makesContact: true,
+        hasSecondaryEffect: true,
         zp: 160
     },
     'Accelerock': {
-        category: 'Physical',
-        type: 'Rock',
-        bp: 40,
-		isPriority: true,
-        makesContact: true,
-        zp: 100
+			category: 'Physical',
+			type: 'Rock',
+			bp: 40,
+			isPriority: true,
+			makesContact: true,
+			zp: 100
     },
     'Shadow Bone': {
         category: 'Physical',
@@ -1994,40 +2041,46 @@ var MOVES_SM = $.extend(true, {}, MOVES_XY, {
     'Genesis Supernova': {
         category: 'Special',
         type: 'Psychic',
-        bp: 185
+        bp: 185,
+        isSignatureZ: true,
     },
     'Pulverizing Pancake': {
         category: 'Physical',
         type: 'Normal',
         makesContact: true,
-        bp: 210
+        bp: 210,
+        isSignatureZ: true,
     },
     'Stoked Sparksurfer': {
         category: 'Special',
         type: 'Electric',
-        bp: 175
+        bp: 175,
+        isSignatureZ: true,
     },
     'Soul-Stealing 7-Star Strike': {
         category: 'Physical',
         type: 'Ghost',
         makesContact: true,
-        bp: 195
+        bp: 195,
+        isSignatureZ: true,
     },
     'Oceanic Operetta': {
         category: 'Special',
         type: 'Water',
-        bp: 195
+        bp: 195,
+        isSignatureZ: true,
     },
     'Malicious Moonsault': {
         category: 'Physical',
         type: 'Dark',
-        makesContact: true,
-        bp: 180
+        bp: 180,
+        isSignatureZ: true,
     },
     'Sinister Arrow Raid': {
         category: 'Physical',
         type: 'Ghost',
-        bp: 180
+        bp: 180,
+        isSignatureZ: true,
     },
     'Brutal Swing': {
         category: 'Physical',
@@ -2048,6 +2101,7 @@ var MOVES_SM = $.extend(true, {}, MOVES_XY, {
         category: 'Special',
         type: 'Dragon',
         bp: 110,
+        isSound: true,
         isSpread: true,
         zp: 185
     },
@@ -2157,14 +2211,13 @@ var MOVES_SM = $.extend(true, {}, MOVES_XY, {
         type: 'Ice',
         bp: 100,
         makesContact: true,
-		isPunch: true,
         zp: 180
     },
     'First Impression': {
         category: 'Physical',
         type: 'Bug',
-        bp: '90',
-		isPriority: true,
+				bp: '90',
+				isPriority: true,
         makesContact: true,
         zp: '175'
     },
@@ -2174,11 +2227,11 @@ var MOVES_SM = $.extend(true, {}, MOVES_XY, {
         zp: 100
     },
     'Sparkling Aria': {
-        category: 'Special',
-        type: 'Water',
-        bp: 90,
-        isSpread: true,
-        zp: 175
+         category: 'Special',
+         type: 'Water',
+         bp: 90,
+         isSpread: true,
+         zp: 175
     },
     'Darkest Lariat': {
         category: 'Physical',
@@ -2198,65 +2251,62 @@ var MOVES_SM = $.extend(true, {}, MOVES_XY, {
         category: 'Physical',
         type: 'Electric',
         makesContact: true,
-        bp: 210
-    },
-	
-		
-	'Mind Blown': {
-        category: 'Special',
-        type: 'Fire',
-        bp: 150,
-        isSpread: true,
-        hasRecoil: true,
-		zp: 200
-    },	
-	'Plasma Fists': {
-        category: 'Physical',
-        type: 'Electric',
-        bp: 100,
-        makesContact: true,
-		zp: 180
-    },	
-	'Photon Geyser': {
-        category: 'Special',
-        type: 'Psychic',
-        bp: 100,
-		zp: 180
-    },	
-	'Light That Burns the Sky': {
-        category: 'Special',
-        type: 'Psychic',
-        bp: 200
-    },	
-	'Searing Sunraze Smash': {
-        category: 'Physical',
-        type: 'Steel',
-        bp: 200
-    },	
-	'Menacing Moonraze Maelstrom': {
-        category: 'Special',
-        type: 'Ghost',
-        bp: 200
-    },		
-	'Let\'s Snuggle Forever': {
-        category: 'Physical',
-        type: 'Fairy',
-        bp: 190
-    },	
-	'Splintered Stormshards': {
-        category: 'Physical',
-        type: 'Rock',
-        bp: 190
-    },	
-	'Clangorous Soulblaze': {
-        category: 'Special',
-        type: 'Dragon',
-        bp: 185,
-        isSpread: true,
-    },
-		
-		
-    'Breakneck Blitz': {
+        bp: 210,
+        isSignatureZ: true,
+		},
+		'Mind Blown': {
+			category: 'Special',
+			type: 'Fire',
+			bp: 150,
+			isSpread: true,
+			hasRecoil: true,
+	zp: 200
+	},	
+'Plasma Fists': {
+			category: 'Physical',
+			type: 'Electric',
+			bp: 100,
+			makesContact: true,
+	zp: 180
+	},	
+'Photon Geyser': {
+			category: 'Special',
+			type: 'Psychic',
+			bp: 100,
+	zp: 180
+	},	
+'Light That Burns the Sky': {
+			category: 'Special',
+			type: 'Psychic',
+			bp: 200
+	},	
+'Searing Sunraze Smash': {
+			category: 'Physical',
+			type: 'Steel',
+			bp: 200
+	},	
+'Menacing Moonraze Maelstrom': {
+			category: 'Special',
+			type: 'Ghost',
+			bp: 200
+	},		
+'Let\'s Snuggle Forever': {
+			category: 'Physical',
+			type: 'Fairy',
+			bp: 190
+	},	
+'Splintered Stormshards': {
+			category: 'Physical',
+			type: 'Rock',
+			bp: 190
+	},	
+'Clangorous Soulblaze': {
+			category: 'Special',
+			type: 'Dragon',
+			bp: 185,
+			isSpread: true,
+	},
+	    'Breakneck Blitz': {
         type: 'Normal'
     },
     'Inferno Overdrive': {
@@ -2309,6 +2359,12 @@ var MOVES_SM = $.extend(true, {}, MOVES_XY, {
     },
     'Black Hole Eclipse': {
         type: 'Dark'
+    },
+    'Razor Leaf':{
+        zp: 100
+    },
+    'Fly':{
+        zp: 175
     },
     'Fire Punch':{
         zp: 140
@@ -3025,6 +3081,7 @@ var MOVES_SM = $.extend(true, {}, MOVES_XY, {
         zp: 180
     },
     'Flying Press':{
+        bp: 100,
         zp: 170
     },
     'Phantom Force':{
@@ -3060,11 +3117,28 @@ var MOVES_SM = $.extend(true, {}, MOVES_XY, {
     'Power-Up Punch':{
         zp: 100
     },
+    'Struggle Bug':{
+        zp: 100
+    },
     'Oblivion Wing':{
         zp: 160
     },
     'Land\'s Wrath':{
         zp: 185
+    },
+    'Thousand Arrows':{
+        category: 'Physical',
+        type: 'Ground',
+        bp: 90,
+        zp: 180,
+        isSpread: true
+    },
+    'Thousand Waves':{
+        category: 'Physical',
+        type: 'Ground',
+        bp: 90,
+        zp: 175,
+        isSpread: true
     },
     'Light Of Ruin':{
         zp: 200
@@ -3077,5 +3151,271 @@ var MOVES_SM = $.extend(true, {}, MOVES_XY, {
     },
     'Dragon Ascent':{
         zp: 190
-    }
+    },
+    'Electroweb':{
+        zp: 100
+    },
+    'Mind Blown': {
+        bp: 150,
+        zp: 200,
+        type: 'Fire',
+        category: 'Special',
+        isSpread: true
+    },
+    'Plasma Fists': {
+        bp: 100,
+        zp: 180,
+        type: 'Electric',
+        category: 'Physical',
+    },
+    'Photon Geyser': {
+        bp: 100,
+        zp: 180,
+        type: 'Psychic',
+        category: 'Special',
+    },
+    'Light That Burns the Sky': {
+        bp: 200,
+        type: 'Psychic',
+        category: 'Special',
+        isSignatureZ: true,
+    },
+    'Searing Sunraze Smash': {
+        bp: 200,
+        type: 'Steel',
+        category: 'Physical',
+        isSignatureZ: true,
+    },
+    'Menacing Moonraze Maelstrom': {
+        bp: 200,
+        type: 'Ghost',
+        category: 'Special',
+        isSignatureZ: true,
+    },
+    'Let\'s Snuggle Forever': {
+        bp: 190,
+        type: 'Fairy',
+        category: 'Physical',
+        isSignatureZ: true,
+    },
+    'Splintered Stormshards': {
+        bp: 190,
+        type: 'Rock',
+        category: 'Physical',
+        isSignatureZ: true,
+    },
+    'Clangorous Soulblaze': {
+        bp: 185,
+        type: 'Dragon',
+        category: 'Special',
+        isSound: true,
+        isSpread: true,
+        isSignatureZ: true,
+    },
 });
+
+var MOVES_SS = $.extend(true, {}, MOVES_SM, {
+    'Dynamax Cannon': {
+        bp: 100,
+        type: 'Dragon',
+        category: 'Special',
+    },
+    'Snipe Shot': {
+        bp: 80,
+        type: 'Water',
+        category: 'Special',
+    },
+    'Jaw Lock': {
+        bp: 80,
+        type: 'Dark',
+        category: 'Physical',
+    },
+    'Dragon Darts': {
+        bp: 50,
+        type: 'Dragon',
+        category: 'Physical',
+        isTwoHit: true
+    },
+    'Bolt Beak': {
+        bp: 85,
+        type: 'Electric',
+        category: 'Physical',
+        makesContact: true,
+    },
+    'Bolt Beak (Doubled)': {
+        bp: 170,
+        type: 'Electric',
+        category: 'Physical',
+        makesContact: true,
+    },
+    'Fishious Rend': {
+        bp: 85,
+        type: 'Water',
+        category: 'Physical',
+        isBite: true,
+        makesContact: true,
+    },
+    'Fishious Rend (Doubled)': {
+        bp: 170,
+        type: 'Water',
+        category: 'Physical',
+        isBite: true,
+        makesContact: true,
+    },
+    'Body Press': {
+        bp: 80,
+        type: 'Fighting',
+        category: 'Physical',
+    },
+    'Drum Beating': {
+        bp: 80,
+        type: 'Grass',
+        category: 'Physical',
+    },
+    'Snap Trap': {
+        bp: 35,
+        type: 'Grass',
+        category: 'Physical',
+    },
+    'Pyro Ball': {
+        bp: 120,
+        type: 'Fire',
+        category: 'Physical',
+    },
+    'Behemoth Blade': {
+        bp: 100,
+        type: 'Steel',
+        category: 'Physical',
+    },
+    'Behemoth Bash': {
+        bp: 100,
+        type: 'Steel',
+        category: 'Physical',
+    },
+    'Aura Wheel': {
+        bp: 110,
+        type: 'Electric',
+        category: 'Physical',
+    },
+    'Breaking Swipe': {
+        bp: 60,
+        type: 'Dragon',
+        category: 'Physical',
+    },
+    'Branch Poke': {
+        bp: 40,
+        type: 'Grass',
+        category: 'Physical',
+    },
+    'Overdrive': {
+        bp: 80,
+        type: 'Electric',
+        category: 'Special',
+        isSound: true,
+        isSpread: true
+    },
+    'Apple Acid': {
+        bp: 80,
+        type: 'Grass',
+        category: 'Special',
+    },
+    'Grav Apple': {
+        bp: 80,
+        type: 'Grass',
+        category: 'Physical',
+    },
+    'Spirit Break': {
+        bp: 75,
+        type: 'Fairy',
+        category: 'Physical',
+        hasSecondaryEffect: true,
+    },
+    'Strange Stream': {
+        bp: 90,
+        type: 'Fairy',
+        category: 'Special',
+    },
+    'False Surrender': {
+        bp: 80,
+        type: 'Dark',
+        category: 'Physical',
+    },
+    'Meteor Assault': {
+        bp: 150,
+        type: 'Fighting',
+        category: 'Physical',
+    },
+    'Eternabeam': {
+        bp: 160,
+        type: 'Dragon',
+        category: 'Special',
+    },
+    'Steel Beam': {
+        bp: 140,
+        type: 'Steel',
+        category: 'Special',
+    },
+    'Max Strike': {
+        type: 'Normal'
+    },
+    'Max Flare': {
+        type: 'Fire'
+    },
+    'Max Hailstorm': {
+        type: 'Ice'
+    },
+    'Max Geyser': {
+        type: 'Water'
+    },
+    'Max Lightning': {
+        type: 'Electric'
+    },
+    'Max Knuckle': {
+        type: 'Fighting'
+    },
+    'Max Overgrowth': {
+        type: 'Grass'
+    },
+    'Max Mindstorm': {
+        type: 'Psychic'
+    },
+    'Max Flutterby': {
+        type: 'Bug'
+    },
+    'Max Ooze': {
+        type: 'Poison'
+    },
+    'Max Airstream': {
+        type: 'Flying'
+    },
+    'Max Wyrmwind': {
+        type: 'Dragon'
+    },
+    'Max Rockfall': {
+        type: 'Rock'
+    },
+    'Max Quake': {
+        type: 'Ground'
+    },
+    'Max Steelspike': {
+        type: 'Steel'
+    },
+    'Max Starfall': {
+        type: 'Fairy'
+    },
+    'Max Phantasm': {
+        type: 'Ghost'
+    },
+    'Max Darkness': {
+        type: 'Dark'
+    },
+});
+
+var MAXMOVES_LOOKUP = {
+    'Normal':'Max Strike','Fire':'Max Flare','Water':'Max Geyser',
+    'Electric':'Max Lightning','Grass':'Max Overgrowth','Ghost':'Max Phantasm',
+    'Dark':'Max Darkness','Psychic':'Max Mindstorm','Fighting':'Max Knuckle',
+    'Steel':'Max Steelspike','Ice':'Max Hailstorm','Ground':'Max Quake',
+    'Rock':'Max Rockfall','Bug':'Max Flutterby','Fairy':'Max Starfall',
+    'Flying':'Max Airstream','Dragon':'Max Wyrmwind','Poison':'Max Ooze'
+};
