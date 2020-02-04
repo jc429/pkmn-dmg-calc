@@ -948,141 +948,154 @@ function Side(format, doubleHeal, terrain, weather, isGravity, isTR, isMR, isWR,
 var gen, pokedex, setdex, typeChart, moves, abilities, items, STATS, calculateAllMoves, calcHP, calcStat;
 
 $(".gen").change(function () {
-    gen = ~~$(this).val();
-    switch (gen) {
-        case 1:
-            pokedex = POKEDEX_RBY;
-            setdex = SETDEX_RBY;
-            typeChart = TYPE_CHART_RBY;
-            moves = MOVES_RBY;
-            items = [];
-            abilities = [];
-            STATS = STATS_RBY;
-            calculateAllMoves = CALCULATE_ALL_MOVES_RBY;
-            calcHP = CALC_HP_RBY;
-            calcStat = CALC_STAT_RBY;
-            break;
-        case 2:
-            pokedex = POKEDEX_GSC;
-            setdex = SETDEX_GSC;
-            typeChart = TYPE_CHART_GSC;
-            moves = MOVES_GSC;
-            items = ITEMS_GSC;
-            abilities = [];
-            STATS = STATS_GSC;
-            calculateAllMoves = CALCULATE_ALL_MOVES_GSC;
-            calcHP = CALC_HP_RBY;
-            calcStat = CALC_STAT_RBY;
-            break;
-        case 3:
-            pokedex = POKEDEX_ADV;
-            setdex = SETDEX_ADV;
-            typeChart = TYPE_CHART_GSC;
-            moves = MOVES_ADV;
-            items = ITEMS_ADV;
-            abilities = ABILITIES_ADV;
-            STATS = STATS_GSC;
-            calculateAllMoves = CALCULATE_ALL_MOVES_ADV;
-            calcHP = CALC_HP_ADV;
-            calcStat = CALC_STAT_ADV;
-            break;
-        case 4:
-            pokedex = POKEDEX_DPP;
-            setdex = SETDEX_DPP;
-            typeChart = TYPE_CHART_GSC;
-            moves = MOVES_DPP;
-            items = ITEMS_DPP;
-            abilities = ABILITIES_DPP;
-            STATS = STATS_GSC;
-            calculateAllMoves = CALCULATE_ALL_MOVES_DPP;
-            calcHP = CALC_HP_ADV;
-            calcStat = CALC_STAT_ADV;
-            break;
-        case 5:
-            pokedex = POKEDEX_BW;
-            setdex = SETDEX_BW;
-            typeChart = TYPE_CHART_GSC;
-            moves = MOVES_BW;
-            items = ITEMS_BW;
-            abilities = ABILITIES_BW;
-            STATS = STATS_GSC;
-            calculateAllMoves = CALCULATE_ALL_MOVES_BW;
-            calcHP = CALC_HP_ADV;
-            calcStat = CALC_STAT_ADV;
-            break;
-        case 6:
-            pokedex = POKEDEX_XY;
-            setdex = SETDEX_XY;
-            typeChart = TYPE_CHART_XY;
-            moves = MOVES_XY;
-            items = ITEMS_XY;
-            abilities = ABILITIES_XY;
-            STATS = STATS_GSC;
-            calculateAllMoves = CALCULATE_ALL_MOVES_BW;
-            calcHP = CALC_HP_ADV;
-            calcStat = CALC_STAT_ADV;
-            break;
-        case 7:
-            pokedex = POKEDEX_SM;
-            setdex = SETDEX_SM;
-            typeChart = TYPE_CHART_XY;
-            moves = MOVES_SM;
-            items = ITEMS_SM;
-            abilities = ABILITIES_SM;
-            STATS = STATS_GSC;
-            calculateAllMoves = CALCULATE_ALL_MOVES_BW;
-            calcHP = CALC_HP_ADV;
-            calcStat = CALC_STAT_ADV;
-    }
-    clearField();
-    $(".gen-specific.g" + gen).show();
-    $(".gen-specific").not(".g" + gen).hide();
-    var typeOptions = getSelectOptions(Object.keys(typeChart));
-    $("select.type1, select.move-type").find("option").remove().end().append(typeOptions);
-    $("select.type2").find("option").remove().end().append("<option value=\"\">(none)</option>" + typeOptions);
-    var moveOptions = getSelectOptions(Object.keys(moves), true);
-    $("select.move-selector").find("option").remove().end().append(moveOptions);
-    var abilityOptions = getSelectOptions(abilities, true);
-    $("select.ability").find("option").remove().end().append("<option value=\"\">(other)</option>" + abilityOptions);
-    var itemOptions = getSelectOptions(items, true);
-    $("select.item").find("option").remove().end().append("<option value=\"\">(none)</option>" + itemOptions);
-    
-    $(".set-selector").val(getSetOptions()[gen > 3 ? 1 : gen === 1 ? 5 : 3].id);
-    $(".set-selector").change();
+	gen = ~~$(this).val();
+	switch (gen) {
+		case 1:
+			pokedex = POKEDEX_RBY;
+			setdex = SETDEX_RBY;
+			typeChart = TYPE_CHART_RBY;
+			moves = MOVES_RBY;
+			items = [];
+			abilities = [];
+			STATS = STATS_RBY;
+			calculateAllMoves = CALCULATE_ALL_MOVES_RBY;
+			calcHP = CALC_HP_RBY;
+			calcStat = CALC_STAT_RBY;
+			break;
+		case 2:
+			pokedex = POKEDEX_GSC;
+			setdex = SETDEX_GSC;
+			typeChart = TYPE_CHART_GSC;
+			moves = MOVES_GSC;
+			items = ITEMS_GSC;
+			abilities = [];
+			STATS = STATS_GSC;
+			calculateAllMoves = CALCULATE_ALL_MOVES_GSC;
+			calcHP = CALC_HP_RBY;
+			calcStat = CALC_STAT_RBY;
+			break;
+		case 3:
+			pokedex = POKEDEX_ADV;
+			setdex = SETDEX_ADV;
+			typeChart = TYPE_CHART_GSC;
+			moves = MOVES_ADV;
+			items = ITEMS_ADV;
+			abilities = ABILITIES_ADV;
+			STATS = STATS_GSC;
+			calculateAllMoves = CALCULATE_ALL_MOVES_ADV;
+			calcHP = CALC_HP_ADV;
+			calcStat = CALC_STAT_ADV;
+			break;
+		case 4:
+			pokedex = POKEDEX_DPP;
+			setdex = SETDEX_DPP;
+			typeChart = TYPE_CHART_GSC;
+			moves = MOVES_DPP;
+			items = ITEMS_DPP;
+			abilities = ABILITIES_DPP;
+			STATS = STATS_GSC;
+			calculateAllMoves = CALCULATE_ALL_MOVES_DPP;
+			calcHP = CALC_HP_ADV;
+			calcStat = CALC_STAT_ADV;
+			break;
+		case 5:
+			pokedex = POKEDEX_BW;
+			setdex = SETDEX_BW;
+			typeChart = TYPE_CHART_GSC;
+			moves = MOVES_BW;
+			items = ITEMS_BW;
+			abilities = ABILITIES_BW;
+			STATS = STATS_GSC;
+			calculateAllMoves = CALCULATE_ALL_MOVES_BW;
+			calcHP = CALC_HP_ADV;
+			calcStat = CALC_STAT_ADV;
+			break;
+		case 6:
+			pokedex = POKEDEX_XY;
+			setdex = SETDEX_XY;
+			typeChart = TYPE_CHART_XY;
+			moves = MOVES_XY;
+			items = ITEMS_XY;
+			abilities = ABILITIES_XY;
+			STATS = STATS_GSC;
+			calculateAllMoves = CALCULATE_ALL_MOVES_BW;
+			calcHP = CALC_HP_ADV;
+			calcStat = CALC_STAT_ADV;
+			break;
+		case 7:
+			pokedex = POKEDEX_SM;
+			setdex = SETDEX_SM;
+			typeChart = TYPE_CHART_XY;
+			moves = MOVES_SM;
+			items = ITEMS_SM;
+			abilities = ABILITIES_SM;
+			STATS = STATS_GSC;
+			calculateAllMoves = CALCULATE_ALL_MOVES_BW;
+			calcHP = CALC_HP_ADV;
+			calcStat = CALC_STAT_ADV;
+			break;
+		case 8:
+			pokedex = POKEDEX_SS;
+			setdex = SETDEX_SS;
+			typeChart = TYPE_CHART_XY;
+			moves = MOVES_SS;
+			items = ITEMS_SM;
+			abilities = ABILITIES_SM;
+			STATS = STATS_GSC;
+			calculateAllMoves = CALCULATE_ALL_MOVES_BW;
+			calcHP = CALC_HP_ADV;
+			calcStat = CALC_STAT_ADV;
+			break;
+	}
+	clearField();
+	$(".gen-specific.g" + gen).show();
+	$(".gen-specific").not(".g" + gen).hide();
+	var typeOptions = getSelectOptions(Object.keys(typeChart));
+	$("select.type1, select.move-type").find("option").remove().end().append(typeOptions);
+	$("select.type2").find("option").remove().end().append("<option value=\"\">(none)</option>" + typeOptions);
+	var moveOptions = getSelectOptions(Object.keys(moves), true);
+	$("select.move-selector").find("option").remove().end().append(moveOptions);
+	var abilityOptions = getSelectOptions(abilities, true);
+	$("select.ability").find("option").remove().end().append("<option value=\"\">(other)</option>" + abilityOptions);
+	var itemOptions = getSelectOptions(items, true);
+	$("select.item").find("option").remove().end().append("<option value=\"\">(none)</option>" + itemOptions);
+	
+	$(".set-selector").val(getSetOptions()[gen > 3 ? 1 : gen === 1 ? 5 : 3].id);
+	$(".set-selector").change();
 });
 
 function clearField() {
-    $("#doubles").prop("checked", true);
-    $("#double-recovery").prop("checked", false);
-    $("#clear").prop("checked", true);
-    $("#gscClear").prop("checked", true);
-    $("#gravity").prop("checked", false);
-    $("#trickRoom").prop("checked", false);
-    $("#magicRoom").prop("checked", false);
-    $("#wonderRoom").prop("checked", false);
-    $("#waterSport").prop("checked", false);
-    $("#mudSport").prop("checked", false);
-    $("#ionDeluge").prop("checked", false);
-    $("#srL").prop("checked", false);
-    $("#srR").prop("checked", false);
-    $("#spikesL0").prop("checked", true);
-    $("#spikesR0").prop("checked", true);
- //   $("#seedsL0").prop("checked", true);
- //   $("#seedsR0").prop("checked", true);
-    $("#gscSpikesL").prop("checked", false);
-    $("#gscSpikesR").prop("checked", false);
-    $("#reflectL").prop("checked", false);
-    $("#reflectR").prop("checked", false);
-    $("#lightScreenL").prop("checked", false);
-    $("#lightScreenR").prop("checked", false);
-    $("#foresightL").prop("checked", false);
-    $("#foresightR").prop("checked", false);
-    $("#helpingHandL").prop("checked", false);
-    $("#helpingHandR").prop("checked", false);
-    $("#friendGuardL").prop("checked", false);
-    $("#friendGuardR").prop("checked", false);
-    $("#batteryL").prop("checked", false);
-    $("#batteryR").prop("checked", false);
+	$("#doubles").prop("checked", true);
+	$("#double-recovery").prop("checked", false);
+	$("#clear").prop("checked", true);
+	$("#gscClear").prop("checked", true);
+	$("#gravity").prop("checked", false);
+	$("#trickRoom").prop("checked", false);
+	$("#magicRoom").prop("checked", false);
+	$("#wonderRoom").prop("checked", false);
+	$("#waterSport").prop("checked", false);
+	$("#mudSport").prop("checked", false);
+	$("#ionDeluge").prop("checked", false);
+	$("#srL").prop("checked", false);
+	$("#srR").prop("checked", false);
+	$("#spikesL0").prop("checked", true);
+	$("#spikesR0").prop("checked", true);
+//   $("#seedsL0").prop("checked", true);
+//   $("#seedsR0").prop("checked", true);
+	$("#gscSpikesL").prop("checked", false);
+	$("#gscSpikesR").prop("checked", false);
+	$("#reflectL").prop("checked", false);
+	$("#reflectR").prop("checked", false);
+	$("#lightScreenL").prop("checked", false);
+	$("#lightScreenR").prop("checked", false);
+	$("#foresightL").prop("checked", false);
+	$("#foresightR").prop("checked", false);
+	$("#helpingHandL").prop("checked", false);
+	$("#helpingHandR").prop("checked", false);
+	$("#friendGuardL").prop("checked", false);
+	$("#friendGuardR").prop("checked", false);
+	$("#batteryL").prop("checked", false);
+	$("#batteryR").prop("checked", false);
 }
 
 function getSetOptions() {

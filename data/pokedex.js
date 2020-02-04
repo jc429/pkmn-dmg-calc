@@ -9079,7 +9079,7 @@ var POKEDEX_XY = $.extend(true, {}, POKEDEX_BW, {
     },
     "w": 53.0,
     "ab": "Stance Change",
-    "formes": ["Aegislash-Dual","Aegislash-Shield", "Aegislash-Blade"]
+    "formes": ["Aegislash-Dual", "Aegislash-Shield", "Aegislash-Blade"]
   },
   "Aegislash-Blade": {
     "t1": "Steel",
@@ -9093,8 +9093,7 @@ var POKEDEX_XY = $.extend(true, {}, POKEDEX_BW, {
       "sp": 60
     },
     "w": 53.0,
-		"ab": "Stance Change",
-		"isAlternateForme": true
+    "ab": "Stance Change",
   },
   "Aegislash-Shield": {
     "t1": "Steel",
@@ -9110,8 +9109,8 @@ var POKEDEX_XY = $.extend(true, {}, POKEDEX_BW, {
     "w": 53.0,
     "ab": "Stance Change",
     "isAlternateForme": true
-	},
-	"Aegislash-Dual": {
+  },
+  "Aegislash-Dual": {
     "t1": "Steel",
     "t2": "Ghost",
     "bs": {
@@ -13870,6 +13869,7 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
   "Aegislash": { "bs": { "df": 140, "sd": 140 } },
   "Aegislash-Blade": { "bs": { "at": 140, "sa": 140 } },
   "Aegislash-Shield": { "bs": { "df": 140, "sd": 140 } },
+  "Aegislash-Dual": { "bs": { "at": 140, "sa": 140, "df": 140, "sd": 140 } },
   
   "Venusaur": { "formes": ["Venusaur"] },
   "Charizard": { "formes": ["Charizard"] },
