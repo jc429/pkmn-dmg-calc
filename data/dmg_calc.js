@@ -1,11 +1,10 @@
 
-var gen, pokedex, setdex, typeChart, moves, abilities, items, STATS, calculateAllMoves, calcHP, calcStat;
+//var gen, pokedex, setdex, typeChart, moves, abilities, items, STATS, calculateAllMoves, calcHP, calcStat;
 
 
 var load_data = (function() {	//set gen function
     // code...
 	//gen = 7;
-	gen = 8;
 	pokedex = POKEDEX_SS;
 	setdex = SETDEX_SS;
 	typeChart = TYPE_CHART_XY;
@@ -52,10 +51,10 @@ function getSelectOptions(arr, sort, defaultIdx) {
     return r;
 }
 
-
+/*
 $(document).ready(function() {
-    $("#gen7").prop("checked", true);
-    $("#gen7").change();
+    $("#gen8").prop("checked", true);
+    $("#gen8").change();
     $(".terrain-trigger").bind("change keyup", getTerrainEffects);
     $(".calc-trigger").bind("change keyup", calculate);
     $(".set-selector").select2({
@@ -92,7 +91,7 @@ $(document).ready(function() {
     $(".set-selector").val(getSetOptions()[gen > 3 ? 1 : gen === 1 ? 5 : 3].id);
     $(".set-selector").change();
 });
-
+*/
 
 /*
 $(".gen").change(function () {

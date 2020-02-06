@@ -1,3 +1,6 @@
+var gen, pokedex, setdex, typeChart, moves, abilities, items, STATS, calculateAllMoves, calcHP, calcStat;
+
+
 // input field validation
 var bounds = {
     "level":[0,100],
@@ -871,48 +874,49 @@ function getMoveDetails(moveInfo, makeZ, makeCrit, hitNum) {
 }
 
 function Field() {
-    var format = $("input:radio[name='format']:checked").val();
-    var doubleHeal = $("#double-recovery").prop("checked");
-    var isGravity = $("#gravity").prop("checked");
+	var format = $("input:radio[name='format']:checked").val();
+	var doubleHeal = $("#double-recovery").prop("checked");
+	var isGravity = $("#gravity").prop("checked");
 	var isTR = $("#trickRoom").prop("checked");
 	var isMR = $("#magicRoom").prop("checked");
 	var isWR = $("#wonderRoom").prop("checked");
 	
-    var isSR = [$("#srL").prop("checked"), $("#srR").prop("checked")];
+	var isSR = [$("#srL").prop("checked"), $("#srR").prop("checked")];
 	
 	var isWet = $("#waterSport").prop("checked");
 	var isMuddy = $("#mudSport").prop("checked");
 	var isIonized = $("#ionDeluge").prop("checked");
 	
-    var weather;
-    var spikes;
-    if (gen === 2) {
-        spikes = [$("#gscSpikesL").prop("checked") ? 1 : 0, $("#gscSpikesR").prop("checked") ? 1 : 0];
-        weather = $("input:radio[name='gscWeather']:checked").val();
-    } else {
-        weather = $("input:radio[name='weather']:checked").val();
-        spikes = [~~$("input:radio[name='spikesL']:checked").val(), ~~$("input:radio[name='spikesR']:checked").val()];
-    }
+	var weather;
+	var spikes;
+	if (gen === 2) {
+		weather = $("input:radio[name='gscWeather']:checked").val();
+		spikes = [$("#gscSpikesL").prop("checked") ? 1 : 0, $("#gscSpikesR").prop("checked") ? 1 : 0];
+	} else {
+		weather = $("input:radio[name='weather']:checked").val();
+		spikes = [~~$("input:radio[name='spikesL']:checked").val(), ~~$("input:radio[name='spikesR']:checked").val()];
+	}
 	//var seeds = [~~$("input:radio[name='seedsL']:checked").val(), ~~$("input:radio[name='seedsR']:checked").val()];
-	
-    var terrain = ($("input:radio[name='terrain']:checked").val()) ? $("input:radio[name='terrain']:checked").val() : "";
-    var isReflect = [$("#reflectL").prop("checked"), $("#reflectR").prop("checked")];
-    var isLightScreen = [$("#lightScreenL").prop("checked"), $("#lightScreenR").prop("checked")];
+
+	var terrain = ($("input:radio[name='terrain']:checked").val()) ? $("input:radio[name='terrain']:checked").val() : "";
+	var isReflect = [$("#reflectL").prop("checked"), $("#reflectR").prop("checked")];
+	var isLightScreen = [$("#lightScreenL").prop("checked"), $("#lightScreenR").prop("checked")];
 	var isAuroraVeil =  [$("#auroraVeilL").prop("checked"), $("#auroraVeilR").prop("checked")];
-    var isForesight = [$("#foresightL").prop("checked"), $("#foresightR").prop("checked")];
-    var isHelpingHand = [$("#helpingHandR").prop("checked"), $("#helpingHandL").prop("checked")]; 	// affects attacks against opposite side
-    var isFriendGuard = [$("#friendGuardL").prop("checked"), $("#friendGuardR").prop("checked")];
+	var isForesight = [$("#foresightL").prop("checked"), $("#foresightR").prop("checked")];
+	var isHelpingHand = [$("#helpingHandR").prop("checked"), $("#helpingHandL").prop("checked")]; 	// affects attacks against opposite side
+	var isFriendGuard = [$("#friendGuardL").prop("checked"), $("#friendGuardR").prop("checked")];
 	var isBattery = [$("#batteryR").prop("checked"), $("#batteryL").prop("checked")];				// affects attacks against opposite side
+	var isPowerSpot = [$("#powerSpotR").prop("checked"), $("#powerSpotL").prop("checked")];
     
-    this.getWeather = function() {
-        return weather;
-    };
-    this.clearWeather = function() {
-        weather = "";
-    };
-    this.getSide = function(i) {
-        return new Side(format, doubleHeal, terrain, weather, isGravity, isTR, isMR, isWR, isSR[i], isWet, isMuddy, isIonized, spikes[i], isReflect[i], isLightScreen[i], isAuroraVeil[i], isForesight[i], isHelpingHand[i], isFriendGuard[i], isBattery[i]);
-    };
+	this.getWeather = function() {
+		return weather;
+	};
+	this.clearWeather = function() {
+		weather = "";
+	};
+	this.getSide = function(i) {
+		return new Side(format, doubleHeal, terrain, weather, isGravity, isTR, isMR, isWR, isSR[i], isWet, isMuddy, isIonized, spikes[i], isReflect[i], isLightScreen[i], isAuroraVeil[i], isForesight[i], isHelpingHand[i], isFriendGuard[i], isBattery[i], isPowerSpot[i]);
+	};
 	this.getMR = function(){
 		return isMR;
 	};
@@ -921,31 +925,32 @@ function Field() {
 	};
 }
 
-function Side(format, doubleHeal, terrain, weather, isGravity, isTR, isMR, isWR, isSR, isWet, isMuddy, isIonized, spikes, isReflect, isLightScreen, isAuroraVeil, isForesight, isHelpingHand, isFriendGuard, isBattery) {
-    this.format = format;
+function Side(format, doubleHeal, terrain, weather, isGravity, isTR, isMR, isWR, isSR, isWet, isMuddy, isIonized, spikes, isReflect, isLightScreen, isAuroraVeil, isForesight, isHelpingHand, isFriendGuard, isBattery, isPowerSpot) {
+	this.format = format;
 	this.doubleHeal = doubleHeal;
-    this.terrain = terrain;
-    this.weather = weather;
-    this.isGravity = isGravity;
-    this.isTR = isTR;
+	this.terrain = terrain;
+	this.weather = weather;
+	this.isGravity = isGravity;
+	this.isTR = isTR;
 	this.isMR = isMR;
 	this.isWR = isWR;
-    this.isSR = isSR;
+	this.isSR = isSR;
 	this.isWet = isWet;
 	this.isMuddy = isMuddy;
 	this.isIonized = isIonized;
-    this.spikes = spikes;
+	this.spikes = spikes;
 	//this.seeds = seeds;
-    this.isReflect = isReflect;
-    this.isLightScreen = isLightScreen;
+	this.isReflect = isReflect;
+	this.isLightScreen = isLightScreen;
 	this.isAuroraVeil = isAuroraVeil;
-    this.isForesight = isForesight;
-    this.isHelpingHand = isHelpingHand;
-    this.isFriendGuard = isFriendGuard;
+	this.isForesight = isForesight;
+	this.isHelpingHand = isHelpingHand;
+	this.isFriendGuard = isFriendGuard;
 	this.isBattery = isBattery;
+	this.isPowerSpot = isPowerSpot;
 }
 
-var gen, pokedex, setdex, typeChart, moves, abilities, items, STATS, calculateAllMoves, calcHP, calcStat;
+
 
 $(".gen").change(function () {
 	gen = ~~$(this).val();
@@ -1039,7 +1044,7 @@ $(".gen").change(function () {
 			setdex = SETDEX_SS;
 			typeChart = TYPE_CHART_XY;
 			moves = MOVES_SS;
-			items = ITEMS_SM;
+			items = ITEMS_SS;
 			abilities = ABILITIES_SM;
 			STATS = STATS_GSC;
 			calculateAllMoves = CALCULATE_ALL_MOVES_BW;
@@ -1170,41 +1175,41 @@ function getSelectOptions(arr, sort, defaultIdx) {
 
 
 $(document).ready(function() {
-    $("#gen7").prop("checked", true);
-    $("#gen7").change();
-    $(".terrain-trigger").bind("change keyup", getTerrainEffects);
-    $(".calc-trigger").bind("change keyup", calculate);
-    $(".set-selector").select2({
-        formatResult: function(object) {
-            return object.set ? ("&nbsp;&nbsp;&nbsp;" + object.set) : ("<b>" + object.text + "</b>");
-        },
-        query: function(query) {
-            var setOptions = getSetOptions();
-            var pageSize = 30;
-            var results = [];
-            for (var i = 0; i < setOptions.length; i++) {
-                var pokeName = setOptions[i].pokemon.toUpperCase();
-                if (!query.term || pokeName.indexOf(query.term.toUpperCase()) === 0) {
-                    results.push(setOptions[i]);
-                }
-            }
-            query.callback({
-                results: results.slice((query.page - 1) * pageSize, query.page * pageSize),
-                more: results.length >= query.page * pageSize
-            });
-        },
-        initSelection: function(element, callback) {
-            var data = getSetOptions()[gen > 3 ? 1 : gen === 1 ? 5 : 3];
-            callback(data);
-        }
-    });
-    $(".move-selector").select2({
-        dropdownAutoWidth:true,
-        matcher: function(term, text) {
-            // 2nd condition is for Hidden Power
-            return text.toUpperCase().indexOf(term.toUpperCase()) === 0 || text.toUpperCase().indexOf(" " + term.toUpperCase()) >= 0;
-        }
-    });
-    $(".set-selector").val(getSetOptions()[gen > 3 ? 1 : gen === 1 ? 5 : 3].id);
-    $(".set-selector").change();
+	$("#gen8").prop("checked", true);
+	$("#gen8").change();
+	$(".terrain-trigger").bind("change keyup", getTerrainEffects);
+	$(".calc-trigger").bind("change keyup", calculate);
+	$(".set-selector").select2({
+		formatResult: function(object) {
+			return object.set ? ("&nbsp;&nbsp;&nbsp;" + object.set) : ("<b>" + object.text + "</b>");
+		},
+		query: function(query) {
+			var setOptions = getSetOptions();
+			var pageSize = 30;
+			var results = [];
+			for (var i = 0; i < setOptions.length; i++) {
+				var pokeName = setOptions[i].pokemon.toUpperCase();
+				if (!query.term || pokeName.indexOf(query.term.toUpperCase()) === 0) {
+					results.push(setOptions[i]);
+				}
+			}
+			query.callback({
+				results: results.slice((query.page - 1) * pageSize, query.page * pageSize),
+				more: results.length >= query.page * pageSize
+			});
+		},
+		initSelection: function(element, callback) {
+			var data = getSetOptions()[gen > 3 ? 1 : gen === 1 ? 5 : 3];
+			callback(data);
+		}
+	});
+	$(".move-selector").select2({
+		dropdownAutoWidth:true,
+		matcher: function(term, text) {
+			// 2nd condition is for Hidden Power
+			return text.toUpperCase().indexOf(term.toUpperCase()) === 0 || text.toUpperCase().indexOf(" " + term.toUpperCase()) >= 0;
+		}
+	});
+	$(".set-selector").val(getSetOptions()[gen > 3 ? 1 : gen === 1 ? 5 : 3].id);
+	$(".set-selector").change();
 });

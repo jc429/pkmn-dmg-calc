@@ -20,15 +20,24 @@
 
 <body>
 	<div class="main-page">
-		<span class="generations" style="display: none;" title="Select the generation.">
-			<input class="gen btn-input" type="radio" name="gen" value="6" id="gen6" />
-			<label class="btn btn-small btn-mid" for="gen6">ORAS</label>
-			<input class="gen btn-input" type="radio" name="gen" value="7" id="gen7" />
-			<label class="btn btn-small btn-right" for="gen7">S/M</label>
-			<input class="gen btn-input" type="radio" name="gen" value="8" id="gen8" checked="checked" />
-			<label class="btn btn-small btn-right" for="gen8">S/S</label>
-		</span>
-		<p class="big-text small-text">Pok&eacute;mon Sword/Shield Damage Calculator v0.9 i guess</p>
+
+		<div>
+			<span class="big-text small-text">Pok&eacute;mon Sword/Shield Damage Calculator v0.9 i guess</span>
+			<span  class="generations" title="Select the generation.">
+			<!--
+				<input class="gen btn-input" type="radio" name="gen" value="1" id="gen1" /><label class="btn btn-small btn-left" for="gen1"> 1 </label>
+				<input class="gen btn-input" type="radio" name="gen" value="2" id="gen2" /><label class="btn btn-small btn-mid" for="gen2"> 2 </label>
+				<input class="gen btn-input" type="radio" name="gen" value="3" id="gen3" /><label class="btn btn-small btn-mid" for="gen3"> 3 </label>
+				<input class="gen btn-input" type="radio" name="gen" value="4" id="gen4" /><label class="btn btn-small btn-mid" for="gen4"> 4 </label>
+				<input class="gen btn-input" type="radio" name="gen" value="5" id="gen5" /><label class="btn btn-small btn-mid" for="gen5"> 5 </label>
+				<input class="gen btn-input" type="radio" name="gen" value="6" id="gen6" /><label class="btn btn-small btn-mid" for="gen6"> 6 </label>
+			-->
+				<input class="gen btn-input" type="radio" name="gen" value="7" id="gen7" />
+				<label class="btn btn-small btn-left" for="gen7"> Gen 7 </label>
+				<input class="gen btn-input" type="radio" name="gen" value="8" id="gen8" checked="checked" />
+				<label class="btn btn-small btn-right" for="gen8"> Gen 8 </label>
+			</span>
+		</div>
 		<hr />
 
 		<!-- Damage Results -->
@@ -537,9 +546,9 @@
 						<div>
 							<div class="info-group">
 								<label>Current HP</label>
-								<input class="current-hp calc-trigger" value="712" />/<span class="max-hp">712</span> (<input
-									class="percent-hp calc-trigger" value="100" />%)
-
+								<input class="current-hp calc-trigger" value="712" />/<span class="max-hp">712</span> (<input class="percent-hp calc-trigger" value="100" />%)
+								<input id="dmax" class="dynamax btn-input calc-trigger" type="checkbox" />
+								<label for="dmax" class="btn btn-small poke-button small-text">Max</label>
 								<br />
 								<label>Status</label>
 								<select class="status calc-trigger">
@@ -620,7 +629,7 @@
 
 							<input id="level-set" class="level calc-trigger" style="width: 2.2em;" value="50" />
 						</div>
-						<div class="gen-specific g3 g4 g5 g6 g7" style="width: 10.6em; margin: 0 auto 5px;"
+						<div style="width: 10.6em; margin: 0 auto 5px;"
 							title="Select the battle format.">
 							<input class="btn-input calc-trigger" type="radio" name="format" value="Singles" id="singles"
 								checked="checked" /><label class="btn btn-left" for="singles">Singles</label>
@@ -632,8 +641,8 @@
 							<input class="btn-input calc-trigger" type="checkbox" id="double-recovery" /><label
 								class="btn btn-xxxwide" for="double-recovery">Double Recovery Mode</label>
 						</div>
-						<hr class="gen-specific g6 g7 g7" />
-						<div class="gen-specific g6 g7" style="margin: 5px auto;" title="Select the current terrain.">
+						<hr />
+						<div style="margin: 5px auto;" title="Select the current terrain.">
 							<label class="field-label small-text">Terrain:</label>
 							<input class="btn-input terrain-trigger calc-trigger" type="radio" name="terrain" value="" id="noterrain"
 								checked="checked" /><label class="btn btn-small btn-left" for="noterrain">None</label>
@@ -646,8 +655,7 @@
 							<input class="btn-input terrain-trigger calc-trigger" type="radio" name="terrain" value="Psychic"
 								id="psychic" /><label class="btn btn-small btn-right" for="psychic">Psychic</label>
 						</div>
-						<div class="gen-specific g3 g4 g5 g6 g7 g7" style="margin: 5px auto;"
-							title="Select the current weather condition.">
+						<div style="margin: 5px auto;" title="Select the current weather condition.">
 							<label class="field-label small-text">Weather: </label>
 							<input class="btn-input calc-trigger" type="radio" name="weather" value="" id="clear"
 								checked="checked" /><label class="btn btn-small btn-left" for="clear">None</label>
@@ -660,8 +668,8 @@
 							<input class="btn-input calc-trigger" type="radio" name="weather" value="Hail" id="hail" /><label
 								class="btn btn-small btn-right" for="hail">Hail</label>
 						</div>
-						<div class="gen-specific g6 g7 g7" style=" margin: 5px auto;" title="Select the current weather condition.">
-							<label class="field-label small-text">Big Weather: </label>
+						<div style=" margin: 5px auto;" title="Select the current heavy weather condition.">
+							<label class="field-label small-text">Heavy Weather: </label>
 							<input class="btn-input calc-trigger" type="radio" name="weather" value="Harsh Sun"
 								id="harsh-sun" /><label class="btn btn-wide btn-left" for="harsh-sun">Harsh Sun</label>
 							<input class="btn-input calc-trigger" type="radio" name="weather" value="Heavy Rain"
@@ -679,7 +687,7 @@
 							<input class="btn-input calc-trigger" type="radio" name="gscWeather" value="Sand" id="gscSand" /><label
 								class="btn btn-small btn-right" for="gscSand">Sand</label>
 						</div>
-						<div class="gen-specific g6 g7 g7" style="margin: 5px auto;" title="Select the current radiating aura.">
+						<div style="margin: 5px auto;" title="Select the current radiating aura.">
 							<label class="field-label small-text">Aura: </label>
 							<input class="btn-input calc-trigger" type="checkbox" name="aura" value="Aura Break"
 								id="aura-break" /><label class="btn btn-wide btn-left" for="aura-break">Aura Break</label>
@@ -688,8 +696,8 @@
 							<input class="btn-input calc-trigger" type="checkbox" name="aura" value="Dark Aura"
 								id="dark-aura" /><label class="btn btn-wide btn-right" for="dark-aura">Dark Aura</label>
 						</div>
-						<hr class="gen-specific g6 g7 g7" />
-						<div class="gen-specific g4 g5 g6 g7 g7" style="margin: 5px auto;" title="What Rooms are in effect?">
+						<hr />
+						<div style="margin: 5px auto;" title="What Rooms are in effect?">
 							<label class="field-label small-text">Room: </label>
 							<input class="btn-input calc-trigger" type="checkbox" id="trickRoom" /><label
 								class="btn btn-left btn-xwide" for="trickRoom">Trick Room</label>
@@ -698,26 +706,25 @@
 							<input class="btn-input calc-trigger" type="checkbox" id="magicRoom" /><label
 								class="btn btn-right btn-xwide" for="magicRoom">Magic Room</label>
 						</div>
-						<div class="gen-specific g4 g5 g6 g7 g7" style="margin: 5px auto;"
-							title="Is anything else affecting the field?">
+						<div style="margin: 5px auto;" title="Is anything else affecting the field?">
 							<label class="field-label small-text">Field: </label>
-							<input class="btn-input calc-trigger" type="checkbox" id="gravity" /><label class="btn"
-								style="margin-right: 2px;" for="gravity">Gravity</label>
-							<input class="btn-input calc-trigger" type="checkbox" id="waterSport" /><label
-								class="btn btn-left btn-wide" for="waterSport">Water Sport</label>
-							<input class="btn-input calc-trigger" type="checkbox" id="mudSport" /><label
-								class="btn btn-right btn-wide" for="mudSport">Mud Sport</label>
+							<input class="btn-input calc-trigger" type="checkbox" id="gravity" />
+							<label class="btn" style="margin-right: 2px;" for="gravity">Gravity</label>
+
 						</div>
-						<div class="gen-specific g4 g5 g6 g7 g7" style="margin: 5px auto;"
-							title="Makes all Normal type moves Electric type, in case you were wondering.">
+						<div style="margin: 5px auto;" title="Makes all Normal type moves Electric type, in case you were wondering.">
 							<label class="field-label small-text">Other: </label>
-							<input class="btn-input calc-trigger" type="checkbox" id="ionDeluge" /><label class="btn btn-wide"
-								for="ionDeluge">Ion Deluge</label>
+							<input class="btn-input calc-trigger" type="checkbox" id="ionDeluge" />
+							<label class="btn btn-wide" style="margin-right: 2px;" for="ionDeluge">Ion Deluge</label>
+							<input class="btn-input calc-trigger" type="checkbox" id="waterSport" />
+							<label class="btn btn-left btn-wide" for="waterSport">Water Sport</label>
+							<input class="btn-input calc-trigger" type="checkbox" id="mudSport" />
+							<label class="btn btn-right btn-wide" for="mudSport">Mud Sport</label>
 						</div>
 
 
-						<hr class="gen-specific g2 g3 g4 g5 g6 g7 g7" />
-						<div class="btn-group gen-specific g4 g5 g6 g7 g7">
+						<hr />
+						<div class="btn-group">
 							<div class="left" title="Is Stealth Rock affecting this side of the field?">
 								<input class="btn-input calc-trigger" type="checkbox" id="srL" /><label class="btn btn-xwide"
 									for="srL">Stealth Rock</label>
@@ -727,7 +734,7 @@
 									for="srR">Stealth Rock</label>
 							</div>
 						</div>
-						<div class="btn-group gen-specific g3 g4 g5 g6 g7 g7">
+						<div class="btn-group">
 							<div class="left" title="Are there Spikes on this side of the field?">
 								<input class="btn-input calc-trigger" type="radio" name="spikesL" value="0" id="spikesL0"
 									checked="checked" /><label class="btn btn-xsmall btn-left" for="spikesL0">0</label>
@@ -795,7 +802,7 @@
 									for="auroraVeilR">Aurora Veil</label>
 							</div>
 						</div>
-						<div class="btn-group gen-specific g2 g3 g4 g5 g6 g7 g7">
+						<div class="btn-group">
 							<div class="left" title="Has this Pokemon been revealed with Foresight or Odor Sleuth?">
 								<input class="btn-input calc-trigger" type="checkbox" id="foresightL" /><label class="btn btn-wide"
 									for="foresightL">Foresight</label>
@@ -805,7 +812,7 @@
 									for="foresightR">Foresight</label>
 							</div>
 						</div>
-						<div class="btn-group gen-specific g3 g4 g5 g6 g7 g7">
+						<div class="btn-group">
 							<div class="left" title="Has this Pokemon's power been boosted by an ally's Helping Hand?">
 								<input class="btn-input calc-trigger" type="checkbox" id="helpingHandL" /><label class="btn btn-xxwide"
 									for="helpingHandL">Helping Hand</label>
@@ -815,7 +822,7 @@
 									for="helpingHandR">Helping Hand</label>
 							</div>
 						</div>
-						<div class="btn-group gen-specific g5 g6 g7 g7">
+						<div class="btn-group">
 							<div class="left" title="Is this Pokemon protected by an ally's Friend Guard?">
 								<input class="btn-input calc-trigger" type="checkbox" id="friendGuardL" /><label class="btn btn-xxwide"
 									for="friendGuardL">Friend Guard</label>
@@ -825,8 +832,8 @@
 									for="friendGuardR">Friend Guard</label>
 							</div>
 						</div>
-						<div class="btn-group gen-specific g7 g7">
-							<div class="left" title="Is this Pokemon next to an ally with Battery?">
+						<div class="btn-group hide gen-specific g7">
+							<div class="left" title="Is this Pokemon next to an ally with Battery">
 								<input class="btn-input calc-trigger" type="checkbox" id="batteryL" /><label class="btn btn-xxwide"
 									for="batteryL">Battery</label>
 							</div>
@@ -835,7 +842,42 @@
 									for="batteryR">Battery</label>
 							</div>
 						</div>
-						<hr class="gen-specific g2 g3 g4 g5 g6 g7 g7" />
+						<div class="btn-group gen-specific g8">
+							<div class="left" title="Is this Pokemon next to an ally with Battery or Power Spot?">
+								<input class="btn-input calc-trigger" type="checkbox" id="batteryL" />
+								<label class="btn btn-left " for="batteryL">Battery</label>
+								<input class="btn-input calc-trigger" type="checkbox" id="powerSpotL" />
+								<label class="btn btn-right btn-wide" for="powerSpotL">Power Spot</label>
+							</div>
+							<div class="right" title="Is this Pokemon next to an ally with Battery or Power Spot?">
+								<input class="btn-input calc-trigger" type="checkbox" id="batteryR" />
+								<label class="btn btn-left" for="batteryR">Battery</label>
+								<input class="btn-input calc-trigger" type="checkbox" id="powerSpotR" />
+								<label class="btn btn-right btn-wide" for="powerSpotR">Power Spot</label>
+							</div>
+						</div>
+						<div class="btn-group">
+							<div class="left" title="Is this Pokemon under the effect granted by Grass+Fire Pledges or G-Max Wildfire?">
+								<input class="btn-input calc-trigger" type="checkbox" id="fieryFieldL" />
+								<label class="btn btn-wide" for="fieryFieldL">Fiery Field</label>
+							</div>
+							<div class="right" title="Is this Pokemon under the effect granted by Grass+Fire Pledges or G-Max Wildfire?">
+								<input class="btn-input calc-trigger" type="checkbox" id="fieryFieldR" />
+								<label class="btn btn-wide" for="fieryFieldR">Fiery Field</label>
+							</div>
+						</div>
+						<div class="btn-group">
+							<div class="left" title="Is this Pokemon under the effect of a trapping move such as Sand Tomb or Fire Spin?">
+								<input class="btn-input calc-trigger" type="checkbox" id="entrappedL" />
+								<label class="btn btn-wide" for="entrappedL">Entrapped</label>
+							</div>
+							<div class="right" title="Is this Pokemon under the effect of a trapping move such as Sand Tomb or Fire Spin?">
+								<input class="btn-input calc-trigger" type="checkbox" id="entrappedR" />
+								<label class="btn btn-wide" for="entrappedR">Entrapped</label>
+							</div>
+						</div>
+
+						<hr/>
 
 						<p align="center">Import Custom Set</p>
 						Spread Name: <input type="text" id="spreadName" style="width: 60%" value="Custom Set">
@@ -866,6 +908,7 @@
 						<!-- Pokemon Selection --
 				<label>Pokemon</label>
 				<input type="text" class="set-selector calc-trigger" /> 
+						-->
 				
 				<!-- Species Info  -->
 						<div class="info-group">
@@ -1166,6 +1209,8 @@
 								<label>Current HP</label>
 								<input class="current-hp calc-trigger" value="712" />/<span class="max-hp">712</span> (<input
 									class="percent-hp calc-trigger" value="100" />%)
+								<input id="dmax2" class="dynamax btn-input calc-trigger" type="checkbox" />
+								<label for="dmax2" class="btn btn-small poke-button small-text">Max</label>
 								<br />
 								<label>Status</label>
 								<select class="status calc-trigger">
