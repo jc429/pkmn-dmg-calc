@@ -1,12 +1,12 @@
 /* test styles */
 
 body {
-    font: 10pt Verdana, sans-serif;
-    background-color: #cccccc;
-    padding: 0 1em;
+	font: 10pt Verdana, sans-serif;
+	background-color: #cccccc;
+	padding: 0 1em;
 	margin: auto;
-	align: center;
-    width: 1100px;
+	width: 1100px;
+	/*align: center;*/
 }
 
 label {
@@ -60,11 +60,9 @@ section {
 
 .battle-env{
 	height: 880px;
-	align: center;
-	
 	margin:auto;
-
-/*display: block;
+	/*align: center;*/
+	/*display: block;
   margin-left: auto;
   margin-right: auto;*/
 }
@@ -75,8 +73,13 @@ section {
 
 .calc-result {
 	display:block;
-	height: 120px;
+	height: 100px;
 	text-align: center;
+	border: 1px solid #333333;
+	border-radius: 6px;
+	background-color: #e8e8e8;
+	margin-top: 10px;
+	margin-bottom: 20px;
 }
 
 .result-move-header-r {
