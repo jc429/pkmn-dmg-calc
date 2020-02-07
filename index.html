@@ -71,7 +71,7 @@
 								</select>
 
 
-								<label id="resultDamageL1" class="dmg-result-l">??? - ???%</label>
+								<label id="resultDamageL1" style="padding-left: 6px;" class="dmg-result-l">??? - ???%</label>
 							</div>
 							<div>
 								<input id="zL2" class="z2 calc-trigger btn-input" type="checkbox" />
@@ -93,7 +93,7 @@
 									<option value="5">5 hits</option>
 								</select>
 
-								<label id="resultDamageL2" class="dmg-result-l">??? - ???%</label>
+								<label id="resultDamageL2" style="padding-left: 6px;" class="dmg-result-l">??? - ???%</label>
 							</div>
 							<div>
 								<input id="zL3" class="z3 calc-trigger btn-input" type="checkbox" />
@@ -115,7 +115,7 @@
 									<option value="5">5 hits</option>
 								</select>
 
-								<label id="resultDamageL3" class="dmg-result-l">??? - ???%</label>
+								<label id="resultDamageL3" style="padding-left: 6px;" class="dmg-result-l">??? - ???%</label>
 							</div>
 							<div>
 								<input id="zL4" class="z4 calc-trigger btn-input" type="checkbox" />
@@ -137,7 +137,7 @@
 									<option value="5">5 hits</option>
 								</select>
 
-								<label id="resultDamageL4" class="dmg-result-l">??? - ???%</label>
+								<label id="resultDamageL4" style="padding-left: 6px;" class="dmg-result-l">??? - ???%</label>
 							</div>
 						</div>
 					</td>
@@ -148,7 +148,7 @@
 								<span id="resultHeaderR">Pokemon 2's Moves (select one to show detailed results)</span>
 							</div>
 							<div>
-								<label id="resultDamageR1" class="dmg-result-r">??? - ???%</label>
+								<label id="resultDamageR1" style="padding-right: 6px;" class="dmg-result-r">??? - ???%</label>
 
 								<select id="moveR1-hits" class="hit1 move-hits hide calc-trigger">
 									<option value="2">2 hits</option>
@@ -172,7 +172,7 @@
 								<label for="zR1" class="btn btn-xsmall btn-mid gen-specific g7 hide">Z</label>
 							</div>
 							<div>
-								<label id="resultDamageR2" class="dmg-result-r">??? - ???%</label>
+								<label id="resultDamageR2" style="padding-right: 6px;" class="dmg-result-r">??? - ???%</label>
 
 								<select id="moveR2-hits" class="hit2 move-hits hide calc-trigger">
 									<option value="2">2 hits</option>
@@ -194,7 +194,7 @@
 								<label for="zR2" class="btn btn-xsmall btn-mid gen-specific g7 hide">Z</label>
 							</div>
 							<div>
-								<label id="resultDamageR3" class="dmg-result-r">??? - ???%</label>
+								<label id="resultDamageR3" style="padding-right: 6px;" class="dmg-result-r">??? - ???%</label>
 
 								<select id="moveR3-hits" class="hit3 move-hits hide calc-trigger">
 									<option value="2">2 hits</option>
@@ -216,7 +216,7 @@
 								<label for="zR3" class="btn btn-xsmall btn-mid gen-specific g7 hide">Z</label>
 							</div>
 							<div>
-								<label id="resultDamageR4" class="dmg-result-r">??? - ???%</label>
+								<label id="resultDamageR4" style="padding-right: 6px;" class="dmg-result-r">??? - ???%</label>
 
 								<select id="moveR4-hits" class="hit4 move-hits hide calc-trigger">
 									<option value="2">2 hits</option>
@@ -508,7 +508,7 @@
 										<td></td>
 										<td>
 											<!-- EVs -->
-											<span class="ev-total">256</span>
+											<span class="ev-total">256</span> 
 										</td>
 										<td></td>
 										<td>
@@ -598,6 +598,11 @@
 									<input id="gmax" name="max" class="gigantamax max-btn btn-input calc-trigger" type="checkbox" />
 									<label for="gmax" style="margin-top: 2px;" class="btn btn-right btn-wide poke-button gen-specific g8">Gigantamax</label>
 								</div>
+								<div class="hide">
+									<span class="gtype"></span>
+									<span class="gname"></span>
+								</div>
+
 								<p class="small-text">Type Changes:</p>
 								<input id="soak" class="soak btn-input calc-trigger" type="checkbox" />
 								<label for="soak" style="margin-right: 2px;" class="btn poke-button  small-text">Soak</label>
@@ -1266,6 +1271,12 @@
 									<input id="gmax2" name="max" class="gigantamax max-btn-2 btn-input calc-trigger" type="checkbox" />
 									<label for="gmax2" style="margin-top: 2px;" class="btn btn-right btn-wide poke-button gen-specific g8">Gigantamax</label>
 								</div>
+								
+								<div class="hide">
+									<span class="gtype"></span>
+									<span class="gname"></span>
+								</div>
+
 								<p class="small-text">Type Changes:</p>
 								<input id="soak2" class="soak btn-input calc-trigger" type="checkbox" />
 								<label for="soak2" style="margin-right: 2px;" class="btn poke-button padding small-text">Soak</label>

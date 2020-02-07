@@ -12554,7 +12554,9 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
       "sp": 34
     },
     "w": 800,
-		"gmax": true
+		"hasGmax": {
+			"Steel": "G-Max Meltdown"
+		}
   },
   "Meowth-Galar": {
     "t1": "Steel",
@@ -12895,7 +12897,9 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
       "sp": 90
     },
     "w": 40.8,
-		"gmax": true
+		"hasGmax": {
+			"Psychic": "G-Max Gravitas"
+		}
   },
   "Rookidee": {
     "t1": "Flying",
@@ -12933,7 +12937,9 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
       "sp": 67
     },
     "w": 75,
-		"gmax": true
+		"hasGmax":  {
+			"Flying": "G-Max Wind Rage"
+		}
   },
   "Skwovet": {
     "t1": "Normal",
@@ -13059,7 +13065,9 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
     },
     "w": 8.5,
     "ab": "Strong Jaw",
-		"gmax": true
+		"hasGmax": {
+			"Water": "G-Max Stonesurge"
+		}
   },
   "Yamper": {
     "t1": "Electric",
@@ -13122,7 +13130,9 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
       "sp": 30
     },
     "w": 310.5,
-		"gmax": true
+		"hasGmax": {
+			"Rock": "G-Max Volcalith"
+		}
   },
   "Applin": {
     "t1": "Grass",
@@ -13149,7 +13159,9 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
       "sp": 70
     },
     "w": 1,
-		"gmax": true
+		"hasGmax": {
+			"Grass": "G-Max Tartness"
+		}
   },
   "Appletun": {
     "t1": "Grass",
@@ -13163,7 +13175,9 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
       "sp": 30
     },
     "w": 13,
-		"gmax": true
+		"hasGmax": {
+			"Grass": "G-Max Sweetness"
+		}
   },
   "Silicobra": {
     "t1": "Ground",
@@ -13190,7 +13204,9 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
     },
     "w": 65.5,
     "ab": "Sand Spit",
-		"gmax": true
+		"hasGmax": {
+			"Ground": "G-Max Sandblast"
+		}
   },
   "Cramorant": {
     "t1": "Flying",
@@ -13254,7 +13270,9 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
       "sp": 75
     },
     "w": 40,
-		"gmax": true
+		"hasGmax": {
+			"Electric": "G-Max Stun Shock"
+		}
   },
   "Sizzlipede": {
     "t1": "Fire",
@@ -13283,7 +13301,9 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
     },
     "w": 120,
     "ab": "White Smoke",
-		"gmax": true
+		"hasGmax": {
+			"Fire": "G-Max Centiferno"
+		}
   },
   "Clobbopus": {
     "t1": "Fighting",
@@ -13371,7 +13391,9 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
       "sp": 29
     },
     "w": 5.1,
-		"gmax": true
+		"hasGmax": {
+			"Fairy": "G-Max Smite"
+		}
   },
   "Impidimp": {
     "t1": "Dark",
@@ -13411,7 +13433,9 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
       "sp": 60
     },
     "w": 61,
-		"gmax": true
+		"hasGmax": {
+			"Dark": "G-Max Snooze"
+		}
   },
   "Obstagoon": {
     "t1": "Dark",
@@ -13514,7 +13538,9 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
       "sp": 64
     },
 		"w": 0.5,
-		"gmax": true
+		"hasGmax": {
+			"Fairy": "G-Max Finale"
+		}
   },
   "Falinks": {
     "t1": "Fighting",
@@ -13690,7 +13716,9 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
     },
     "w": 650,
     "ab": "Sheer Force",
-		"gmax": true
+		"hasGmax": {
+			"Steel": "G-Max Steelsurge"
+		}
   },
   "Dracozolt": {
     "t1": "Electric",
@@ -13760,7 +13788,9 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
       "sp": 85
     },
     "w": 40,
-		"gmax": true
+		"hasGmax": {
+			"Dragon": "G-Max Depletion"
+		}
   },
   "Dreepy": {
     "t1": "Dragon",
@@ -13934,17 +13964,61 @@ var POKEDEX_SS = $.extend(true, {}, POKEDEX_SM, {
 	
 
 
-	"Charizard": { "gmax": true },
-	"Butterfree": { "gmax": true },
-	"Pikachu": { "gmax": true },
-	"Meowth": { "gmax": true },
-	"Machamp": { "gmax": true },
-	"Gengar": { "gmax": true },
-	"Kingler": { "gmax": true },
-	"Lapras": { "gmax": true },
-	"Eevee": { "gmax": true },
-	"Snorlax": { "gmax": true },
-	"Garbodor": { "gmax": true }
+	"Charizard": { 
+		"hasGmax": {
+			"Fire": "G-Max Wildfire"
+		} 
+	},
+	"Butterfree": { 
+		"hasGmax": {
+			"Bug": "G-Max Befuddle"
+		} 
+	},
+	"Pikachu": { 
+		"hasGmax": {
+			"Electric": "G-Max Volt Crash"
+		} 
+	},
+	"Meowth": { 
+		"hasGmax": {
+			"Normal": "G-Max Gold Rush"
+		} 
+	},
+	"Machamp": { 
+		"hasGmax": {
+			"Fighting": "G-Max Chi Strike"
+		} 
+	},
+	"Gengar": { 
+		"hasGmax": {
+			"Ghost": "G-Max Terror"
+		} 
+	},
+	"Kingler": { 
+		"hasGmax": {
+			"Water": "G-Max Foam Burst"
+		} 
+	},
+	"Lapras": { 
+		"hasGmax": {
+			"Ice": "G-Max Resonance"
+		} 
+	},
+	"Eevee": { 
+		"hasGmax": {
+			"Normal": "G-Max Cuddle"
+		} 
+	},
+	"Snorlax": { 
+		"hasGmax": {
+			"Normal": "G-Max Replenish"
+		} 
+	},
+	"Garbodor": { 
+		"hasGmax": {
+			"Poison": "G-Max Malodor"
+		} 
+	}
 	
 });
 

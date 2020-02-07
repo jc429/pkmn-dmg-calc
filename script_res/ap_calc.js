@@ -88,23 +88,23 @@ $(".sp .dvs").keyup(function() {
     calcHP(poke);
 });
 $(".sl .dvs").keyup(function() {
-    var poke = $(this).closest(".poke-info");
-    calcStat(poke, 'sl');
-    poke.find(".hp .dvs").val(getHPDVs(poke));
-    calcHP(poke);
+	var poke = $(this).closest(".poke-info");
+	calcStat(poke, 'sl');
+	poke.find(".hp .dvs").val(getHPDVs(poke));
+	calcHP(poke);
 });
 
 function getHPDVs(poke) {
-    return (~~poke.find(".at .dvs").val() % 2) * 8 +
-            (~~poke.find(".df .dvs").val() % 2) * 4 +
-            (~~poke.find(gen === 1 ? ".sl .dvs" : ".sa .dvs").val() % 2) * 2 +
-            (~~poke.find(".sp .dvs").val() % 2);
+	return (~~poke.find(".at .dvs").val() % 2) * 8 +
+			(~~poke.find(".df .dvs").val() % 2) * 4 +
+			(~~poke.find(gen === 1 ? ".sl .dvs" : ".sa .dvs").val() % 2) * 2 +
+			(~~poke.find(".sp .dvs").val() % 2);
 }
 
 function calcStats(poke) {
-    for (var i = 0; i < STATS.length; i++) {
-        calcStat(poke, STATS[i]);
-    }
+	for (var i = 0; i < STATS.length; i++) {
+		calcStat(poke, STATS[i]);
+	}
 }
 
 function calcBST(poke) {
@@ -137,36 +137,36 @@ function calcNatureStats(poke){
 	poke.find('.sd-text').removeClass('posNat negNat');
 	poke.find('.sp-text').removeClass('posNat negNat');
 	switch (pos) {
-        case "at":
+		case "at":
 			poke.find('.at-text').addClass('posNat');
 			break;
-        case "df":
+		case "df":
 			poke.find('.df-text').addClass('posNat');
 			break;
-        case "sa":
+		case "sa":
 			poke.find('.sa-text').addClass('posNat');
 			break;
-        case "sd":
+		case "sd":
 			poke.find('.sd-text').addClass('posNat');
 			break;
-        case "sp":
+		case "sp":
 			poke.find('.sp-text').addClass('posNat');
 			break;
 	}
 	switch (neg) {
-        case "at":
+		case "at":
 			poke.find('.at-text').addClass('negNat');
 			break;
-        case "df":
+		case "df":
 			poke.find('.df-text').addClass('negNat');
 			break;
-        case "sa":
+		case "sa":
 			poke.find('.sa-text').addClass('negNat');
 			break;
-        case "sd":
+		case "sd":
 			poke.find('.sd-text').addClass('negNat');
 			break;
-        case "sp":
+		case "sp":
 			poke.find('.sp-text').addClass('negNat');
 			break;
 	}
@@ -552,7 +552,14 @@ $(".set-selector").change(function() {
 
 		let noGmaxObj = $(this).siblings().find(".noGmax");
 		let yesGmaxObj = $(this).siblings().find(".yesGmax");
-		if(pokemon.gmax) {
+		if(pokemon.hasGmax) {
+			for(var g in pokemon.hasGmax){
+				pokemon.GType = g;
+				pokemon.GName = pokemon.hasGmax[g];
+				pokeObj.find(".gtype").text(g);
+				pokeObj.find(".gname").text(pokemon.hasGmax[g]);
+			}
+
 			yesGmaxObj.show();
 			noGmaxObj.hide();
 		}
@@ -561,6 +568,8 @@ $(".set-selector").change(function() {
 			noGmaxObj.show();
 		}
 
+		/*console.log(pokemon.GType);
+		console.log(pokemon.GName);*/
 		calcHP(pokeObj);
 		calcStats(pokeObj);
 		calcBST(pokeObj);
@@ -797,70 +806,86 @@ var stickyMoves = (function () {
 })();
 
 function findDamageResult(resultMoveObj) {
-    var selector = "#" + resultMoveObj.attr("id");
-    for (var i = 0; i < resultLocations.length; i++) {
-        for (var j = 0; j < resultLocations[i].length; j++) {
-            if (resultLocations[i][j].move === selector) {
-                return damageResults[i][j];
-            }
-        }
-    }
+	var selector = "#" + resultMoveObj.attr("id");
+	for (var i = 0; i < resultLocations.length; i++) {
+		for (var j = 0; j < resultLocations[i].length; j++) {
+			if (resultLocations[i][j].move === selector) {
+				return damageResults[i][j];
+			}
+		}
+	}
 }
 
 function Pokemon(pokeInfo, moveDisplay) {
-    var setName = pokeInfo.find("input.set-selector").val();
-    if (setName.indexOf("(") === -1) {
-        this.name = setName;
-    } else {
-        var pokemonName = setName.substring(0, setName.indexOf(" ("));
-        this.name = (pokedex[pokemonName].formes) ? pokeInfo.find(".forme").val() : pokemonName;
-    }
-    this.type1 = pokeInfo.find(".type1").val();
-    this.type2 = pokeInfo.find(".type2").val();
-    this.level = ~~pokeInfo.find(".level").val();
-    this.maxHP = ~~pokeInfo.find(".hp .total").text();
-    this.curHP = ~~pokeInfo.find(".current-hp").val();
-    this.HPEVs = ~~pokeInfo.find(".hp .evs").val();
+	var setName = pokeInfo.find("input.set-selector").val();
+	if (setName.indexOf("(") === -1) {
+		this.name = setName;
+	} else {
+		var pokemonName = setName.substring(0, setName.indexOf(" ("));
+		this.name = (pokedex[pokemonName].formes) ? pokeInfo.find(".forme").val() : pokemonName;
+	}
+	this.type1 = pokeInfo.find(".type1").val();
+	this.type2 = pokeInfo.find(".type2").val();
+	this.level = ~~pokeInfo.find(".level").val();
+	this.maxHP = ~~pokeInfo.find(".hp .total").text();
+	this.curHP = ~~pokeInfo.find(".current-hp").val();
+	this.HPEVs = ~~pokeInfo.find(".hp .evs").val();
 	this.HPIVs = ~~pokeInfo.find(".hp .ivs").val();
-    this.rawStats = {};
-    this.boosts = {};
-    this.stats = {};
-    this.evs = {};
-    this.ivs = {};
-    for (var i = 0; i < STATS.length; i++) {
-        this.rawStats[STATS[i]] = ~~pokeInfo.find("." + STATS[i] + " .total").text();
-        this.boosts[STATS[i]] = ~~pokeInfo.find("." + STATS[i] + " .boost").val();
-        this.evs[STATS[i]] = ~~pokeInfo.find("." + STATS[i] + " .evs").val();
+	this.rawStats = {};
+	this.boosts = {};
+	this.stats = {};
+	this.evs = {};
+	this.ivs = {};
+	for (var i = 0; i < STATS.length; i++) {
+		this.rawStats[STATS[i]] = ~~pokeInfo.find("." + STATS[i] + " .total").text();
+		this.boosts[STATS[i]] = ~~pokeInfo.find("." + STATS[i] + " .boost").val();
+		this.evs[STATS[i]] = ~~pokeInfo.find("." + STATS[i] + " .evs").val();
 		this.ivs[STATS[i]] = ~~pokeInfo.find("." + STATS[i] + " .ivs").val();
-    }
-    this.nature = pokeInfo.find(".nature").val();
-    this.ability = pokeInfo.find(".ability").val();
-    this.item = pokeInfo.find(".item").val();
-    this.status = pokeInfo.find(".status").val();
-    this.toxicCounter = this.status === 'Badly Poisoned' ? ~~pokeInfo.find(".toxic-counter").val() : 0;
-    var z1, crit1, z2, crit2, z3, crit3, z4, crit4;
+	}
+	this.nature = pokeInfo.find(".nature").val();
+	this.ability = pokeInfo.find(".ability").val();
+	this.item = pokeInfo.find(".item").val();
+	this.status = pokeInfo.find(".status").val();
+	this.toxicCounter = this.status === 'Badly Poisoned' ? ~~pokeInfo.find(".toxic-counter").val() : 0;
+	var max1, max2, max3, max4;
+	var z1, z2, z3, z4;
+	var crit1, crit2, crit3, crit4;
 	var hit1,hit2,hit3,hit4;
+	
+	this.isDmax = pokeInfo.find(".dynamax").prop("checked");
+	this.isGmax = pokeInfo.find(".gigantamax").prop("checked");
+
+	this.GType = pokeInfo.find(".gtype").text();
+	this.GName = pokeInfo.find(".gname").text();
+
+	max1 = moveDisplay.find(".max1").prop("checked");
 	z1 = moveDisplay.find(".z1").prop("checked");
 	crit1 = moveDisplay.find(".crit1").prop("checked");
+	hit1 = moveDisplay.find(".hit1").val();
+
+	max2 = moveDisplay.find(".max2").prop("checked");
 	z2 = moveDisplay.find(".z2").prop("checked");
 	crit2 = moveDisplay.find(".crit2").prop("checked");
+	hit2 = moveDisplay.find(".hit2").val();
+	
+	max3 = moveDisplay.find(".max3").prop("checked");
 	z3 = moveDisplay.find(".z3").prop("checked");
 	crit3 = moveDisplay.find(".crit3").prop("checked");
+	hit3 = moveDisplay.find(".hit3").val();
+	
+	max4 = moveDisplay.find(".max4").prop("checked");
 	z4 = moveDisplay.find(".z4").prop("checked");
 	crit4 = moveDisplay.find(".crit4").prop("checked");
-	hit1 = moveDisplay.find(".hit1").val();
-	hit2 = moveDisplay.find(".hit2").val();
-	hit3 = moveDisplay.find(".hit3").val();
 	hit4 = moveDisplay.find(".hit4").val();
-	
+
 	this.moves = [
-		getMoveDetails(pokeInfo.find(".move1"), z1, crit1, hit1),
-        getMoveDetails(pokeInfo.find(".move2"), z2, crit2, hit2),
-        getMoveDetails(pokeInfo.find(".move3"), z3, crit3, hit3),
-        getMoveDetails(pokeInfo.find(".move4"), z4, crit4, hit4)
+		getMoveDetails(pokeInfo.find(".move1"), max1, this.isGmax, z1, crit1, hit1),
+		getMoveDetails(pokeInfo.find(".move2"), max2, this.isGmax, z2, crit2, hit2),
+		getMoveDetails(pokeInfo.find(".move3"), max3, this.isGmax, z3, crit3, hit3),
+		getMoveDetails(pokeInfo.find(".move4"), max4, this.isGmax, z4, crit4, hit4)
 		
-    ];
-    this.weight = +pokeInfo.find(".weight").val();
+	];
+	this.weight = +pokeInfo.find(".weight").val();
 	
 	this.isShiny = pokeInfo.find(".shiny").prop("checked");
 	this.isProtect = pokeInfo.find(".protect").prop("checked");
@@ -878,7 +903,7 @@ function Pokemon(pokeInfo, moveDisplay) {
 	
 }
 
-function getMoveDetails(moveInfo, makeZ, makeCrit, hitNum) {
+function getMoveDetails(moveInfo, makeMax, makeGmax, makeZ, makeCrit, hitNum) {
     var moveName = moveInfo.find("select.move-selector").val();
     var defaultDetails = moves[moveName];
     return $.extend({}, defaultDetails, {
@@ -886,12 +911,14 @@ function getMoveDetails(moveInfo, makeZ, makeCrit, hitNum) {
         bp: ~~moveInfo.find(".move-bp").val(),
         type: moveInfo.find(".move-type").val(),
         category: moveInfo.find(".move-cat").val(),
-		isCrit: makeCrit,
-		isZ: makeZ,
-		hits: (defaultDetails.isMultiHit && !makeZ) ? ~~hitNum : defaultDetails.isTwoHit ? 2 : 1
-       // isCrit: moveInfo.find(".move-crit").prop("checked"),
-       // isZ: moveInfo.find(".move-z").prop("checked"),
-       // hits: (defaultDetails.isMultiHit && !moveInfo.find(".move-z").prop("checked")) ? ~~moveInfo.find(".move-hits").val() : defaultDetails.isTwoHit ? 2 : 1
+				isCrit: makeCrit,
+				isZ: makeZ,
+				isMax: makeMax,
+				isGmax: makeGmax,
+				hits: (defaultDetails.isMultiHit && !makeZ) ? ~~hitNum : defaultDetails.isTwoHit ? 2 : 1
+      // isCrit: moveInfo.find(".move-crit").prop("checked"),
+      // isZ: moveInfo.find(".move-z").prop("checked"),
+      // hits: (defaultDetails.isMultiHit && !moveInfo.find(".move-z").prop("checked")) ? ~~moveInfo.find(".move-hits").val() : defaultDetails.isTwoHit ? 2 : 1
     });
 }
 
