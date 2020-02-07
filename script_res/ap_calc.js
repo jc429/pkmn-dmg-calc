@@ -257,6 +257,7 @@ function boostAllR(){
 function calcCurrentHP(poke, max, percent) {
     var current = Math.ceil(percent * max / 100);
     poke.find(".current-hp").val(current);
+    poke.find(".current-dhp").val(current*2);
 }
 function calcPercentHP(poke, max, current) {
     var percent = Math.floor(100 * current / max);
@@ -554,8 +555,8 @@ $(".set-selector").change(function() {
 			formeObj.hide();
 		}
 
-		let noGmaxObj = $(this).siblings().find(".noGmax");
-		let yesGmaxObj = $(this).siblings().find(".yesGmax");
+		let hasGmaxObj = $(this).siblings().find(".hasGmax");
+		let dmaxButton = $(this).siblings().find(".dbtn");
 		if(pokemon.hasGmax) {
 			for(var g in pokemon.hasGmax){
 				pokemon.GType = g;
@@ -563,13 +564,12 @@ $(".set-selector").change(function() {
 				pokeObj.find(".gtype").text(g);
 				pokeObj.find(".gname").text(pokemon.hasGmax[g]);
 			}
-
-			yesGmaxObj.show();
-			noGmaxObj.hide();
+			hasGmaxObj.show();
+			dmaxButton.addClass("btn-left");
 		}
 		else{
-			yesGmaxObj.hide();
-			noGmaxObj.show();
+			hasGmaxObj.hide();
+			dmaxButton.removeClass("btn-left");
 		}
 
 		/*console.log(pokemon.GType);
@@ -631,7 +631,7 @@ $(".forme").change(function() {
 
     if (abilities.indexOf(altForme.ab) > -1) {
         container.find(".ability").val(altForme.ab);
-    } else if (setName !== "Blank Set" && abilities.indexOf(setdex[pokemonName][setName].ability) > -1) {
+    } else if (setName !== "Blank Set" && setName !== "" && abilities.indexOf(setdex[pokemonName][setName].ability) > -1) {
         container.find(".ability").val(setdex[pokemonName][setName].ability);
     } else {
         container.find(".ability").val("");
@@ -711,13 +711,15 @@ function calculate() {
     damageResults = calculateAllMoves(p1, p2, field);
     var result, minDamage, maxDamage, minPercent, maxPercent, percentText;
     var highestMaxPercent = -1;
-    var bestResult;
+		var bestResult;
+		var p1mHP = p1.isDmax ? p1.dMaxHP : p1.maxHP;
+		var p2mHP = p2.isDmax ? p2.dMaxHP : p2.maxHP;
     for (var i = 0; i < 4; i++) {
         result = damageResults[0][i];
         minDamage = result.damage[0] * p1.moves[i].hits;
         maxDamage = result.damage[result.damage.length-1] * p1.moves[i].hits;
-        minPercent = Math.floor(minDamage * 1000 / p2.maxHP) / 10;
-        maxPercent = Math.floor(maxDamage * 1000 / p2.maxHP) / 10;
+        minPercent = Math.floor(minDamage * 1000 / p2mHP) / 10;
+				maxPercent = Math.floor(maxDamage * 1000 / p2mHP) / 10;
         result.damageText = minDamage + "-" + maxDamage + " (" + minPercent + " - " + maxPercent + "%)";
         result.koChanceText = p1.moves[i].bp === 0 ? 'nice move'
                 : getKOChanceText(result.damage, p1.moves[i], p2, field.getSide(1), p1.ability === 'Bad Dreams');
@@ -732,8 +734,8 @@ function calculate() {
         result = damageResults[1][i];
         minDamage = result.damage[0] * p2.moves[i].hits;
         maxDamage = result.damage[result.damage.length-1] * p2.moves[i].hits;
-        minPercent = Math.floor(minDamage * 1000 / p1.maxHP) / 10;
-        maxPercent = Math.floor(maxDamage * 1000 / p1.maxHP) / 10;
+        minPercent = Math.floor(minDamage * 1000 / p1mHP) / 10;
+        maxPercent = Math.floor(maxDamage * 1000 / p1mHP) / 10;
         result.damageText = minDamage + "-" + maxDamage + " (" + minPercent + " - " + maxPercent + "%)";
         result.koChanceText = p2.moves[i].bp === 0 ? 'nice move'
                 : getKOChanceText(result.damage, p2.moves[i], p1, field.getSide(0), p2.ability === 'Bad Dreams');
@@ -836,7 +838,9 @@ function Pokemon(pokeInfo, moveDisplay) {
 	this.HPEVs = ~~pokeInfo.find(".hp .evs").val();
 	this.HPIVs = ~~pokeInfo.find(".hp .ivs").val();
 	
-	this.dMaxHP = 
+	this.dMaxHP = this.maxHP * 2;
+	this.dCurHP = ~~pokeInfo.find(".current-dhp").val();
+
 
 	this.rawStats = {};
 	this.boosts = {};
@@ -858,10 +862,9 @@ function Pokemon(pokeInfo, moveDisplay) {
 	var z1, z2, z3, z4;
 	var crit1, crit2, crit3, crit4;
 	var hit1,hit2,hit3,hit4;
-	
-	this.isDmax = pokeInfo.find(".dynamax").prop("checked");
-	this.isGmax = pokeInfo.find(".gigantamax").prop("checked");
 
+	
+	
 	this.GType = pokeInfo.find(".gtype").text();
 	this.GName = pokeInfo.find(".gname").text();
 
@@ -895,6 +898,10 @@ function Pokemon(pokeInfo, moveDisplay) {
 	this.weight = +pokeInfo.find(".weight").val();
 	
 	this.isProtect = pokeInfo.find(".protect").prop("checked");
+	this.isDmax = pokeInfo.find(".dynamax").prop("checked");
+	this.isGmax = pokeInfo.find(".gigantamax").prop("checked");
+	//console.log(pokeInfo.find(".dynamax").prop("checked") + "," +  this.isDmax);
+
 	
 	this.isSoaked = pokeInfo.find(".soak").prop("checked");
 	this.isForestCurse = pokeInfo.find(".forest-curse").prop("checked");

@@ -582,23 +582,20 @@
 								<label for="protect" style="margin-left: 12px;" class="btn poke-button small-text">Protect</label>
 								<br/>
 								<label>Current HP</label>
-								<input class="current-hp calc-trigger" value="712" />/<span class="max-hp">712</span> 
+								<input class="current-hp calc-trigger" value="712" />/<span class="max-hp">712</span>
 								(<input class="percent-hp calc-trigger" value="100" />%)
-								[<span class="dmax-hp">1424</span>]
+								<br/>
 								
+								<label>Dynamax HP</label>
+								<input class="current-dhp calc-trigger" value="712" />/<span class="dmax-hp">712</span>
 								
 								<div class="gen-specific g8">
-									<div class="noGmax center">
-										<input id="dmax" class="dynamax btn-input calc-trigger" type="checkbox" />
-										<label for="dmax" style="margin-top: 2px;" class="btn btn-wide poke-button gen-specific g8">Dynamax</label>
-									</div>
-									<div class="yesGmax hide">	
-										<input id="dmaxG" name="max" class="dynamax max-btn btn-input calc-trigger" type="checkbox" />
-										<label for="dmaxG" style="margin-top: 2px;" class="btn btn-left btn-wide poke-button gen-specific g8">Dynamax</label>
-										<input id="gmax" name="max" class="gigantamax max-btn btn-input calc-trigger" type="checkbox" />
-										<label for="gmax" style="margin-top: 2px;" class="btn btn-right btn-wide poke-button gen-specific g8">Gigantamax</label>
-									</div>
-							
+									<input id="dmaxL" class="dynamax max-btn-2 btn-input calc-trigger" type="checkbox" />
+									<label for="dmaxL" style="margin-top: 2px;" class="dbtn btn btn-wide poke-button gen-specific g8">Dynamax</label>
+									<input id="gmaxL" name="max" class="gigantamax max-btn-2 btn-input calc-trigger" type="checkbox" />
+									<label for="gmaxL" style="margin-top: 2px;" class="hasGmax hide btn btn-right btn-wide poke-button gen-specific g8">Gigantamax</label>
+									
+						
 									<!--
 									<label>Dynamax Level</label>
 									<select class="dyna-level calc-trigger">
@@ -616,6 +613,7 @@
 									</select>
 									-->
 								</div>
+								
 								<div class="hide">
 									<span class="gtype"></span>
 									<span class="gname"></span>
@@ -1272,19 +1270,17 @@
 								<label>Current HP</label>
 								<input class="current-hp calc-trigger" value="712" />/<span class="max-hp">712</span>
 								(<input class="percent-hp calc-trigger" value="100" />%)
-								[<span class="dmax-hp">1424</span>]
+								<br/>
 								
+								<label>Dynamax HP</label>
+								<input class="current-dhp calc-trigger" value="712" />/<span class="dmax-hp">712</span>
 								<div class="gen-specific g8">
-									<div class="noGmax">
-										<input id="dmax2" class="dynamax btn-input calc-trigger" type="checkbox" />
-										<label for="dmax2" style="margin-top: 2px;" class="btn btn-wide poke-button gen-specific g8">Dynamax</label>
-									</div>
-									<div class="yesGmax hide">	
-										<input id="dmaxG2" name="max" class="dynamax max-btn-2 btn-input calc-trigger" type="checkbox" />
-										<label for="dmaxG2" style="margin-top: 2px;" class="btn btn-left btn-wide poke-button gen-specific g8">Dynamax</label>
-										<input id="gmax2" name="max" class="gigantamax max-btn-2 btn-input calc-trigger" type="checkbox" />
-										<label for="gmax2" style="margin-top: 2px;" class="btn btn-right btn-wide poke-button gen-specific g8">Gigantamax</label>
-									</div>
+								
+									<input id="dmaxR" class="dynamax max-btn-2 btn-input calc-trigger" type="checkbox" />
+									<label for="dmaxR" style="margin-top: 2px;" class="dbtn btn btn-wide poke-button gen-specific g8">Dynamax</label>
+									<input id="gmaxR" name="max" class="gigantamax max-btn-2 btn-input calc-trigger" type="checkbox" />
+									<label for="gmaxR" style="margin-top: 2px;" class="hasGmax hide btn btn-right btn-wide poke-button gen-specific g8">Gigantamax</label>
+									
 						
 									<!--
 									<label>Dynamax Level</label>

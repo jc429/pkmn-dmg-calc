@@ -18,9 +18,6 @@ label {
     user-select: none;
 }
 
-section {
-/*	border:1px solid blue;*/
-}
 
 /*
 .btn {
@@ -75,7 +72,7 @@ section {
 	display:block;
 	min-height: 100px;
 	text-align: center;
-	border: 1px solid #333333;
+	border: 1px solid #666666;
 	border-radius: 6px;
 	background-color: #e8e8e8;
 	margin-top: 10px;

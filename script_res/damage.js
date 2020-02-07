@@ -61,6 +61,16 @@ function getDamageResult(attacker, defender, move, field) {
 	var atkAbility = attacker.ability;
 	var defAbility = defender.ability;
 
+	console.log(attacker.isDmax);
+	var atkMaxed = attacker.isDmax || attacker.isGmax;
+	console.log(atkMaxed + " !");
+	var atkCurHP = atkMaxed ? attacker.dCurHP : attacker.curHP;
+	var atkMaxHP = atkMaxed ? attacker.dMaxHP : attacker.maxHP;
+
+	var defMaxed = defender.isDmax || defender.isGmax;
+	var defCurHP = defMaxed ? defender.dCurHP : defender.curHP;
+	var defMaxHP = defMaxed ? defender.dMaxHP : defender.maxHP;
+
 	if (move.isZ && gen === 7) {
 		var tempMove = move;
 		//turning it into a generic single-target Z-move
@@ -163,9 +173,9 @@ function getDamageResult(attacker, defender, move, field) {
 	description.isMR = field.isMR;		// magical room
 	description.isWR = field.isWR;		// wonder room
 
-	description.defMaxed = defender.isMax;
+	description.defMaxed = defender.isDmax;
 	description.defGMaxed = defender.isGmax;
-	
+
 
 	// if a move has 0 bp there is obviously no damage calculation to be done
 	if (move.bp === 0) {
@@ -451,12 +461,12 @@ function getDamageResult(attacker, defender, move, field) {
 			break;
 		case "Eruption":
 		case "Water Spout":
-			basePower = Math.max(1, Math.floor(150 * attacker.curHP / attacker.maxHP));
+			basePower = Math.max(1, Math.floor(150 * atkCurHP / atkMaxHP));
 			description.moveBP = basePower;
 			break;
 		case "Flail":
 		case "Reversal":
-			var p = Math.floor(48 * attacker.curHP / attacker.maxHP);
+			var p = Math.floor(48 * atkCurHP / atkMaxHP);
 			basePower = p <= 1 ? 200 : p <= 4 ? 150 : p <= 9 ? 100 : p <= 16 ? 80 : p <= 32 ? 40 : 20;
 			description.moveBP = basePower;
 			break;
@@ -530,7 +540,7 @@ function getDamageResult(attacker, defender, move, field) {
 
 	// status-based BP modifiers
 	if ((move.name === "Facade" && ["Burned", "Paralyzed", "Poisoned", "Badly Poisoned"].indexOf(attacker.status) !== -1)
-		|| (move.name === "Brine" && defender.curHP <= defender.maxHP / 2)
+		|| (move.name === "Brine" && defCurHP <= defMaxHP / 2)
 		|| (move.name === "Venoshock" && (defender.status === "Poisoned" || defender.status === "Badly Poisoned"))
 		|| (move.name === "Hex" && (defender.status !== "Healthy"))) {
 		bpMods.push(0x2000);
@@ -671,10 +681,10 @@ function getDamageResult(attacker, defender, move, field) {
 
 
 	if ((atkAbility === "Guts" && attacker.status !== "Healthy" && move.category === "Physical")
-		|| (atkAbility === "Overgrow" && attacker.curHP <= attacker.maxHP / 3 && move.type === "Grass")
-		|| (atkAbility === "Blaze" && attacker.curHP <= attacker.maxHP / 3 && move.type === "Fire")
-		|| (atkAbility === "Torrent" && attacker.curHP <= attacker.maxHP / 3 && move.type === "Water")
-		|| (atkAbility === "Swarm" && attacker.curHP <= attacker.maxHP / 3 && move.type === "Bug")) {
+		|| (atkAbility === "Overgrow" && atkCurHP <= atkMaxHP / 3 && move.type === "Grass")
+		|| (atkAbility === "Blaze" && atkCurHP <= atkMaxHP / 3 && move.type === "Fire")
+		|| (atkAbility === "Torrent" && atkCurHP <= atkMaxHP / 3 && move.type === "Water")
+		|| (atkAbility === "Swarm" && atkCurHP <= atkMaxHP / 3 && move.type === "Bug")) {
 		atkMods.push(0x1800);
 		description.attackerAbility = atkAbility;
 	}
@@ -688,7 +698,7 @@ function getDamageResult(attacker, defender, move, field) {
 		description.attackerAbility = atkAbility;
 		description.weather = field.weather;
 	}
-	else if ((atkAbility === "Defeatist" && attacker.curHP <= attacker.maxHP / 2)
+	else if ((atkAbility === "Defeatist" && atkCurHP <= atkMaxHP / 2)
 		|| (atkAbility === "Slow Start" && move.category === "Physical")) {
 		atkMods.push(0x800);
 		description.attackerAbility = atkAbility;
@@ -881,7 +891,7 @@ function getDamageResult(attacker, defender, move, field) {
 		finalMods.push(field.format !== "Singles" ? 0xA8F : 0x800);
 		description.isAuroraVeil = true;
 	}
-	if ((defAbility === "Multiscale" || defAbility == "Shadow Shield") && defender.curHP === defender.maxHP) {
+	if ((defAbility === "Multiscale" || defAbility == "Shadow Shield") && defCurHP === defMaxHP) {
 		finalMods.push(0x800);
 		description.defenderAbility = defAbility;
 	}
