@@ -8978,11 +8978,11 @@ var POKEDEX_BW = $.extend(true, {}, POKEDEX_DPP, {
 
 var POKEDEX_XY = $.extend(true, {}, POKEDEX_BW, {
   "Venusaur": { "formes": ["Venusaur", "Mega Venusaur"] },
-  "Charizard": { "formes": ["Mega Charizard Y", "Mega Charizard X", "Charizard"] },
+  "Charizard": { "formes": ["Charizard", "Mega Charizard Y", "Mega Charizard X"] },
   "Blastoise": { "formes": ["Blastoise", "Mega Blastoise"] },
   "Butterfree": { "bs": { "sa": 90 } },
-  "Beedrill": { "bs": { "at": 90 }, "formes": ["Mega Beedrill", "Beedrill"] },
-  "Pidgeot": { "bs": { "sp": 101 }, "formes": ["Mega Pidgeot", "Pidgeot"] },
+  "Beedrill": { "bs": { "at": 90 }, "formes": ["Beedrill", "Mega Beedrill"] },
+  "Pidgeot": { "bs": { "sp": 101 }, "formes": ["Pidgeot", "Mega Pidgeot"] },
   "Pikachu": { "bs": { "df": 40, "sd": 50 } },
   "Raichu": { "bs": { "sp": 110 } },
   "Nidoqueen": { "bs": { "at": 92 } },
@@ -8993,7 +8993,7 @@ var POKEDEX_XY = $.extend(true, {}, POKEDEX_BW, {
   "Wigglytuff": { "t2": "Fairy", "bs": { "sa": 85 } },
   "Vileplume": { "bs": { "sa": 110 } },
   "Poliwrath": { "bs": { "at": 95 } },
-  "Alakazam": { "bs": { "sd": 95 }, "formes": ["Mega Alakazam", "Alakazam"] },
+  "Alakazam": { "bs": { "sd": 95 }, "formes": ["Alakazam", "Mega Alakazam"] },
   "Victreebel": { "bs": { "sd": 70 } },
   "Golem": { "bs": { "at": 120 } },
   "Slowbro": { "formes": ["Mega Slowbro", "Slowbro"] },

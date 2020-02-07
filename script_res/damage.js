@@ -160,7 +160,8 @@ function getDamageResult(attacker, defender, move, field) {
 	description.isMR = field.isMR;		// magical room
 	description.isWR = field.isWR;		// wonder room
 
-
+	description.defMaxed = defender.isMax;
+	description.defGMaxed = defender.isGmax;
 	
 
 	// if a move has 0 bp there is obviously no damage calculation to be done
@@ -1075,10 +1076,16 @@ function buildDescription(description) {
 	if (description.defToT) {
 		output += "Trick-or-Treat ";
 	}
-	if (description.defShiny)
+	if (description.defShiny){
 		output += "shiny ";
+	}
 
-
+	if(description.defGMaxed ){
+		output += "Gigantamax "
+	}
+	else if(description.defMaxed){
+		output += "Dynamax ";
+	}
 
 
 	output += description.defenderName;										/*defender name*/
