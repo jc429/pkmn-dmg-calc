@@ -431,28 +431,32 @@ $(".status").bind("keyup change", function() {
     }
 });
 
+$(".mark-selector").change(function() {
+	var markName = $(this).val();
+	var mark = MarkData[markName];
+});
+
 // auto-update move details on select
 $(".move-selector").change(function() {
-    var moveName = $(this).val();
-    var move = moves[moveName] || moves['(No Move)'];
-    var moveGroupObj = $(this).parent();
-    moveGroupObj.children(".move-bp").val(move.bp);
-    moveGroupObj.children(".move-type").val(move.type);
-    moveGroupObj.children(".move-cat").val(move.category);
-    moveGroupObj.children(".move-crit").prop("checked", move.alwaysCrit === true);
+	var moveName = $(this).val();
+	var move = moves[moveName] || moves['(No Move)'];
+	var moveGroupObj = $(this).parent();
+	moveGroupObj.children(".move-bp").val(move.bp);
+	moveGroupObj.children(".move-type").val(move.type);
+	moveGroupObj.children(".move-cat").val(move.category);
+	moveGroupObj.children(".move-crit").prop("checked", move.alwaysCrit === true);
 	
 	var movehits_str = '#' + moveGroupObj.attr('id') + '-hits'; 
 	if(movehits_str != 'undefined-hits'){
-//		window.alert(movehits_str);
+		//window.alert(movehits_str);
 	}
 	var movehits = $(movehits_str);
-    if (move.isMultiHit) {
-		
-        movehits.show();
-        movehits.val($(this).closest(".poke-info").find(".ability").val() === 'Skill Link' ? 5 : 3);
-    } else {
-        movehits.hide();
-    }
+	if (move.isMultiHit) {
+		movehits.show();
+		movehits.val($(this).closest(".poke-info").find(".ability").val() === 'Skill Link' ? 5 : 3);
+	} else {
+		movehits.hide();
+	}
 });
 
 // auto-update set details on select
@@ -831,6 +835,9 @@ function Pokemon(pokeInfo, moveDisplay) {
 	this.curHP = ~~pokeInfo.find(".current-hp").val();
 	this.HPEVs = ~~pokeInfo.find(".hp .evs").val();
 	this.HPIVs = ~~pokeInfo.find(".hp .ivs").val();
+	
+	this.dMaxHP = 
+
 	this.rawStats = {};
 	this.boosts = {};
 	this.stats = {};
@@ -887,7 +894,6 @@ function Pokemon(pokeInfo, moveDisplay) {
 	];
 	this.weight = +pokeInfo.find(".weight").val();
 	
-	this.isShiny = pokeInfo.find(".shiny").prop("checked");
 	this.isProtect = pokeInfo.find(".protect").prop("checked");
 	
 	this.isSoaked = pokeInfo.find(".soak").prop("checked");
@@ -901,9 +907,12 @@ function Pokemon(pokeInfo, moveDisplay) {
 		this.type3 = "Ghost";
 	}
 	
+	this.isShiny = pokeInfo.find(".shiny").prop("checked");
+	this.mark = pokeInfo.find("select.mark-selector").val();
+	this.markDesc = MarkData[this.mark];
 }
 
-function getMoveDetails(moveInfo, makeMax, makeGmax, makeZ, makeCrit, hitNum) {
+function getMoveDetails(moveInfo, makeMax, makeGmove, makeZ, makeCrit, hitNum) {
     var moveName = moveInfo.find("select.move-selector").val();
     var defaultDetails = moves[moveName];
     return $.extend({}, defaultDetails, {
@@ -914,7 +923,7 @@ function getMoveDetails(moveInfo, makeMax, makeGmax, makeZ, makeCrit, hitNum) {
 				isCrit: makeCrit,
 				isZ: makeZ,
 				isMax: makeMax,
-				isGmax: makeGmax,
+				isGmove: makeGmove,
 				hits: (defaultDetails.isMultiHit && !makeZ) ? ~~hitNum : defaultDetails.isTwoHit ? 2 : 1
       // isCrit: moveInfo.find(".move-crit").prop("checked"),
       // isZ: moveInfo.find(".move-z").prop("checked"),
@@ -1136,6 +1145,10 @@ $(".gen").change(function () {
 	var itemOptions = getSelectOptions(items, true);
 	$("select.item").find("option").remove().end().append("<option value=\"\">(none)</option>" + itemOptions);
 	
+	var markOptions = getSelectOptions(Object.keys(MarkData), true);
+	$("select.mark-selector").find("option").remove().end().append(markOptions);
+
+
 	$(".set-selector").val(getSetOptions()[gen > 3 ? 1 : gen === 1 ? 5 : 3].id);
 	$(".set-selector").change();
 });
@@ -1297,4 +1310,10 @@ $(document).ready(function() {
 	});
 	$(".set-selector").val(getSetOptions()[gen > 3 ? 1 : gen === 1 ? 5 : 3].id);
 	$(".set-selector").change();
+	$(".mark-selector").select2({
+		dropdownAutoWidth:true,
+		matcher: function(term, text) {
+			return text.toUpperCase().indexOf(term.toUpperCase()) === 0;
+		}
+	});
 });

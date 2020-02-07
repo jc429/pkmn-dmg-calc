@@ -155,6 +155,9 @@ function getDamageResult(attacker, defender, move, field) {
 	description.atkShiny = attacker.isShiny;
 	description.defShiny = defender.isShiny;
 
+	description.attackerMark = attacker.markDesc;
+	description.defenderMark = defender.markDesc;
+
 	var turnOrder = CalculateTurnOrder(attacker, defender, move, field);
 
 	description.isMR = field.isMR;		// magical room
@@ -1021,7 +1024,11 @@ function buildDescription(description) {
 		output += "shiny ";
 	}
 
-	output += description.attackerName + " ";								/*attacker name*/
+	output += description.attackerName;
+	
+	output += description.attackerMark;
+	
+	output += " ";								/*attacker name*/
 
 	if (description.isHelpingHand) {
 		output += "Helping Hand ";
@@ -1089,6 +1096,8 @@ function buildDescription(description) {
 
 
 	output += description.defenderName;										/*defender name*/
+
+	output += description.defenderMark;
 
 	if (description.isProtect) {
 		output += " (Protecting)";

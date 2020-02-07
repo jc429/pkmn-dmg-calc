@@ -568,11 +568,6 @@
 						<!-- Status  -->
 						<div>
 							<div class="info-group">
-								<label>Current HP</label>
-								<input class="current-hp calc-trigger" value="712" />/<span class="max-hp">712</span> (<input class="percent-hp calc-trigger" value="100" />%)
-								<input id="protect" class="protect btn-input calc-trigger" type="checkbox" />
-								<label for="protect" class="btn poke-button small-text">Protect</label>
-								<br/>
 								<label>Status</label>
 								<select class="status calc-trigger">
 									<option value="Healthy">Healthy</option>
@@ -583,20 +578,43 @@
 									<option value="Asleep">Asleep</option>
 									<option value="Frozen">Frozen</option>
 								</select>
-
-								<input id="shiny" class="shiny btn-input calc-trigger" type="checkbox" />
-								<label for="shiny" class="btn btn-small poke-button small-text">Shiny</label>
-								<br />
+								<input id="protect" class="protect btn-input calc-trigger" type="checkbox" />
+								<label for="protect" style="margin-left: 12px;" class="btn poke-button small-text">Protect</label>
+								<br/>
+								<label>Current HP</label>
+								<input class="current-hp calc-trigger" value="712" />/<span class="max-hp">712</span> 
+								(<input class="percent-hp calc-trigger" value="100" />%)
+								[<span class="dmax-hp">1424</span>]
 								
-								<div class="noGmax center">
-									<input id="dmax" class="dynamax btn-input calc-trigger" type="checkbox" />
-									<label for="dmax" style="margin-top: 2px;" class="btn btn-wide poke-button gen-specific g8">Dynamax</label>
-								</div>
-								<div class="yesGmax hide">	
-									<input id="dmaxG" name="max" class="dynamax max-btn btn-input calc-trigger" type="checkbox" />
-									<label for="dmaxG" style="margin-top: 2px;" class="btn btn-left btn-wide poke-button gen-specific g8">Dynamax</label>
-									<input id="gmax" name="max" class="gigantamax max-btn btn-input calc-trigger" type="checkbox" />
-									<label for="gmax" style="margin-top: 2px;" class="btn btn-right btn-wide poke-button gen-specific g8">Gigantamax</label>
+								
+								<div class="gen-specific g8">
+									<div class="noGmax center">
+										<input id="dmax" class="dynamax btn-input calc-trigger" type="checkbox" />
+										<label for="dmax" style="margin-top: 2px;" class="btn btn-wide poke-button gen-specific g8">Dynamax</label>
+									</div>
+									<div class="yesGmax hide">	
+										<input id="dmaxG" name="max" class="dynamax max-btn btn-input calc-trigger" type="checkbox" />
+										<label for="dmaxG" style="margin-top: 2px;" class="btn btn-left btn-wide poke-button gen-specific g8">Dynamax</label>
+										<input id="gmax" name="max" class="gigantamax max-btn btn-input calc-trigger" type="checkbox" />
+										<label for="gmax" style="margin-top: 2px;" class="btn btn-right btn-wide poke-button gen-specific g8">Gigantamax</label>
+									</div>
+							
+									<!--
+									<label>Dynamax Level</label>
+									<select class="dyna-level calc-trigger">
+										<option value="10" selected>10</option>
+										<option value="9">9</option>
+										<option value="8">8</option>
+										<option value="7">7</option>
+										<option value="6">6</option>
+										<option value="5">5</option>
+										<option value="4">4</option>
+										<option value="3">3</option>
+										<option value="2">2</option>
+										<option value="1">1</option>
+										<option value="0">0</option>
+									</select>
+									-->
 								</div>
 								<div class="hide">
 									<span class="gtype"></span>
@@ -610,15 +628,14 @@
 								<label for="forest-curse" class="btn btn-left poke-button btn-xwide small-text">Forest's Curse</label>
 								<input id="trick-or-treat" name="type3" class="trick-or-treat type3-btn btn-input calc-trigger" type="checkbox" />
 								<label for="trick-or-treat" class="btn btn-right poke-button btn-xwide small-text">Trick-or-Treat</label>
-
-								<br />
-
-								<!-- <input id="forest-curse" class="forest-curse btn-input  calc-trigger" type="checkbox"  />
-						<label for="forest-curse" class="btn poke-button btn-xxwide small-text">Forest's Curse</label>
-                        <input id="trick-or-treat" class="trick-or-treat btn-input calc-trigger" type="checkbox"  />
-						<label for="trick-or-treat" class="btn poke-button btn-xxwide small-text">Trick-or-Treat</label> -->
-								<br />
-								<br />
+								
+								<p class="small-text">Fluff:</p>
+								
+								<input id="shiny" class="shiny btn-input calc-trigger" type="checkbox" />
+								<label for="shiny" class="btn btn-small poke-button small-text">Shiny</label>
+								<label class="small-text" style="margin-left: 4px"> Mark: </label>
+								<select class="mark-selector calc-trigger small-select"></select>
+								
 								<!--
 						<input id="floating" class="btn-input  calc-trigger" type="checkbox"  />
 						<label class="btn btn-xwide poke-button small-text" for="floating">Floating</label>
@@ -1239,13 +1256,6 @@
 						<!-- Status  -->
 						<div>
 							<div class="info-group">
-								<label>Current HP</label>
-								<input class="current-hp calc-trigger" value="712" />/<span class="max-hp">712</span> 
-										(<input class="percent-hp calc-trigger" value="100" />%)
-										
-								<input id="protect2" class="protect btn-input calc-trigger" type="checkbox" />
-								<label for="protect2" class="btn poke-button small-text">Protect</label>
-								<br/>
 								<label>Status</label>
 								<select class="status calc-trigger">
 									<option value="Healthy">Healthy</option>
@@ -1256,20 +1266,42 @@
 									<option value="Asleep">Asleep</option>
 									<option value="Frozen">Frozen</option>
 								</select>
+								<input id="protect2" class="protect btn-input calc-trigger" type="checkbox" />
+								<label for="protect2" style="margin-left: 12px;" class="btn poke-button small-text">Protect</label>
+								<br/>
+								<label>Current HP</label>
+								<input class="current-hp calc-trigger" value="712" />/<span class="max-hp">712</span>
+								(<input class="percent-hp calc-trigger" value="100" />%)
+								[<span class="dmax-hp">1424</span>]
 								
-								<input id="shiny2" class="shiny btn-input calc-trigger" type="checkbox" />
-								<label for="shiny2" class="btn btn-small poke-button small-text">Shiny</label>
-								<br />
-								
-								<div class="noGmax">
-									<input id="dmax2" class="dynamax btn-input calc-trigger" type="checkbox" />
-									<label for="dmax2" style="margin-top: 2px;" class="btn btn-wide poke-button gen-specific g8">Dynamax</label>
-								</div>
-								<div class="yesGmax hide">	
-									<input id="dmaxG2" name="max" class="dynamax max-btn-2 btn-input calc-trigger" type="checkbox" />
-									<label for="dmaxG2" style="margin-top: 2px;" class="btn btn-left btn-wide poke-button gen-specific g8">Dynamax</label>
-									<input id="gmax2" name="max" class="gigantamax max-btn-2 btn-input calc-trigger" type="checkbox" />
-									<label for="gmax2" style="margin-top: 2px;" class="btn btn-right btn-wide poke-button gen-specific g8">Gigantamax</label>
+								<div class="gen-specific g8">
+									<div class="noGmax">
+										<input id="dmax2" class="dynamax btn-input calc-trigger" type="checkbox" />
+										<label for="dmax2" style="margin-top: 2px;" class="btn btn-wide poke-button gen-specific g8">Dynamax</label>
+									</div>
+									<div class="yesGmax hide">	
+										<input id="dmaxG2" name="max" class="dynamax max-btn-2 btn-input calc-trigger" type="checkbox" />
+										<label for="dmaxG2" style="margin-top: 2px;" class="btn btn-left btn-wide poke-button gen-specific g8">Dynamax</label>
+										<input id="gmax2" name="max" class="gigantamax max-btn-2 btn-input calc-trigger" type="checkbox" />
+										<label for="gmax2" style="margin-top: 2px;" class="btn btn-right btn-wide poke-button gen-specific g8">Gigantamax</label>
+									</div>
+						
+									<!--
+									<label>Dynamax Level</label>
+									<select class="dyna-level calc-trigger">
+										<option value="10" selected>10</option>
+										<option value="9">9</option>
+										<option value="8">8</option>
+										<option value="7">7</option>
+										<option value="6">6</option>
+										<option value="5">5</option>
+										<option value="4">4</option>
+										<option value="3">3</option>
+										<option value="2">2</option>
+										<option value="1">1</option>
+										<option value="0">0</option>
+									</select>
+									-->
 								</div>
 								
 								<div class="hide">
@@ -1285,11 +1317,13 @@
 								<input id="trick-or-treat-r" name="type3r" class="trick-or-treat type3-btn-2 btn-input calc-trigger" type="checkbox" />
 								<label for="trick-or-treat-r" class="btn btn-right poke-button btn-xwide small-text">Trick-or-Treat</label>
 
-								<br />
-
-
-								<br />
-								<br />
+								<p class="small-text">Fluff:</p>
+								
+								<input id="shiny2" class="shiny btn-input calc-trigger" type="checkbox" />
+								<label for="shiny2" class="btn btn-small poke-button small-text">Shiny</label>
+								<label class="small-text" style="margin-left: 4px"> Mark: </label>
+								<select class="mark-selector calc-trigger small-select"></select>
+								
 								<!--
 						<input id="floating" class="btn-input  calc-trigger" type="checkbox"  />
 						<label class="btn btn-xwide poke-button small-text" for="floating">Floating</label>
@@ -1375,6 +1409,8 @@
 	<script type="text/javascript" src="data/nature_data.js"></script>
 	<script type="text/javascript" src="data/stat_data.js"></script>
 	<script type="text/javascript" src="data/type_data.js"></script>
+	<script type="text/javascript" src="data/mark_data.js"></script>
+
 
 
 

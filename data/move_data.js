@@ -1891,97 +1891,103 @@ var ZMOVES_LOOKUP = {
     'Flying':'Supersonic Skystrike','Dragon':'Devastating Drake','Poison':'Acid Downpour'};
 
 var MOVES_SM = $.extend(true, {}, MOVES_XY, {
-    'Bolt Strike': {zp: 195 },
-    'Future Sight': { zp: 190 },
-    'Mud Shot': {
-        zp: 100
-    },
-    'Last Resort': { zp: 200 },
-    'Water Shuriken': {
-        category: 'Special',
-        zp: 100
-    },
-    'Leech Life': {
-        category: 'Physical',
-        type: 'Bug',
-        bp: 80,
-        makesContact: true,
-        zp: 160
-		},
-		'Fissure': {
-					category: 'Physical',
-					type: 'Ground',
-					bp: 0,
-					isMLG: 'true',
-					zp: 180
-			},
-			'Razor Leaf': {
-					category: 'Physical',
-					type: 'Grass',
-					bp: 55,
-			isSpread: true,
-					zp: 100
-			},
-			'Petal Blizzard': {
-					category: 'Physical',
-					type: 'Grass',
-					bp: 90,
-			isSpread: true,
-					zp: 175
-			},
-			'Zap Cannon': {
-					category: 'Special',
-					type: 'Electric',
-					bp: 120,
-					zp: 190
-			},
-		'Chip Away': {
-			category: 'Physical',
-			type: 'Normal',
-			bp: 70,
-			makesContact: true,
-			zp: 140
-		},
-		'Venoshock': {
-			category: 'Special',
-			type: 'Poison',
-			bp: 65,
-			zp: 120
-		},
-		'Heart Stamp': {
-			category: 'Physical',
-			type: 'Psychic',
-			bp: 60,
-			makesContact: true,
-			zp: 120
-		},
-    'Zing Zap': {
-        category: 'Physical',
-        type: 'Electric',
-        bp: 80,
-        makesContact: true,
-        zp: 160
-    },
-    'Moongeist Beam': {
-        category: 'Special',
-        type: 'Ghost',
-        bp: 100,
-        zp: 180
-    },
-    'Sunsteel Strike': {
-        category: 'Physical',
-        type: 'Steel',
-        bp: 100,
-        makesContact: true,
-        zp: 180
-    },
-    'Spectral Thief': {
-        category: 'Physical',
-        type: 'Ghost',
-        bp: 90,
-        makesContact: true,
-        zp: 175
-    },
+	'Bolt Strike': {zp: 195 },
+	'Future Sight': { zp: 190 },
+	'Mud Shot': {
+		zp: 100
+	},
+	'Last Resort': { zp: 200 },
+	'Water Shuriken': {
+		category: 'Special',
+		zp: 100
+	},
+	'Leech Life': {
+		category: 'Physical',
+		type: 'Bug',
+		bp: 80,
+		makesContact: true,
+		zp: 160
+	},
+	'Fissure': {
+		category: 'Physical',
+		type: 'Ground',
+		bp: 0,
+		isMLG: 'true',
+		zp: 180
+	},
+	'Mystical Fire': {
+		category: 'Special',
+		type: 'Fire',
+		bp: 75,
+		zp: 140
+	},
+	'Razor Leaf': {
+		category: 'Physical',
+		type: 'Grass',
+		bp: 55,
+		isSpread: true,
+		zp: 100
+	},
+	'Petal Blizzard': {
+		category: 'Physical',
+		type: 'Grass',
+		bp: 90,
+		isSpread: true,
+		zp: 175
+	},
+	'Zap Cannon': {
+		category: 'Special',
+		type: 'Electric',
+		bp: 120,
+		zp: 190
+	},
+	'Chip Away': {
+		category: 'Physical',
+		type: 'Normal',
+		bp: 70,
+		makesContact: true,
+		zp: 140
+	},
+	'Venoshock': {
+		category: 'Special',
+		type: 'Poison',
+		bp: 65,
+		zp: 120
+	},
+	'Heart Stamp': {
+		category: 'Physical',
+		type: 'Psychic',
+		bp: 60,
+		makesContact: true,
+		zp: 120
+	},
+	'Zing Zap': {
+		category: 'Physical',
+		type: 'Electric',
+		bp: 80,
+		makesContact: true,
+		zp: 160
+	},
+	'Moongeist Beam': {
+		category: 'Special',
+		type: 'Ghost',
+		bp: 100,
+		zp: 180
+	},
+	'Sunsteel Strike': {
+		category: 'Physical',
+		type: 'Steel',
+		bp: 100,
+		makesContact: true,
+		zp: 180
+	},
+	'Spectral Thief': {
+		category: 'Physical',
+		type: 'Ghost',
+		bp: 90,
+		makesContact: true,
+		zp: 175
+	},
     'Prismatic Laser': {
         category: 'Special',
         type: 'Psychic',
@@ -3231,36 +3237,36 @@ var MOVES_SS = $.extend(true, {}, MOVES_SM, {
         category: 'Physical',
     },
     'Dragon Darts': {
-        bp: 50,
-        type: 'Dragon',
-        category: 'Physical',
-        isTwoHit: true
+			bp: 50,
+			type: 'Dragon',
+			category: 'Physical',
+			isTwoHit: true
     },
     'Bolt Beak': {
-        bp: 85,
-        type: 'Electric',
-        category: 'Physical',
-        makesContact: true,
+			bp: 85,
+			type: 'Electric',
+			category: 'Physical',
+			makesContact: true,
     },
     'Bolt Beak (Doubled)': {
-        bp: 170,
-        type: 'Electric',
-        category: 'Physical',
-        makesContact: true,
+			bp: 170,
+			type: 'Electric',
+			category: 'Physical',
+			makesContact: true,
     },
     'Fishious Rend': {
-        bp: 85,
-        type: 'Water',
-        category: 'Physical',
-        isBite: true,
-        makesContact: true,
+			bp: 85,
+			type: 'Water',
+			category: 'Physical',
+			isBite: true,
+			makesContact: true,
     },
     'Fishious Rend (Doubled)': {
-        bp: 170,
-        type: 'Water',
-        category: 'Physical',
-        isBite: true,
-        makesContact: true,
+			bp: 170,
+			type: 'Water',
+			category: 'Physical',
+			isBite: true,
+			makesContact: true,
     },
     'Body Press': {
         bp: 80,

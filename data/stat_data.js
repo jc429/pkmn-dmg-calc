@@ -34,7 +34,10 @@ function CALC_HP_ADV(poke) {
         var evs = ~~hp.find(".evs").val();
         var ivs = ~~hp.find(".ivs").val();
         total = Math.floor((base * 2 + ivs + Math.floor(evs / 4)) * level / 100) + level + 10;
-    }
+		}
+		if(poke.find(".max").prop("checked")){
+			total *= 2
+		}
     hp.find(".total").text(total);
     poke.find(".max-hp").text(total);
     calcCurrentHP(poke, total, ~~poke.find(".percent-hp").val());
