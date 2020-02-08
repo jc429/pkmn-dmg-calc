@@ -154,6 +154,8 @@ function getDamageResult(attacker, defender, move, field) {
 		if(attacker.item == "Choice Band" || attacker.item == "Choice Specs" || attacker.item == "Choice Scarf") {
 			attacker.item = "";
 		}
+
+
 	}
 
 	var description = {
@@ -202,10 +204,10 @@ function getDamageResult(attacker, defender, move, field) {
 	}
 	// these moves function identically to Mold Breaker
 	else if (move.name === "Moongeist Beam"
-		|| move.name === "Sunsteel Strike"
-		|| move.name === "Searing Sunraze Smash"
-		|| move.name === "Menacing Moonraze Maelstrom"
-		|| move.name === "Light That Burns the Sky") {
+			|| move.name === "Sunsteel Strike"
+			|| move.name === "Searing Sunraze Smash"
+			|| move.name === "Menacing Moonraze Maelstrom"
+			|| move.name === "Light That Burns the Sky") {
 
 		defAbility = ""; //works as a mold breaker
 		defender.isFriendGuard = false;
@@ -571,6 +573,10 @@ function getDamageResult(attacker, defender, move, field) {
 	if (field.isBattery && move.category === "Special") {
 		bpMods.push(0x14CD);
 		description.isBattery = true;
+	}
+	if (field.isPowerSpot) {
+		bpMods.push(0x14CD);
+		description.isPowerSpot = true;
 	}
 
 	if (!move.isZ && (isAerilate || isPixilate || isRefrigerate || isGalvanize)) {
@@ -1039,18 +1045,24 @@ function buildDescription(description) {
 	output += description.attackerMark;
 	
 	output += " ";								/*attacker name*/
+	
+	
+	if (description.isPowerSpot) {
+		output += "Power Spot ";
+	}
 
 	if (description.isHelpingHand) {
 		output += "Helping Hand ";
 	}
 
-	if (description.isIonized) {
-		output += "Ionized ";
-	}
-
 	if (description.isBattery) {
 		output += "Battery-boosted ";
 	}
+
+	if (description.isIonized) {
+		output += "Ionized ";
+	}	
+
 
 	output += description.moveName + " ";
 

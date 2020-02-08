@@ -972,8 +972,8 @@ function Field() {
 	var isFriendGuard = [$("#friendGuardL").prop("checked"), $("#friendGuardR").prop("checked")];
 	var isBattery = [$("#batteryR").prop("checked"), $("#batteryL").prop("checked")];				// affects attacks against opposite side
 	var isPowerSpot = [$("#powerSpotR").prop("checked"), $("#powerSpotL").prop("checked")];
-	var isFiery = [$("#powerSpotR").prop("checked"), $("#powerSpotL").prop("checked")];
-	var isEntrapped = [$("#powerSpotR").prop("checked"), $("#powerSpotL").prop("checked")];
+	var isFiery = [$("#fieryFieldL").prop("checked"), $("#fieryFieldR").prop("checked")];
+	var isEntrapped = [$("#entrappedL").prop("checked"), $("#entrappedR").prop("checked")];
 
     
 	this.getWeather = function() {
