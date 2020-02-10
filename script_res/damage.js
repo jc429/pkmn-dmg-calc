@@ -405,11 +405,11 @@ function getDamageResult(attacker, defender, move, field) {
 	var bpMods = [];
 
 	switch (move.name) {
-		case "Fishious Rend":
+		/*case "Fishious Rend":
 		case "Bolt Beak":
 			basePower = turnOrder.attackerTurn === "FIRST" ? 170 : 85;
 			description.moveBP = basePower;
-			break;
+			break;*/
 		case "Payback":
 			basePower = turnOrder.attackerTurn === "LAST" ? 100 : 50;
 			description.moveBP = basePower;
