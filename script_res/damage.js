@@ -1,10 +1,15 @@
 function CALCULATE_ALL_MOVES_BW(p1, p2, field) {
+	checkNeutralizingGas(p1, p2);
 	checkAirLock(p1, field);
 	checkAirLock(p2, field);
 	checkForecast(p1, field.getWeather());
 	checkForecast(p2, field.getWeather());
+	checkMimicry(p1, field.getTerrain());
+	checkMimicry(p2, field.getTerrain());
 	checkKlutz(p1);
 	checkKlutz(p2);
+	checkScreenCleaner(p1, field);
+	checkScreenCleaner(p2, field);
 	checkRoom(field, p1, p2);
 	checkSimple(p1.boosts);
 	checkSimple(p2.boosts);
@@ -229,9 +234,9 @@ function getDamageResult(attacker, defender, move, field) {
 	if (move.name === "Weather Ball") {
 		move.type = field.weather.indexOf("Sun") > -1 ? "Fire"
 			: field.weather.indexOf("Rain") > -1 ? "Water"
-				: field.weather === "Sand" ? "Rock"
-					: field.weather === "Hail" ? "Ice"
-						: "Normal";
+			: field.weather === "Sand" ? "Rock"
+			: field.weather === "Hail" ? "Ice"
+			: "Normal";
 
 		description.weather = field.weather;
 		description.moveType = move.type;
@@ -240,9 +245,9 @@ function getDamageResult(attacker, defender, move, field) {
 	else if (move.name === "Nature Power") {
 		move.type = field.terrain === "Electric" ? "Electric"
 			: field.terrain === "Grassy" ? "Grass"
-				: field.terrain === "Psychic" ? "Psychic"
-					: field.terrain === "Misty" ? "Fairy"
-						: "Normal";
+			: field.terrain === "Psychic" ? "Psychic"
+			: field.terrain === "Misty" ? "Fairy"
+			: "Normal";
 		description.terrain = field.terrain;
 		description.moveType = move.type;
 	}
@@ -714,10 +719,15 @@ function getDamageResult(attacker, defender, move, field) {
 		atkMods.push(0x2000);
 		description.attackerAbility = atkAbility;
 	}
+	if (atkAbility === "Steely Spirit" && move.type === "Steel") {
+		atkMods.push(0x1800);
+		description.attackerAbility = atkAbility;
+	}
 	if (atkAbility === "Gorilla Tactics" && move.category === "Physical") {
 		atkMods.push(0x1800);
 		description.attackerAbility = atkAbility;
 	}
+	
 
 	// item-based atk modifiers
 	if ((attacker.item === "Thick Club" && (attacker.name === "Cubone" || attacker.name === "Marowak" || attacker.name === "Marowak-Alola") && move.category === "Physical")
@@ -869,17 +879,20 @@ function getDamageResult(attacker, defender, move, field) {
 		}
 	}
 
-	if (move.type == "Grass" && attacker.isForestCurse) {		/* STAB mods for type changes */
+	if (atkAbility === "Protean" || atkAbility === "Libero") {
+		stabMod = 0x1800;
+		description.attackerAbility = atkAbility;
+		description.atkSoak = false;
+		description.atkFC = false;
+		description.atkToT = false;
+	}
+	else if (move.type == "Grass" && attacker.isForestCurse) {		/* STAB mods for type changes */
 		description.atkFC = true;
 	}
 	else if (move.type == "Ghost" && attacker.isTrickOrTreat) {
 		description.atkToT = true;
 	}
-	if (atkAbility === "Protean") {
-		stabMod = 0x1800;
-		description.attackerAbility = atkAbility;
-		description.atkSoak = false;
-	}
+	
 
 
 	var applyBurn = (attacker.status === "Burned" && move.category === "Physical" && atkAbility !== "Guts" && !move.ignoresBurn);
@@ -898,6 +911,10 @@ function getDamageResult(attacker, defender, move, field) {
 		description.isAuroraVeil = true;
 	}
 	if ((defAbility === "Multiscale" || defAbility == "Shadow Shield") && defCurHP === defMaxHP) {
+		finalMods.push(0x800);
+		description.defenderAbility = defAbility;
+	}
+	if(defAbility === "Ice Scales" && move.category === "Special"){
 		finalMods.push(0x800);
 		description.defenderAbility = defAbility;
 	}
@@ -1228,6 +1245,13 @@ function getFinalSpeed(pokemon, weather) {
 /*** Pre-Battle Checks ***/
 /*************************/
 
+function checkNeutralizingGas(p1, p2){
+	if (p1.ability === "Neutralizing Gas" || p2.ability === "Neutralizing Gas") {
+		p1.ability = "";
+		p2.ability = "";
+	}
+}
+
 function checkAirLock(pokemon, field) {
 	if (pokemon.ability === "Air Lock" || pokemon.ability === "Cloud Nine") {
 		field.clearWeather();
@@ -1247,9 +1271,35 @@ function checkForecast(pokemon, weather) {
 		pokemon.type2 = "";
 	}
 }
+function checkMimicry(pokemon, terrain){
+	if (pokemon.ability === "Mimicry") {
+		if (terrain == "Grassy") {
+			pokemon.type1 = "Grass";
+		} else if (terrain === "Electric") {
+			pokemon.type1 = "Electric";
+		} else if (weather === "Psychic") {
+			pokemon.type1 = "Psychic";
+		} else if (weather === "Misty") {
+			pokemon.type1 = "Fairy";
+		} else {
+			return;
+		}
+		pokemon.type2 = "";
+	}
+}
 function checkKlutz(pokemon) {
 	if (pokemon.ability === "Klutz") {
 		pokemon.item = "";
+	}
+}
+function checkScreenCleaner(pokemon, field) {
+	if (pokemon.ability === "Screen Cleaner") {
+		field.getSide(0).isReflect = false;
+		field.getSide(0).isLightScreen = false;
+		field.getSide(0).isAuroraVeil = false;
+		field.getSide(1).isReflect = false;
+		field.getSide(1).isLightScreen = false;
+		field.getSide(1).isAuroraVeil = false;
 	}
 }
 

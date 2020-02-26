@@ -979,6 +979,9 @@ function Field() {
 	this.getWeather = function() {
 		return weather;
 	};
+	this.getTerrain = function() {
+		return terrain;
+	};
 	this.clearWeather = function() {
 		weather = "";
 	};

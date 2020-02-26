@@ -769,6 +769,21 @@ var MOVES_ADV = $.extend(true, {}, MOVES_GSC, {
         type: 'Normal',
         category: 'Special',
         isBullet: true
+    },
+    'Frenzy Plant': {
+        bp: 150,
+        type: 'Normal',
+        category: 'Special'
+    },
+    'Blast Burn': {
+        bp: 150,
+        type: 'Normal',
+        category: 'Special'
+    },
+    'Hydro Cannon': {
+        bp: 150,
+        type: 'Normal',
+        category: 'Special' 
     }
 });
 
@@ -1893,6 +1908,9 @@ var ZMOVES_LOOKUP = {
 var MOVES_SM = $.extend(true, {}, MOVES_XY, {
 	'Bolt Strike': {zp: 195 },
 	'Future Sight': { zp: 190 },
+	'Frenzy Plant': { zp: 200 },
+	'Blast Burn': { zp: 200 },
+	'Hydro Cannon': { zp: 200 },
 	'Mud Shot': {
 		zp: 100
 	},
