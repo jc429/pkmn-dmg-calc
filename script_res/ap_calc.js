@@ -941,12 +941,12 @@ function getMoveDetails(moveInfo, makeMax, makeGmove, makeZ, makeCrit, hitNum) {
 function Field() {
 	var format = $("input:radio[name='format']:checked").val();
 	var doubleHeal = $("#double-recovery").prop("checked");
-	var isGravity = $("#gravity").prop("checked");
 	var isTR = $("#trickRoom").prop("checked");
 	var isMR = $("#magicRoom").prop("checked");
 	var isWR = $("#wonderRoom").prop("checked");
 	
-	var isSR = [$("#srL").prop("checked"), $("#srR").prop("checked")];
+	var isGravity = $("#gravity").prop("checked");
+	var isNeutralizingGas = $("#neutralizingGas").prop("checked");
 	
 	var isWet = $("#waterSport").prop("checked");
 	var isMuddy = $("#mudSport").prop("checked");
@@ -961,8 +961,9 @@ function Field() {
 		weather = $("input:radio[name='weather']:checked").val();
 		spikes = [~~$("input:radio[name='spikesL']:checked").val(), ~~$("input:radio[name='spikesR']:checked").val()];
 	}
+	var isSR = [$("#srL").prop("checked"), $("#srR").prop("checked")];
 	//var seeds = [~~$("input:radio[name='seedsL']:checked").val(), ~~$("input:radio[name='seedsR']:checked").val()];
-
+	
 	var terrain = ($("input:radio[name='terrain']:checked").val()) ? $("input:radio[name='terrain']:checked").val() : "";
 	var isReflect = [$("#reflectL").prop("checked"), $("#reflectR").prop("checked")];
 	var isLightScreen = [$("#lightScreenL").prop("checked"), $("#lightScreenR").prop("checked")];
@@ -972,6 +973,7 @@ function Field() {
 	var isFriendGuard = [$("#friendGuardL").prop("checked"), $("#friendGuardR").prop("checked")];
 	var isBattery = [$("#batteryR").prop("checked"), $("#batteryL").prop("checked")];				// affects attacks against opposite side
 	var isPowerSpot = [$("#powerSpotR").prop("checked"), $("#powerSpotL").prop("checked")];
+	var isSteelySpirit = [$("#steelySpiritR").prop("checked"), $("#steelySpiritL").prop("checked")];
 	var isFiery = [$("#fieryFieldL").prop("checked"), $("#fieryFieldR").prop("checked")];
 	var isEntrapped = [$("#entrappedL").prop("checked"), $("#entrappedR").prop("checked")];
 
@@ -986,14 +988,17 @@ function Field() {
 		weather = "";
 	};
 	this.getSide = function(i) {
-		return new Side(format, doubleHeal, terrain, weather, 
-				isGravity, isTR, isMR, isWR, 
+		return new Side(format, doubleHeal, 
+				terrain, weather, 
+				isGravity, isNeutralizingGas,
+				isTR, isMR, isWR, 
 				isWet, isMuddy, isIonized, 
 				isSR[i], spikes[i], 
 				isReflect[i], isLightScreen[i], isAuroraVeil[i], 
 				isForesight[i], 
 				isHelpingHand[i], isFriendGuard[i], 
 				isBattery[i], isPowerSpot[i],
+				isSteelySpirit[i],
 				isFiery[i], isEntrapped[i]
 				);
 	};
@@ -1003,22 +1008,29 @@ function Field() {
 	this.getWR = function(){
 		return isWR;
 	};
+	this.getNeutralizingGas = function(){
+		return isNeutralizingGas;
+	};
 }
 
-function Side(format, doubleHeal, terrain, weather, 
-		isGravity, isTR, isMR, isWR, 
+function Side(format, doubleHeal, 
+		terrain, weather, 
+		isGravity, isNeutralizingGas,
+		isTR, isMR, isWR, 
 		isWet, isMuddy, isIonized, 
 		isSR, spikes, 
 		isReflect, isLightScreen, isAuroraVeil, 
 		isForesight, 
 		isHelpingHand, isFriendGuard, 
 		isBattery, isPowerSpot,
+		isSteelySpirit,
 		isFiery, isEntrapped) {
 	this.format = format;
 	this.doubleHeal = doubleHeal;
 	this.terrain = terrain;
 	this.weather = weather;
 	this.isGravity = isGravity;
+	this.isNeutralizingGas = isNeutralizingGas;
 	this.isTR = isTR;
 	this.isMR = isMR;
 	this.isWR = isWR;
@@ -1036,6 +1048,7 @@ function Side(format, doubleHeal, terrain, weather,
 	this.isFriendGuard = isFriendGuard;
 	this.isBattery = isBattery;
 	this.isPowerSpot = isPowerSpot;
+	this.isSteelySpirit = isSteelySpirit;
 	this.isFiery = isFiery;
 	this.isEntrapped = isEntrapped;
 }
@@ -1168,13 +1181,14 @@ function clearField() {
 	$("#double-recovery").prop("checked", false);
 	$("#clear").prop("checked", true);
 	$("#gscClear").prop("checked", true);
-	$("#gravity").prop("checked", false);
 	$("#trickRoom").prop("checked", false);
 	$("#magicRoom").prop("checked", false);
 	$("#wonderRoom").prop("checked", false);
+	$("#gravity").prop("checked", false);
+	$("#neutralizingGas").prop("checked", false);
+	$("#ionDeluge").prop("checked", false);
 	$("#waterSport").prop("checked", false);
 	$("#mudSport").prop("checked", false);
-	$("#ionDeluge").prop("checked", false);
 	$("#srL").prop("checked", false);
 	$("#srR").prop("checked", false);
 	$("#spikesL0").prop("checked", true);
@@ -1187,6 +1201,8 @@ function clearField() {
 	$("#reflectR").prop("checked", false);
 	$("#lightScreenL").prop("checked", false);
 	$("#lightScreenR").prop("checked", false);
+	$("#auroraVeilL").prop("checked", false);
+	$("#auroraVeilR").prop("checked", false);
 	$("#foresightL").prop("checked", false);
 	$("#foresightR").prop("checked", false);
 	$("#helpingHandL").prop("checked", false);
@@ -1195,56 +1211,62 @@ function clearField() {
 	$("#friendGuardR").prop("checked", false);
 	$("#batteryL").prop("checked", false);
 	$("#batteryR").prop("checked", false);
+	$("#powerSpotL").prop("checked", false);
+	$("#powerSpotR").prop("checked", false);
+	$("#steelySpiritL").prop("checked", false);
+	$("#steelySpiritR").prop("checked", false);
+	$("#fieryFieldL").prop("checked", false);
+	$("#fieryFieldR").prop("checked", false);
 }
 
 function getSetOptions() {
-    var pokeNames, index;
-    pokeNames = Object.keys(pokedex);
-    index = pokeNames.length;
-    while (index--) {
-        if (pokedex[pokeNames[index]].isAlternateForme) {
-            pokeNames.splice(index, 1);
-        }
-    }
-    pokeNames.sort();
-    index = pokeNames.length;
-    while(index--){ //forcing alolan forms to show first
-        if(pokeNames[index].includes("-Alola")){
-            var temp = pokeNames[index];
-            pokeNames.splice(index, 1); //deleting alolan entry
-            var regularForm = temp.substring(0, temp.indexOf("-Alola"));
-            var regularIndex = pokeNames.indexOf(regularForm);
-            pokeNames.splice(regularIndex, 0, temp); //re-inserting it right before non-alolan entry
-        }
-    }
-    var setOptions = [];
-    var idNum = 0;
-    for (var i = 0; i < pokeNames.length; i++) {
-        var pokeName = pokeNames[i];
-        setOptions.push({
-            pokemon: pokeName,
-            text: pokeName
-        });
-        if (pokeName in setdex) {
-            var setNames = Object.keys(setdex[pokeName]);
-            for (var j = 0; j < setNames.length; j++) {
-                var setName = setNames[j];
-                setOptions.push({
-                    pokemon: pokeName,
-                    set: setName,
-                    text: pokeName + " (" + setName + ")",
-                    id: pokeName + " (" + setName + ")"
-                });
-            }
-        }
-        setOptions.push({
-            pokemon: pokeName,
-            set: "Blank Set",
-            text: pokeName + " (Blank Set)",
-            id: pokeName + " (Blank Set)"
-        });
-    }
-    return setOptions;
+	var pokeNames, index;
+	pokeNames = Object.keys(pokedex);
+	index = pokeNames.length;
+	while (index--) {
+		if (pokedex[pokeNames[index]].isAlternateForme) {
+			pokeNames.splice(index, 1);
+		}
+	}
+	pokeNames.sort();
+	index = pokeNames.length;
+	while(index--){ //forcing alolan forms to show first
+			if(pokeNames[index].includes("-Alola")){
+					var temp = pokeNames[index];
+					pokeNames.splice(index, 1); //deleting alolan entry
+					var regularForm = temp.substring(0, temp.indexOf("-Alola"));
+					var regularIndex = pokeNames.indexOf(regularForm);
+					pokeNames.splice(regularIndex, 0, temp); //re-inserting it right before non-alolan entry
+			}
+	}
+	var setOptions = [];
+	var idNum = 0;
+	for (var i = 0; i < pokeNames.length; i++) {
+		var pokeName = pokeNames[i];
+		setOptions.push({
+			pokemon: pokeName,
+			text: pokeName
+		});
+		if (pokeName in setdex) {
+			var setNames = Object.keys(setdex[pokeName]);
+			for (var j = 0; j < setNames.length; j++) {
+				var setName = setNames[j];
+				setOptions.push({
+					pokemon: pokeName,
+					set: setName,
+					text: pokeName + " (" + setName + ")",
+					id: pokeName + " (" + setName + ")"
+				});
+			}
+		}
+		setOptions.push({
+			pokemon: pokeName,
+			set: "Blank Set",
+			text: pokeName + " (Blank Set)",
+			id: pokeName + " (Blank Set)"
+		});
+	}
+	return setOptions;
 }
 
 function getSelectOptions(arr, sort, defaultIdx) {

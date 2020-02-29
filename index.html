@@ -684,16 +684,15 @@
 							<input class="btn-input calc-trigger" type="radio" name="format" value="Doubles" id="doubles" /><label
 								class="btn btn-right" for="doubles">Doubles</label>
 						</div>
-						<div style="width: 9.4em; margin: 0 auto 5px;"
-							title="Simulates the recovery gained from protecting every other turn.">
-							<input class="btn-input calc-trigger" type="checkbox" id="double-recovery" /><label
-								class="btn btn-xxxwide" for="double-recovery">Double Recovery Mode</label>
+						<div style="width: 11em; margin: 0 auto 5px;" title="Simulates the recovery gained from protecting every other turn.">
+							<input class="btn-input calc-trigger" type="checkbox" id="double-recovery" />
+							<label class="btn btn-x4wide" for="double-recovery">Double Recovery Mode</label>
 						</div>
 						<hr />
 						<div style="margin: 5px auto;" title="Select the current terrain.">
 							<label class="field-label small-text">Terrain:</label>
-							<input class="btn-input terrain-trigger calc-trigger" type="radio" name="terrain" value="" id="noterrain"
-								checked="checked" /><label class="btn btn-small btn-left" for="noterrain">None</label>
+							<input class="btn-input terrain-trigger calc-trigger" type="radio" name="terrain" value="" id="noTerrain"
+								checked="checked" /><label class="btn btn-small btn-left" for="noTerrain">None</label>
 							<input class="btn-input terrain-trigger calc-trigger" type="radio" name="terrain" value="Electric"
 								id="electric" /><label class="btn btn-small btn-mid" for="electric">Electric</label>
 							<input class="btn-input terrain-trigger calc-trigger" type="radio" name="terrain" value="Grassy"
@@ -758,6 +757,8 @@
 							<label class="field-label small-text">Field: </label>
 							<input class="btn-input calc-trigger" type="checkbox" id="gravity" />
 							<label class="btn" style="margin-right: 2px;" for="gravity">Gravity</label>
+							<input class="btn-input calc-trigger" type="checkbox" id="neutralizingGas" />
+							<label class="btn btn-xxxwide" style="margin-right: 2px;" for="neutralizingGas">Neutralizing Gas</label>
 
 						</div>
 						<div style="margin: 5px auto;" title="Makes all Normal type moves Electric type, in case you were wondering.">
@@ -902,6 +903,16 @@
 								<label class="btn btn-left" for="batteryR">Battery</label>
 								<input class="btn-input calc-trigger" type="checkbox" id="powerSpotR" />
 								<label class="btn btn-right btn-wide" for="powerSpotR">Power Spot</label>
+							</div>
+						</div>
+						<div class="btn-group">
+							<div class="left" title="Steely Spirit boosts the power of Steel-type moves">
+								<input class="btn-input calc-trigger" type="checkbox" id="steelySpiritL" />
+								<label class="btn btn-wide" for="steelySpiritL">Steely Spirit</label>
+							</div>
+							<div class="right" title="Steely Spirit boosts the power of Steel-type moves">
+								<input class="btn-input calc-trigger" type="checkbox" id="steelySpiritR" />
+								<label class="btn btn-wide" for="steelySpiritR">Steely Spirit</label>
 							</div>
 						</div>
 						<div class="btn-group">

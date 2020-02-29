@@ -1,5 +1,5 @@
 function CALCULATE_ALL_MOVES_BW(p1, p2, field) {
-	checkNeutralizingGas(p1, p2);
+	checkNeutralizingGas(field, p1, p2)
 	checkAirLock(p1, field);
 	checkAirLock(p2, field);
 	checkForecast(p1, field.getWeather());
@@ -63,12 +63,10 @@ function CalculateTurnOrder(attacker, defender, move, field) {
 function getDamageResult(attacker, defender, move, field) {
 	var moveDescName = move.name;
 
-	var atkAbility = attacker.ability;
-	var defAbility = defender.ability;
+	var turnOrder = CalculateTurnOrder(attacker, defender, move, field);
 
-	console.log(attacker.isDmax);
+
 	var atkMaxed = attacker.isDmax || attacker.isGmax;
-	console.log(atkMaxed + " !");
 	var atkCurHP = atkMaxed ? attacker.dCurHP : attacker.curHP;
 	var atkMaxHP = atkMaxed ? attacker.dMaxHP : attacker.maxHP;
 
@@ -76,6 +74,14 @@ function getDamageResult(attacker, defender, move, field) {
 	var defCurHP = defMaxed ? defender.dCurHP : defender.curHP;
 	var defMaxHP = defMaxed ? defender.dMaxHP : defender.maxHP;
 
+	
+	var atkAbility = attacker.ability;
+	var defAbility = defender.ability;
+
+	/*****************/
+	/**** Z Moves ****/
+	/*****************/
+	
 	if (move.isZ && gen === 7) {
 		var tempMove = move;
 		//turning it into a generic single-target Z-move
@@ -159,9 +165,13 @@ function getDamageResult(attacker, defender, move, field) {
 		if(attacker.item == "Choice Band" || attacker.item == "Choice Specs" || attacker.item == "Choice Scarf") {
 			attacker.item = "";
 		}
-
-
 	}
+
+
+
+
+
+
 
 	var description = {
 		"attackerName": attacker.name,
@@ -175,7 +185,6 @@ function getDamageResult(attacker, defender, move, field) {
 	description.attackerMark = attacker.markDesc;
 	description.defenderMark = defender.markDesc;
 
-	var turnOrder = CalculateTurnOrder(attacker, defender, move, field);
 
 	description.isMR = field.isMR;		// magical room
 	description.isWR = field.isWR;		// wonder room
@@ -583,6 +592,11 @@ function getDamageResult(attacker, defender, move, field) {
 		bpMods.push(0x14CD);
 		description.isPowerSpot = true;
 	}
+	if (field.isSteelySpirit && move.type === "Steel") {
+		bpMods.push(0x1800);
+		description.isSteelySpirit = true;
+	}
+	
 
 	if (!move.isZ && (isAerilate || isPixilate || isRefrigerate || isGalvanize)) {
 		if (gen <= 6) {
@@ -717,10 +731,6 @@ function getDamageResult(attacker, defender, move, field) {
 	else if ((atkAbility === "Water Bubble" && move.type === "Water")
 		|| ((atkAbility === "Huge Power" || atkAbility === "Pure Power") && move.category === "Physical")) {
 		atkMods.push(0x2000);
-		description.attackerAbility = atkAbility;
-	}
-	if (atkAbility === "Steely Spirit" && move.type === "Steel") {
-		atkMods.push(0x1800);
 		description.attackerAbility = atkAbility;
 	}
 	if (atkAbility === "Gorilla Tactics" && move.category === "Physical") {
@@ -1076,6 +1086,10 @@ function buildDescription(description) {
 		output += "Battery-boosted ";
 	}
 
+	if (description.isSteelySpirit) {
+		output += "Steely Spirited ";
+	}
+
 	if (description.isIonized) {
 		output += "Ionized ";
 	}	
@@ -1245,8 +1259,8 @@ function getFinalSpeed(pokemon, weather) {
 /*** Pre-Battle Checks ***/
 /*************************/
 
-function checkNeutralizingGas(p1, p2){
-	if (p1.ability === "Neutralizing Gas" || p2.ability === "Neutralizing Gas") {
+function checkNeutralizingGas(field, p1, p2){
+	if(field.getNeutralizingGas()){
 		p1.ability = "";
 		p2.ability = "";
 	}
